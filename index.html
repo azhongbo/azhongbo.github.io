@@ -78,23 +78,21 @@ sub diff_date()
 <script language="JavaScript">
 
 HideAll()
-
-
-
-function Hide(id)
-    {
-        if( document.getElementById(id) !== null ){
-        document.getElementById(id).style.display = "none"}
-    }
-
 function HideAll()
     {
         for(i=0;i<=3;i++)
         {
             var id = 'sample' + i
-            Hide(id)
+                Hide(id,'none')
         }
     }
+
+function Hide(id,action)
+    {
+        if( document.getElementById(id) !== null ){
+        document.getElementById(id).style.display = action }
+    }
+
 
 
 </script>
