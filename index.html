@@ -1,2 +1,103 @@
-<hr>
-test
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Source</title>
+<style type="text/css">
+.Perl
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 16px;
+    margin: 25px;
+	border-collapse: collapse;
+	text-align: left;
+}</style>
+</head>
+<body>
+
+
+<input name="Perl" type="button" value="Perl" onclick="myFunction()" >
+
+
+<pre id="sample1" class="Perl">
+## 時間日期
+$myTime = time() - $a * 24 * 3600;
+($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($myTime);
+$mon+=1;
+$year=$year + 1900;
+$min  = '0'.$min  if length($min)  < 2;
+$sec  = '0'.$sec  if length($sec)  < 2;
+$mon  = '0'.$mon  if length($mon)  < 2;
+$mday = '0'.$mday if length($mday) < 2;
+$hour = '0'.$hour if length($hour) < 2;
+$year = '0'.$year if length($year) < 2;
+$myDay = "$mday-$mon-$year";
+</pre>
+
+
+
+<pre id="sample2" class="Perl">
+# Perl 命令列傳入參數
+my ($str);
+foreach $str (@ARGV){ push @key , $str; }
+</pre>
+
+
+<pre id="sample3" class="Perl">        
+# Perl 兩個日期相減
+use POSIX qw(mktime);
+use POSIX qw(difftime);
+$kk = &diff_date("2014/11/12","2014/11/13");
+sub diff_date()
+    {
+        my @t1 = split( "/" , $_[0] );
+        $year = @t1[0] - 1900;
+        $mon  = @t1[1] - 1;
+        $mday = @t1[2];
+        $sec  = 00;
+        $min  = 00;
+        $hour = 00;
+        my $start = mktime ($sec,$min,$hour,$mday,$mon,$year);
+        my @t2 = split( "/" , $_[1] );
+        $year = @t2[0] - 1900;
+        $mon  = @t2[1] - 1;
+        $mday = @t2[2];
+        $sec  = 00;
+        $min  = 00;
+        $hour = 00;
+        my $end = mktime ($sec,$min,$hour,$mday,$mon,$year);
+        my $result = difftime($end, $start);
+        print $result/(24*60*60),"\n";
+}
+</pre>
+
+
+
+
+
+<script language="JavaScript">
+
+HideAll()
+
+
+
+function Hide(id)
+    {
+        if( document.getElementById(id) !== null ){
+        document.getElementById(id).style.display = "none"}
+    }
+
+function HideAll()
+    {
+        for(i=0;i<=3;i++)
+        {
+            var id = 'sample' + i
+            Hide(id)
+        }
+    }
+
+
+</script>
+
+</body>
+</html>
