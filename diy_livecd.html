@@ -1,0 +1,131 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Source</title>
+<style type="text/css">
+.data
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 16px;
+    margin: 5px;
+	border-collapse: collapse;
+	text-align: left;
+}
+</style>
+
+<hr><h3>DIY Ubuntu LIVE CD</h3><hr>
+
+
+<pre class='data'>
+#!/bin/bash
+
+### 建立初始環境與虛擬硬碟
+
+apt-get -y install virtualbox qemu-kvm
+apt-get install qemu-kvm
+
+VBoxManage createhd --filename /sda3/temp.vdi --size 81920
+modprobe nbd
+
+qemu-nbd -c /dev/nbd0 /sda3/temp.vdi
+
+# fdisk /dev/nbd0  >> create partition
+#mkfs.ext4 /dev/nbd0p1
+
+
+
+
+### 準備初始環境
+
+# http://jamyy.us.to/blog/2014/10/6739.html
+#/media/ubuntu/E2B/_ISO/LINUX/ubuntu-17.04-desktop-amd64.iso
+
+#mkdir /livecd
+#mount -t tmpfs -o size=6144M tmpfs /livecd
+
+
+mkdir /livecd
+mount /dev/nbd0p1 /livecd
+
+
+mkdir -p /livecd/isomount /livecd/isonew/{squashfs,cd,custom}
+cd /livecd
+
+mount -o loop,ro /sda3/VirtualBoxVMs/ubuntu-17.04-desktop-amd64.iso isomount
+
+rsync --exclude=/casper/filesystem.squashfs -a isomount/ isonew/cd/
+
+modprobe squashfs
+
+mount -t squashfs -o loop isomount/casper/filesystem.squashfs isonew/squashfs
+
+rsync -a isonew/squashfs/ isonew/custom/
+
+umount isonew/squashfs
+umount isomount
+
+
+
+sudo cp /etc/resolv.conf /livecd/isonew/custom/etc/
+sudo cp /etc/apt/sources.list /livecd/isonew/custom/etc/apt/
+
+sudo cp code_*_amd64.deb /livecd/isonew/custom/root
+sudo cp geckodriver /livecd/isonew/custom/usr/local/bin
+sudo cp phantomjs   /livecd/isonew/custom/usr/bin
+sudo cp VMware-Workstation-Full-12.5.7-5813279.x86_64.bundle /livecd/isonew/custom/root
+
+
+chroot isonew/custom
+### 進入虛擬系統 , 進行系統安裝設定
+
+mount -t proc none /proc
+mount -t sysfs none /sys
+export HOME=/root
+
+cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+
+add-apt-repository ppa:webupd8team/sublime-text-3
+apt-get update
+
+#apt-get -y install firefox gimp libreoffice-l10n-zh-tw ibus ibus-chewing ibus-table-cangjie remmina remmina-plugin-rdp remmina-plugin-vnc libreoffice-pdfimport vlc p7zip p7zip-full p7zip-rar putty openssh-server net-tools
+#apt-get -y install lynx nmap nbtscan expect
+#apt-get -y install chromium-browser samba virtualbox qemu-kvm expect git smplayer python3-setools python3-pip
+#apt-get -y install virtualbox-guest-utils virtualbox-guest-x11 virtualbox-qt
+#apt-get -y install virtualbox-guest-additions-iso
+
+apt-get -y install chromium-browser expect firefox gimp git ibus ibus-chewing ibus-table-cangjie libreoffice-l10n-zh-tw libreoffice-pdfimport lynx nbtscan net-tools nmap openssh-server p7zip p7zip-full p7zip-rar putty python3-pip python3-setools qemu-kvm remmina remmina-plugin-rdp remmina-plugin-vnc samba smplayer virtualbox virtualbox-guest-additions-iso virtualbox-guest-utils virtualbox-guest-x11 virtualbox-qt vlc
+python3 -m pip install selenium
+
+apt-get -y install sublime-text-installer ubuntu-restricted-extras
+apt-get -y install apache2 php7.0 php7.0-sqlite3 sqlite3 php7.0-mysql mysql-server
+
+dpkg -i /root/code_1.16.1-1505406497_amd64.deb
+
+apt --fix-broken install
+
+apt-get clean
+rm -rf /tmp/*
+umount /proc /sys
+exit
+
+## vscode
+
+#####準備封裝#######################################
+chmod +w isonew/cd/casper/filesystem.manifest
+
+chroot isonew/custom dpkg-query -W --showformat='${Package}\t${Version}\n' > $_
+
+mksquashfs isonew/custom isonew/cd/casper/filesystem.squashfs
+
+
+#sudo -s
+
+#cd isonew/cd
+#find . -type f -print0 | xargs -0 md5sum > md5sum.txt
+#exit
+
+
+cd isonew/cd
+mkisofs -r -V "UbuntuLiveCD" -b isolinux/isolinux.bin -c isolinux/boot.cat -cache-inodes -J -l -no-emul-boot -boot-load-size 4 -boot-info-table -o /sda3/VirtualBoxVMs/ubuntu-17.04-Ryan5-amd64.iso .
+
+
+
+</pre>
