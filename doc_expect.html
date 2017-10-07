@@ -1,0 +1,48 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Source</title>
+<style type="text/css">
+.data
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 16px;
+    margin: 5px;
+	border-collapse: collapse;
+	text-align: left;
+}
+</style>
+
+<hr><h3>expect 自動 Telnet 範例 </h3><hr>
+<pre class='data'>
+#!/usr/bin/expect -f
+set timeout 10
+spawn telnet 192.168.1.1
+expect "Username: "
+
+send "admin\r"
+expect "Password: "
+send "1234\r"
+expect "# "
+
+send "config\r"
+send "int range 1-7\r"
+send "no ip acl\r"
+send "exit\r"
+send "no ip acl fab_acl\r"
+
+send "ip acl fab_acl\r"
+$tab
+send "sequence 999 deny ip any any\r"
+send "exit\r"
+
+send "int range 1-7\r"
+send "ip acl fab_acl\r"
+send "exit\r"
+send "exit\r"
+
+send "copy running-config startup-config\r"
+send "show ip acl\r"
+
+send "exit\r"
+send "exit\r"
+expect eof";
+</pre>

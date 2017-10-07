@@ -29,124 +29,19 @@
     <tr>
         <td style='vertical-align:top;width:200px;height:700px;'>
             <input class="button" name="Perl" type="button" value="Online HTML Editor (Free)"   onclick="window.open('http://www.html.am/html-editors/online-html-editor.cfm','_blank')"> <br>
-            <input class="button" name="Perl" type="button" value="1) Perl 時間日期"     onclick="HideAll();Hide('sample1','')" > <br>
-            <input class="button" name="Perl" type="button" value="2) Perl 命令列傳入"   onclick="HideAll();Hide('sample2','')" > <br>
-            <input class="button" name="Perl" type="button" value="3) Perl 兩個日期相減" onclick="HideAll();Hide('sample3','')" > <br>
-            <input class="button" name="Perl" type="button" value="4) expect 範例"      onclick="HideAll();Hide('sample4','')" > <br>
-            <input class="button" name="Perl" type="button" value="5) git基本指令"       onclick="HideAll();Hide('sample5','')" > <br>
-            <input class="button" name="Perl" type="button" value="6) Diy Live CD"     onclick="HideAll();Hide('sample6','')" > <br>
+            <input class="button" name="Perl" type="button" value="1) Perl 相關"     onclick="HideAll();Hide('sample1','')" > <br>
+            <input class="button" name="Perl" type="button" value="2) expect 範例"   onclick="HideAll();Hide('sample2','')" > <br>
+            <input class="button" name="Perl" type="button" value="3) git基本指令"    onclick="HideAll();Hide('sample3','')" > <br>
+            <input class="button" name="Perl" type="button" value="4) Diy Live CD"   onclick="HideAll();Hide('sample4','')" > <br>
             
             
         </td>
         <td style='vertical-align:top;'>
 
-
-<!-- ############################################################ -->
-<pre id="sample1" class="Perl">
-<h3>## Perl 時間日期</h3>
-$myTime = time() - $a * 24 * 3600;
-($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($myTime);
-$mon+=1;
-$year=$year + 1900;
-$min  = '0'.$min  if length($min)  < 2;
-$sec  = '0'.$sec  if length($sec)  < 2;
-$mon  = '0'.$mon  if length($mon)  < 2;
-$mday = '0'.$mday if length($mday) < 2;
-$hour = '0'.$hour if length($hour) < 2;
-$year = '0'.$year if length($year) < 2;
-$myDay = "$mday-$mon-$year";
-</pre>  <!-- ##END## -->
-
-
-<!-- ############################################################ -->
-<pre id="sample2" class="Perl">
-<h3># Perl 命令列傳入</h3>
-my ($str);
-foreach $str (@ARGV){ push @key , $str; }
-</pre>  <!-- ##END## -->
-
-
-<!-- ############################################################ -->
-<pre id="sample3" class="Perl">
-<h3>## Perl 兩個日期相減</h3>
-use POSIX qw(mktime);
-use POSIX qw(difftime);
-$kk = &diff_date("2014/11/12","2014/11/13");
-sub diff_date()
-    {
-        my @t1 = split( "/" , $_[0] );
-        $year = @t1[0] - 1900;
-        $mon  = @t1[1] - 1;
-        $mday = @t1[2];
-        $sec  = 00;
-        $min  = 00;
-        $hour = 00;
-        my $start = mktime ($sec,$min,$hour,$mday,$mon,$year);
-        my @t2 = split( "/" , $_[1] );
-        $year = @t2[0] - 1900;
-        $mon  = @t2[1] - 1;
-        $mday = @t2[2];
-        $sec  = 00;
-        $min  = 00;
-        $hour = 00;
-        my $end = mktime ($sec,$min,$hour,$mday,$mon,$year);
-        my $result = difftime($end, $start);
-        print $result/(24*60*60),"\n";
-}
-</pre>  <!-- ##END## -->
-
-
-<!-- ############################################################ -->
-<pre id="sample4" class="Perl">
-<h3>## expect 自動 Telnet</h3>
-#!/usr/bin/expect -f
-set timeout 10
-spawn telnet 192.168.1.1
-expect "Username: "
-
-send "admin\r"
-expect "Password: "
-send "1234\r"
-expect "# "
-
-send "config\r"
-send "int range 1-7\r"
-send "no ip acl\r"
-send "exit\r"
-send "no ip acl fab_acl\r"
-
-send "ip acl fab_acl\r"
-$tab
-send "sequence 999 deny ip any any\r"
-send "exit\r"
-
-send "int range 1-7\r"
-send "ip acl fab_acl\r"
-send "exit\r"
-send "exit\r"
-
-send "copy running-config startup-config\r"
-send "show ip acl\r"
-
-send "exit\r"
-send "exit\r"
-expect eof";        
-</pre>  <!-- ##END## -->
-
-
-<!-- ############################################################ -->
-<pre id="sample5" class="Perl">
-<h3>## git 基本指令</h3>
-git init
-git add filename.txt
-git commit -m "first commit"
-git remote add origin https://github.com/azhongbo/phantomjs.git
-git push -u origin master
-</pre>  <!-- ##END## -->
-
-
-
-<iframe pre id="sample6" class="Perl" src="diy_livecd.html" width=100% height=700px frameborder="0" scrolling="yes"></iframe>
+<iframe pre id="sample1" class="Perl" src="doc_perl.html"   width=100% height=700px frameborder="0" scrolling="yes"></iframe>
+<iframe pre id="sample2" class="Perl" src="doc_expect.html" width=100% height=700px frameborder="0" scrolling="yes"></iframe>
+<iframe pre id="sample3" class="Perl" src="doc_git.html"    width=100% height=700px frameborder="0" scrolling="yes"></iframe>
+<iframe pre id="sample4" class="Perl" src="diy_livecd.html" width=100% height=700px frameborder="0" scrolling="yes"></iframe>
 
 
         </td>

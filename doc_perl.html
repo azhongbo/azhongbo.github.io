@@ -1,0 +1,61 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Source</title>
+<style type="text/css">
+.data
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 16px;
+    margin: 5px;
+	border-collapse: collapse;
+	text-align: left;
+}
+</style>
+
+<hr><h3>Perl 相關</h3><hr>
+<pre class='data'>
+<h4>## Perl 時間日期</h4>
+$myTime = time() - $a * 24 * 3600;
+($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($myTime);
+$mon+=1;
+$year=$year + 1900;
+$min  = '0'.$min  if length($min)  < 2;
+$sec  = '0'.$sec  if length($sec)  < 2;
+$mon  = '0'.$mon  if length($mon)  < 2;
+$mday = '0'.$mday if length($mday) < 2;
+$hour = '0'.$hour if length($hour) < 2;
+$year = '0'.$year if length($year) < 2;
+$myDay = "$mday-$mon-$year";
+
+
+<h4>## Perl 命令列傳入</h4>
+my ($str);
+foreach $str (@ARGV){ push @key , $str; }
+
+
+<h4>## Perl 兩個日期相減</h4>
+use POSIX qw(mktime);
+use POSIX qw(difftime);
+$kk = &diff_date("2014/11/12","2014/11/13");
+sub diff_date()
+    {
+        my @t1 = split( "/" , $_[0] );
+        $year = @t1[0] - 1900;
+        $mon  = @t1[1] - 1;
+        $mday = @t1[2];
+        $sec  = 00;
+        $min  = 00;
+        $hour = 00;
+        my $start = mktime ($sec,$min,$hour,$mday,$mon,$year);
+        my @t2 = split( "/" , $_[1] );
+        $year = @t2[0] - 1900;
+        $mon  = @t2[1] - 1;
+        $mday = @t2[2];
+        $sec  = 00;
+        $min  = 00;
+        $hour = 00;
+        my $end = mktime ($sec,$min,$hour,$mday,$mon,$year);
+        my $result = difftime($end, $start);
+        print $result/(24*60*60),"\n";
+}
+
+</pre>
