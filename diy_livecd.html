@@ -18,17 +18,22 @@
 #!/bin/bash
 
 ### 建立初始環境與虛擬硬碟
-
-apt-get -y install virtualbox qemu-kvm
-apt-get install qemu-kvm
+#apt-get -y install virtualbox qemu-kvm
+#apt-get install qemu-kvm
 
 VBoxManage createhd --filename /sda3/temp.vdi --size 81920
 modprobe nbd
-
 qemu-nbd -c /dev/nbd0 /sda3/temp.vdi
 
-# fdisk /dev/nbd0  >> create partition
-#mkfs.ext4 /dev/nbd0p1
+echo "d
+n
+p
+1
+
+
+w
+" | fdisk /dev/nbd0
+mkfs.ext4 -F /dev/nbd0p1
 
 
 
