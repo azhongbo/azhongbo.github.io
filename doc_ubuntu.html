@@ -1,0 +1,18 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Source</title>
+<style type="text/css">
+.data
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 16px;
+    margin: 5px;
+	border-collapse: collapse;
+	text-align: left;
+}
+</style>
+
+<hr><h3>Ubuntu 相關</h3><hr>
+<pre class='data'>
+<h4>## 更換桌布</h4>
+DIR="/usr/share/backgrounds/mate/nature"; PIC=$(ls $DIR | shuf -n1); CMPL=$DIR/$PIC; dconf write /org/mate/desktop/background/picture-filename "'$CMPL'";
+</pre>
