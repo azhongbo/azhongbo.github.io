@@ -11,8 +11,9 @@
 }
 </style>
 
-<hr><h3>Ubuntu 相關</h3><hr>
+<hr><h3>Ubuntu 指令</h3><hr>
 <pre class='data'>
 <h4>## 更換桌布</h4>
 DIR="/usr/share/backgrounds/mate/nature"; PIC=$(ls $DIR | shuf -n1); CMPL=$DIR/$PIC; dconf write /org/mate/desktop/background/picture-filename "'$CMPL'";
+
 </pre>
