@@ -24,14 +24,17 @@ git config --global credential.helper cache
 git config --global credential.helper "cache --timeout=3600"
 
 
-git push -u origin master
+## 建立遠端 branch
+git push -u origin new_branch
+
+## 刪除遠端 branch
+git push origin --delete new_branch
 
 ## 增加一個連結
 git remote add origin https://github.com/azhongbo/phantomjs.git
 
 ## 更新一個連結
 git remote set-url origin https://github.com/azhongbo/phantomjs.git
-
 
 
 ## 建立一個連結分支
@@ -41,11 +44,12 @@ git branch              #檢查目前位置
 git push origin "test"  #上傳
 
 
+## 合併分支
+git checkout master
+git merge "test"
 
 
+## 下載
 git clone https://github.com/azhongbo/phantomjs.git
 
-
-
-#git
 </pre>
