@@ -1,0 +1,201 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Source</title>
+<style type="text/css">
+.data
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 16px;
+    margin: 5px;
+	border-collapse: collapse;
+	text-align: left;
+}
+</style>
+
+<hr><h3>Python 相關</h3><hr>
+<pre class='data'>
+##### 等待整理 #######
+pip install selenium
+BeautifuSoup
+
+from urllib.parse import urlparse
+uc = urlparse(url)
+x = uc..netloc
+x = uc.path
+x = uc.query
+
+import requests
+html = requests.get(url).text.splitlines()
+
+http://chimerhapsody.blogspot.tw/2013/06/python-selenium-chrome.html?m=1
+
+
+爬蟲
+https://rosettacode.org/wiki/Active_Directory/Search_for_a_user
+http://tw.gitbook.net/python/python3-webbug-series1.html
+http://www.zhihu.com/question/20899988
+
+
+################################################################################
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import urllib,urllib2
+
+url = "http://192.168.xx.xxx/xxxxx.aspx"
+
+request = urllib2.Request(url)
+
+request.add_header("User-Agent","Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36")
+
+form_data = {
+"__EVENTTARGET" : "",
+"__EVENTARGUMENT" : "",
+"__VIEWSTATE" : "/wEPDwUKLTg3MDM4NzUzNg9kFgICAw9kFgICDQ88KwARAgAPFgQeC18hRGF0YUJvdW5kZx4LXyFJdGVtQ291bnQCAWQBEBYAFgAWABYCZg9kFgQCAQ9kFhBmDw8WAh4EVGV4dAUFMDQxNTRkZAIBDw8WAh8CBQnlionku7Lmn49kZAICDw8WAh8CBQhSeWFuIExpdWRkAgMPDxYCHwIFAlNOZGQCBA8PFgIfAgUS57O757Wx5pqo57ay6Lev6KqyZGQCBQ8PFgIfAgUP6auY57Sa5bel56iL5birZGQCBg8PFgIfAgUEMTA3NWRkAgcPZBYCAgEPDxYCHwIFDeaZtuWck0Llu6AtUDFkZAICDw8WAh4HVmlzaWJsZWhkZBgBBQhndlJlc3VsdA88KwAMAQgCAWQC2nYzfBM8COy7BP9pPcpB6D6x6j18t002AB/cGe/iZQ==" ,
+"__SCROLLPOSITIONX" : "0" ,
+"__SCROLLPOSITIONY" : "0",
+"__EVENTVALIDATION" : "/wEWDgKeudqGCgKH7MK9DwKw+9ahBwLEx8y8CQLOwoXhDwL2ktWKCwLj2a3QAQKL0NyMCQKL0OSCCQKmkNj4DAKWyrjTBwKqoZa3DAKFofaEDAK/nJvMCsD7VuT2xp82V9RmIs5f/zJKZbmjaGaJPXBL//O4A4Gy" ,
+"txtEMPNO" : "04154" ,
+"btnQry" : "查詢"
+}
+
+form_data = urllib.urlencode(form_data)
+response = urllib2.urlopen(request,data=form_data)
+html = response.read()
+
+
+print (html)
+################################################################################
+
+
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+#Python初學起步走-Day4
+
+import os
+import time
+import datetime
+import sys
+
+
+os.system("clear");
+
+###############################
+#### 帶入變數 from shell
+###############################
+device_ip = sys.argv[1]
+
+
+
+
+###############################
+#### 日期時間處理
+###############################
+
+## %y 两位數的年份表示（00-99）
+## %Y 四位數的年份表示（000-9999）
+## %m 月份（01-12）
+## %d 月内中的一天（0-31）
+## %H 24小時製小時數（0-23）
+## %I 12小時製小時數（01-12）
+## %M 分鐘數（00=59）
+## %S 秒（00-59）
+## %a 本地簡化星期名稱
+## %A 本地完整星期名稱
+## %b 本地簡化的月份名稱
+## %B 本地完整的月份名稱
+## %c 本地相應的日期表示和時間表示
+## %j 年内的一天（001-366）
+## %p 本地A.M.或P.M.的等價符
+## %U 一年中的星期數（00-53），星期天為星期的開始
+## %w 星期（0-6），星期天為星期的開始
+## %W 一年中的星期數（00-53）星期一為星期的開始
+## %x 本地相應的日期表示
+## %X 本地相應的時間表示
+## %Z 當前時區的名稱
+
+i = 0
+myTime = time.strftime('%Y%m%d %H%M%S %w %j %U',time.localtime(time.time() + i * 24 * 60 * 60 ) )
+
+
+year = myTime[0:4] ## %Y 四位數的年份表示（000-9999）
+mon = myTime[4:6] ## %m 月份（01-12）
+mday = myTime[6:8] ## %d 月内中的一天（0-31）
+
+
+hour = myTime[9:11] ## %H 24小時製小時數（0-23）
+min = myTime[11:13] ## %M 分鐘數（00=59）
+sec = myTime[13:15] ## %S 秒（00-59）
+
+
+dweek = myTime[16:17] ## %w 星期（0-6），星期天為星期的開始
+dyear = myTime[18:21] ## %j 年内的一天（001-366）
+nweek = myTime[22:24] ## %U 一年中的星期數（00-53），星期天為星期的開始
+
+
+
+
+## 兩個日期相差天數
+d1 = datetime.datetime(2016, 01, 01)
+d2 = datetime.datetime(2015, 01, 01)
+#print (d1-d2).days
+
+
+## 兩個時間秒差
+starttime = datetime.datetime.now()
+endtime = datetime.datetime.now()
+#print (endtime - starttime).seconds
+
+
+## 計算10天後的時間
+d1 = datetime.datetime.now()
+d3 = d1 + datetime.timedelta(days =10)
+
+
+#print d1
+#print d3
+#print str(d3)
+#print d3.ctime()
+
+
+###############################
+#### 外部命令入 array
+###############################
+command = "nbtscan 10.12.41.0/24"
+with os.popen(command) as myNet:
+all_data = myNet.readlines()
+
+for data in all_data:
+print data,
+
+
+###############################
+#### file 入 array
+###############################
+with open( "xxx.txt") as file:
+all_data = file.readlines()
+
+
+for data in all_data:
+print data,
+
+
+
+###############################
+#### 比對字串 / 取代 /轉小寫
+###############################
+with open( "xxx.txt") as file:
+all_data = file.readlines()
+
+
+for data in all_data:
+
+
+data = data.replace(chr(10),"")
+data = data.replace(chr(13),"")
+data = data.lower();
+
+
+if "ryan" in data:
+print data
+</pre>
