@@ -16,4 +16,35 @@
 <h4>## 更換桌布</h4>
 DIR="/usr/share/backgrounds/mate/nature"; PIC=$(ls $DIR | shuf -n1); CMPL=$DIR/$PIC; dconf write /org/mate/desktop/background/picture-filename "'$CMPL'";
 
+<h4>## 啟動指令</h4>
+myPath=`pwd`
+
+sudo mkdir /sda3
+sudo chown -R `id -u`:`id -u` /sda3
+sudo umount /dev/sda3
+sudo mount  /dev/sda3 /sda3 -o uid=999
+
+     cp -r "$myPath"/root/ubuntu/.  ~
+sudo cp -r "$myPath"/root/etc/.     /etc
+
+sudo service smbd restart
+
+sudo mkdir -p /var/www/html/test
+sudo chown -R www-data:www-data /var/www/html/test
+sudo chmod -R a+rwx /var/www/html/test
+
+
+git config --global user.email "UserName@gmail.com"
+git config --global user.name  "UserName"
+
+git config --global credential.helper cache
+git config --global credential.helper "cache --timeout=57600"
+
+
+cd /var/www/html/test
+git clone https://github.com/UserName/UserName.github.io
+
+xrandr -s 1280x960
+pkill mate-panel
+
 </pre>
