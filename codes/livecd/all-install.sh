@@ -6,8 +6,21 @@ export HOME=/root
 cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 
 
+echo nameserver 8.8.8.8     > /tmp/resolv.conf
+echo nameserver 168.95.1.1 >> /tmp/resolv.conf
+
+echo deb http://archive.ubuntu.com/ubuntu/ zesty main restricted universe multiverse             > /tmp/sources.list
+echo deb http://security.ubuntu.com/ubuntu/ zesty-security main restricted universe multiverse  >> /tmp/sources.list
+echo deb http://archive.ubuntu.com/ubuntu/ zesty-updates main restricted universe multiverse    >> /tmp/sources.list
+
+cp /tmp/resolv.conf       /etc/
+cp /tmp/sources.list      /etc/apt/
+cp /tmp/sublime-text.list /etc/apt/sources.list.d/
+
+
 wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
 apt-get install apt-transport-https
+echo "deb https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
 apt-get update
 
 
@@ -29,9 +42,14 @@ apt-get -y install virtualbox-guest-additions-iso
 apt-get -y install virtualbox-qt
 apt-get -y install virtualbox-guest-dkms
 
-debconf-set-selections <<< 'mysql-server mysql-server/root_password password 1234'
-debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password 1234'
-apt-get -y install mysql-server
-apt-get -y install apache2 php7.0 php7.0-sqlite3 sqlite3 php7.0-mysql mysql-server
-#apt-get -y install ubuntu-restricted-extras
+echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
+apt-get -y install ttf-mscorefonts-installer
+apt-get -y install ubuntu-restricted-extras
+
+
+apt-get -y install apache2 php7.0 php7.0-sqlite3 sqlite3 
+
+#debconf-set-selections <<< 'mysql-server mysql-server/root_password password 1234'
+#debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password 1234'
+#apt-get -y install php7.0-mysql mysql-server
 
