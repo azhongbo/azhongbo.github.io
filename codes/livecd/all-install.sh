@@ -49,6 +49,13 @@ apt-get -y install ubuntu-restricted-extras
 
 apt-get -y install apache2 php7.0 php7.0-sqlite3 sqlite3 
 
+wget -O /tmp/vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868
+dpkg -i /tmp/vscode.deb
+
+wget -O /tmp/phantomjs.tar.bz2  https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
+
+
+
 #debconf-set-selections <<< 'mysql-server mysql-server/root_password password 1234'
 #debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password 1234'
 #apt-get -y install php7.0-mysql mysql-server
