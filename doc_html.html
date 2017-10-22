@@ -1,0 +1,145 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Source</title>
+<style type="text/css">
+.data
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 16px;
+    margin: 5px;
+	border-collapse: collapse;
+	text-align: left;
+}
+</style>
+
+<hr><h3>HTML 相關</h3><hr>
+<pre class='data'>
+
+<h4>## CSS 固定位置</h4>
+<style type="text/css">
+#MenuTable
+{   position:  absolute;
+    top:       20px;
+    left:      900px;
+    z-index:   500;
+}
+</style>
+
+
+
+<!-- *******************  THIS IS JAVASCRIPT LINE ************************************** -->
+<h4>## JAVASCRIPT 搜尋 ALL ID</h4>
+<script language="javascript"> 
+
+
+// ########## Function: 搜尋 ALL ID #######################
+function bookingAllUser()
+{
+    for(i=1;i<100;i++)
+        {
+            id = 'this' + i;
+            if( document.getElementById(id) !== null )
+                {
+                    document.getElementById(id).innerHTML = 'test';
+                }
+        }
+}// ########## Function END #################################
+
+// ########## Function: 偵測瀏覽器版本 #######################
+function get_browser() {
+    var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
+    if(/trident/i.test(M[1])){
+        tem=/\brv[ :]+(\d+)/g.exec(ua) || []; 
+        return {name:'IE',version:(tem[1]||'')};
+        }   
+    if(M[1]==='Chrome'){
+        tem=ua.match(/\bOPR|Edge\/(\d+)/)
+        if(tem!=null)   {return {name:'Opera', version:tem[1]};}
+        }   
+    M=M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+    if((tem=ua.match(/version\/(\d+)/i))!=null) {M.splice(1,1,tem[1]);}
+    return {
+      name: M[0],
+      version: M[1]
+    };
+ }
+var browser=get_browser();
+// ########## Function END #################################
+
+
+
+// ########## Function: 隱藏物件 ############################
+function Hide(pid)
+{
+    if( document.getElementById(pid).style.display == "none" ){
+        document.getElementById(pid).style.display = ""
+    }
+    else{
+    document.getElementById(pid).style.display = "none"
+    }
+}
+// ########## Function END #################################
+
+// ########## Function: 偵測 螢幕寬度 並每秒異動 left 位置 #####
+MenuTableLocation()
+function MenuTableLocation()
+{
+    document.getElementById("MenuTable").style.left = document.body.scrollLeft + document.body.clientWidth - 230
+    document.getElementById("MenuTable").style.top  = document.body.scrollTop  + 50;
+    setTimeout( "MenuTableLocation()" , 1000)
+}
+// ########## Function END #################################
+
+
+
+// ########## Function 修正各個瀏覽器 CSS 座標位置 #############
+if( browser.name == "MSIE" ){
+    //document.getElementById("MenuButton").style.top  = "19px"
+    //document.getElementById("MenuWide").style.width  = "90px" 
+    //MenuButton
+}
+if( browser.name == "Chrome" ){
+    //document.getElementById("MenuButton").style.top  = "19px"
+    //document.getElementById("MenuWide").style.width  = "70px" 
+}
+if( browser.name == "Firefox" ){
+    //document.getElementById("MenuButton").style.top  = "19px"
+    //document.getElementById("MenuWide").style.width  = "17px" 
+}
+// ########## Function END #################################
+
+
+
+
+
+
+// ########## Function 畫面滾動時 , 後續動作 ######################
+var IE = document.all?true:false
+if (!IE) document.captureEvents(Event.MOUSEMOVE)
+
+document.onmousemove = getMouseXY;
+function getMouseXY(e)
+	{
+		if (IE){
+				tempX = event.clientX + document.body.scrollLeft
+				tempY = event.clientY + document.body.scrollTop		} 
+		else{
+				tempX = e.pageX
+				tempY = e.pageY			}  
+
+		if (tempX < 0){tempX = 0}
+		if (tempY < 0){tempY = 0}
+
+		// 變更網頁 Title
+		document.title = tempX + "," + tempY
+		return true
+	}
+// ########## Function END  ######################
+
+
+
+
+
+</script>
+
+
+</pre>

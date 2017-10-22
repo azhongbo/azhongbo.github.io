@@ -1,0 +1,33 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Source</title>
+<style type="text/css">
+.data
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 16px;
+    margin: 5px;
+	border-collapse: collapse;
+	text-align: left;
+}
+</style>
+
+<hr><h3>SQLITE 相關</h3><hr>
+<pre class='data'>
+<h4>## For Perl</h4>
+$cmd = `sqlite3 test.sqlite "REPLACE INTO 'users' (dep,uid,name) VALUES ('$dep','$uid','$name');" `;
+
+
+
+
+<h4>## For PHP</h4>
+$sql = "SELECT distinct * FROM main.users WHERE uid = '$uid'";
+$qry = $db->prepare($sql);
+$qry->execute();
+
+while($row = $qry->fetch(PDO::FETCH_ASSOC))
+    {
+        $dep  = $row['dep'];
+        $uid  = $row['uid'];
+        $name = $row['name'];
+    }
+</pre>
