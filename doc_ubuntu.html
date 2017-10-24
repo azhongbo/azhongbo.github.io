@@ -17,7 +17,21 @@
 DIR="/usr/share/backgrounds/mate/nature"; PIC=$(ls $DIR | shuf -n1); CMPL=$DIR/$PIC; dconf write /org/mate/desktop/background/picture-filename "'$CMPL'";
 
 <h4>## 影片轉檔</h4>
-ffmpeg -i input.m4v -f mp4 -c:v copy -c:a aac -b:a 384k -strict -2 output.mp4
+## 轉檔 ##
+#ffmpeg -i input.m4v -f mp4 -c:v copy -c:a aac -b:a 384k -strict -2 output.mp4
+
+## 合併 ##
+#cat mylist.txt
+file '1.mp4'
+file '2.mp4'
+
+#ffmpeg -f concat -i mylist.txt -c copy output.mp4
+
+## 分割 ##
+#ffmpeg -ss 00:00:16 -t 00:00:09 -i input.mp4 -c copy output.mp4
+
+
+
 
 <h4>## 啟動指令</h4>
 myPath=`pwd`
