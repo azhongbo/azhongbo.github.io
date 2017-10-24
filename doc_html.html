@@ -31,6 +31,15 @@
 <script language="javascript"> 
 
 
+// ########## 呼叫外部 html #######################
+<div id=abc>test</div>
+<script>
+    document.getElementById('abc').innerHTML = "<iframe src='source.html' frameborder='no' width=640 height=480></iframe>";
+</script>
+
+
+
+
 // ########## Function: 搜尋 ALL ID #######################
 function bookingAllUser()
 {
