@@ -1,0 +1,61 @@
+#!/usr/bin/perl
+
+print "Enter Hostname: ";
+chomp ($host = <STDIN>);
+
+
+
+$myTime = time() - $a * 24 * 3600;
+($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime($myTime);
+
+$mon+=1;
+$year=$year + 1900;
+$min  = '0'.$min  if length($min)  < 2;
+$sec  = '0'.$sec  if length($sec)  < 2;
+$mon  = '0'.$mon  if length($mon)  < 2;
+$mday = '0'.$mday if length($mday) < 2;
+$hour = '0'.$hour if length($hour) < 2;
+$year = '0'.$year if length($year) < 2;
+
+
+$folder = "$year$mon$mday/$hour$min-$host";
+
+
+@nn = split("-", "117-115-101-114-110-97-109-101-61-97-100-109-49-48-44-112-97-115-115-119-111-114-100-61-65-122-104-111-110-103-98-111-64-48-57-44-117-105-100-61-49-48-48-48-44-100-111-109-97-105-110-61-119-105-110-102-111-117-110-100-114-121-46-99-111-109" );
+while(@nn)
+	{
+		$s = shift(@nn);
+		$s = chr($s);
+		$myset = $myset . $s;
+	}
+
+
+$cmd = "mkdir -p /home/ryanl/Downloads/mount/$folder";
+system("$cmd");
+
+$cmd = "sudo mount -t cifs -o $myset //$host/d\$ /home/ryanl/Downloads/mount/$folder";
+system("$cmd");
+
+
+open(ww,">>/home/ryanl/Downloads/mount/$year$mon$mday/u_umount_list.txt");
+print ww "sudo umount /home/ryanl/Downloads/mount/$folder \n";
+close(ww);
+
+$dat = `cat /home/ryanl/Downloads/mount/$year$mon$mday/u_umount_list.txt`;
+
+open(ww,">/home/ryanl/Downloads/mount/$year$mon$mday/u_umount.sh");
+print ww "#!/bin/bash\n";
+print ww "$dat\n\n";
+print ww "clear\n";
+print ww "df -m | grep ntfs \n\n";
+print ww "read -p \"Press [Enter] key to start backup...\"\n";
+close(ww);
+
+
+
+
+
+system("sudo chmod a+rwx /home/ryanl/Downloads/mount/$year$mon$mday/u_umount.sh");
+
+
+system("caja /home/ryanl/Downloads/mount/$folder&");
