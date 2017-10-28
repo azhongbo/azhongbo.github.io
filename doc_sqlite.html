@@ -31,3 +31,16 @@ while($row = $qry->fetch(PDO::FETCH_ASSOC))
         $name = $row['name'];
     }
 </pre>
+
+
+
+<h4>## Multiple Unique Columns in SQLite</h4>
+CREATE TABLE main.chgData ( 
+    id     INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , 
+    ipaddr VARCHAR, 
+    func   VARCHAR , 
+    data   VARCHAR ,
+    UNIQUE (ipaddr, func)    
+    )
+</pre>
+
