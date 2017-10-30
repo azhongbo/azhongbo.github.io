@@ -71,7 +71,7 @@ function getMouseXY(e)
 
 
 
-<img id=map src=maps/T1-RF.png width=900px; onclick='xy2array();'>
+<img id=map src=../images-maps/T1-RF.png width=900px; onclick='xy2array();'>
 <div id=point></div>
 <div id=info title='滑鼠軌跡'>滑鼠座標: </div>
 <div id=info2>0</div>
@@ -111,35 +111,47 @@ function getPointDataTimeout() {
 
 function getPointData() 
 	{
-		var nn = 10
 
+		var nn = parseInt( getCookies("totalPointCount") );
+
+		// 起點 點位座標
 		var xy01 = getCookies("mapXY_Start").split('-');
 		left01 = parseInt( xy01[0] ) - 8 ; // left
 		top01  = parseInt( xy01[1] ) - 8 ; // top
-		
-		var xy02 = getCookies("mapXY_END").split('-');
-		left02 = parseInt( xy02[0] ) - 8 ; // left
-		top02  = parseInt( xy02[1] ) - 8 ; // top
+
+		// 如果所有 點位 數量大於 1個以上 , 將繪製 結束點位
+		if( nn > 1)
+			{
+				// 結尾 點位座標
+				var xy02 = getCookies("mapXY_END").split('-');
+				left02 = parseInt( xy02[0] ) - 8 ; // left
+				top02  = parseInt( xy02[1] ) - 8 ; // top
 
 
-		pointXX = ''
-		leftY = left01 + 8  //初始化 , 並把圖片位移修正給調回來
-		topX  = top01  + 8  //初始化 , 並把圖片位移修正給調回來
+				pointXX = ''
+				leftY = left01 + 8  //初始化 , 並把圖片位移修正給調回來
+				topX  = top01  + 8  //初始化 , 並把圖片位移修正給調回來
 
-		for(i=0;i<nn-2;i++){
-			leftY = leftY + ( (left02 - left01) / (nn-1) );
-			topX  = topX  + ( (top02  - top01)  / (nn-1) );
+				for(i=0;i<nn-2;i++){
+					leftY = leftY + ( (left02 - left01) / (nn-1) );
+					topX  = topX  + ( (top02  - top01)  / (nn-1) );
 
-			fixLeft = Math.floor(leftY - 8) // 修正圖片位移
-			fixTop  = Math.floor(topX  - 8) // 修正圖片位移
+					fixLeft = Math.floor(leftY - 8) // 修正圖片位移
+					fixTop  = Math.floor(topX  - 8) // 修正圖片位移
 
-			pointXX = pointXX + "<img src='images/point01.gif' style='position: absolute;top:" + fixTop + "px;left:" + fixLeft + "px;z-index: 20;width:16px;height:16px;'>\n";
-		}
+					pointXX = pointXX + "<img src='../images/point01.gif' style='position: absolute;top:" + fixTop + "px;left:" + fixLeft + "px;z-index: 20;width:16px;height:16px;'>\n";
+				}
 
-		point01 = "<img src='images/point01.gif' style='position: absolute;top:" + top01 + "px;left:" + left01 + "px;z-index: 20;width:16px;height:16px;'>\n";
-		point02 = "<img src='images/point02.gif' style='position: absolute;top:" + top02 + "px;left:" + left02 + "px;z-index: 20;width:16px;height:16px;'>\n";
+				point01 = "<img src='../images/point01.gif' style='position: absolute;top:" + top01 + "px;left:" + left01 + "px;z-index: 20;width:16px;height:16px;'>\n";
+				point02 = "<img src='../images/point02.gif' style='position: absolute;top:" + top02 + "px;left:" + left02 + "px;z-index: 20;width:16px;height:16px;'>\n";
 
-		document.getElementById('point').innerHTML = point01 + pointXX + point02
+				document.getElementById('point').innerHTML = point01 + pointXX + point02
+
+			}
+		else{
+				point01 = "<img src='../images/point01.gif' style='position: absolute;top:" + top01 + "px;left:" + left01 + "px;z-index: 20;width:16px;height:16px;'>\n";
+				document.getElementById('point').innerHTML = point01
+			}
 
 	}
 

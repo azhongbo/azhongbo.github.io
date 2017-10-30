@@ -1,6 +1,6 @@
 <?php
 session_start();
-$db     = new PDO("sqlite:emp.sqlite");
+$db     = new PDO("sqlite:../emp.sqlite");
 $ipaddr = $_SERVER["REMOTE_ADDR"];
 ?>
 

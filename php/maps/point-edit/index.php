@@ -7,7 +7,7 @@
             <iframe src=maps.php width=900px height=100% frameborder=0 scrolling=no></iframe>
         </td>
         <td>
-            <iframe src=maps.button.php width=900px height=100% frameborder=0 scrolling=no></iframe>
+            <iframe src=maps.button.php width=90% height=100% frameborder=0 scrolling=no></iframe>
         </td>
     <tr>
 </table>
