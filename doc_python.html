@@ -13,6 +13,32 @@
 
 <hr><h3>Python 相關</h3><hr>
 <pre class='data'>
+
+apt-get -y install python3-pip python3-setools scrot python3-tk python3-dev 
+python3 -m pip install selenium
+python3 -m pip install python3-xlib
+python3 -m pip install pyautogui
+	
+
+
+##### 20171107 #######
+#!/usr/bin/python3
+import os,pyautogui;
+width,height = pyautogui.size()
+n1,n2,n3,n4 = pyautogui.locateOnScreen('images/mail.png')
+ww,hh = pyautogui.center((n1,n2,n3,n4))
+im = pyautogui.screenshot();
+pyautogui.moveTo(ww,hh,duration=0.25)
+
+def test():
+	for x in range(width):
+		nn = im.getpixel((x,2))
+		print(nn)
+		
+
+
+
+
 ##### 等待整理 #######
 pip install selenium
 BeautifuSoup
