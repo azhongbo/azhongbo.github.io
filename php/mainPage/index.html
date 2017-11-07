@@ -1,0 +1,164 @@
+<head>
+<meta charset="UTF-8">
+</head> 
+
+<style>
+#main{
+	position:  absolute;
+    top:       0px;
+    left:      -7px;
+    z-index:   10;
+    width:101%;
+    height:100%;
+    position:relative;
+    overflow-x: visible;
+}
+#myHead{
+    position:absolute;
+    top:  -10px;
+    left: -7px;
+    z-index:   10;
+    width:101%;
+    height:107px;
+    background-image: url("images/bg.png");
+}
+#myMenu{
+    position:absolute;
+    top:  50px;
+    right: 5px;
+    z-index:   50;
+}
+
+
+#myBody{
+    position:absolute;
+    top:110px;
+    left: -8px;
+    z-index:   10;
+    width:101%;    
+    height:70%;
+}
+
+.btn {
+  margin: 0px 2px;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 7px 15px ;
+  font-size: 14px;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+  display: inline-block;
+}
+
+.blue {
+  color: #55acee;
+  border: 2px #55acee solid;
+}
+
+.blue:hover {
+  background-color: #55acee;
+  color: #fff
+}
+
+.green {
+  color: #2ecc71;
+  border: 2px #2ecc71 solid;
+}
+
+.green:hover {
+  color: #fff;
+  background-color: #2ecc71;
+}
+
+.red {
+  color: #e74c3c;
+  border: 2px #e74c3c solid;
+}
+
+.red:hover {
+  color: #fff;
+  background-color: #e74c3c;
+}
+
+.purple {
+  color: #9b59b6;
+  border: 2px #9b59b6 solid;
+}
+
+.purple:hover {
+  color: #fff;
+  background-color: #9b59b6;
+}
+
+.orange {
+  color: #e67e22;
+  border: 2px #e67e22 solid;
+}
+
+.orange:hover {
+  color: #fff;
+  background-color: #e67e22;
+}
+
+.yellow {
+  color: #f1c40f;
+  border: 2px #f1c40f solid;
+}
+
+.yellow:hover {
+  color: #fff;
+  background-color: #f1c40f;
+}
+
+.buttons {
+  padding-top: 30px;
+  text-align: center;
+}
+</style>
+
+<div id=main >
+    <div id=myHead>
+        <img style='position:absolute;bottom:0px ;margin-left: 40px;height: 60px;' src="images/Ryan.png">        
+    </div>
+
+    <div id=myMenu>
+
+            <input class="btn red" name="btn" type="button" value="首頁" >
+            <input class="btn red" name="btn" type="button" value="分機表" >
+            <input class="btn red" name="btn" type="button" value="會議室" >
+          
+        <!--
+        <a class="btn blue">Blue Button</a>
+        <a class="btn green">Green Button</a>
+        <a class="btn red">Red Button</a>
+        <a class="btn purple">Purple 
+        -->
+    </div>
+
+            <center>
+            <iframe id=myBody src="data.php" frameborder="0" scrolling="no"></iframe>
+            </center>
+                
+
+</div>
+
+
+
+<script>
+myBodyHeight()
+function myBodyHeight() {
+    setTimeout(function () {
+        var screenWidth  =  document.body.clientWidth;
+        var screenHeight =  document.body.clientHeight - 125;
+        document.getElementById('myBody').style.height = screenHeight + 'px';
+        myBodyHeight();
+    }, 1000);
+}
+
+
+
+
+
+</script>
