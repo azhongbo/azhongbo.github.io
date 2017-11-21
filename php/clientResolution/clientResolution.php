@@ -1,26 +1,50 @@
 <?php
-$clientResolution = new PDO("sqlite:clientResolution.sqlite");
+//include('config.php');
 ?>
 
-<div id=aa>aa</div>
+<hr>
 
-<iframe id=myBody src="" width="1px" height="1px" frameborder="0" scrolling="no"></iframe>
+<?php
+
+if( $_GET[func] == "chkData" )
+	{
+		print $_GET[width] . "<hr>";
+		print $_GET[height] . "<hr>";
+		print $_GET[name] . "<hr>";
+		print $_GET[version] . "<hr>";
+		exit;
+	}
+
+?>
 
 
+
+<iframe id="clientResolution" src="" width="100%" height="300px" frameborder="0" scrolling="no"></iframe>
+
+
+
+<!-- ### JAVASCRIPT #########################################################-->
 <script>
 
-var browser = get_browser();
-document.getElementById('aa').innerHTML = bbb.version
-
-
 // ########## 螢幕解析度  #######################
-var width  = document.body.clientWidth;
-var height = document.body.clientHeight;
+
+runInfor()
+function runInfor()
+	{
+		width   = "width="   + document.body.clientWidth   + "&";
+		height  = "height="  + document.body.clientHeight; + "&";
+		name    = "name="    + get_browser().name          + "&";
+		version = "version=" + get_browser().version
+		url = "clientResolution.php?func=chkData&" + width + height + name + version  
+
+		document.getElementById('clientResolution').src = url
+	}
 // ##########  END #################################
 
 
 
 // ########## 偵測瀏覽器版本 #######################
+
 function get_browser() {
     var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
     if(/trident/i.test(M[1])){
@@ -38,50 +62,6 @@ function get_browser() {
       version: M[1]
     };
  }
+
 // ##########  END #################################
-
-
-
-
-
-
 </script>
-
-
-
-
-
-<?php
-
-
-if( $_GET[func] == 1 )
-	{
-		InsertDB();
-	}
-
-
-
-function InsertDB()
-	{
-		global $clientResolution;
-
-		// remote host ip
-		$ipaddr   = $_SERVER['REMOTE_ADDR'];
-		$remotePC = strtoupper( gethostbyaddr($ipaddr) );
-
-
-		$sql = "SELECT * FROM main.mailGroup WHERE id = '$id' ";
-		$qry = $clientResolution->prepare($sql);
-		$qry->execute();
-		
-		while($row = $qry->fetch(PDO::FETCH_ASSOC))
-			{
-				$id    = $row['id'];
-				$uid   = $row['uid'];
-			}
-	}
-
-?>
-
-
-
