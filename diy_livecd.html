@@ -53,7 +53,8 @@ mount /dev/nbd0p1 /livecd
 mkdir -p /livecd/isomount /livecd/isonew/{squashfs,cd,custom}
 cd /livecd
 
-mount -o loop,ro /sda3/VirtualBoxVMs/ubuntu-17.04-desktop-amd64.iso isomount
+#mount -o loop,ro /sda3/VirtualBoxVMs/ubuntu-17.04-desktop-amd64.iso      isomount
+mount -o loop,ro /sda3/VirtualBoxVMs/ubuntu-mate-17.04-desktop-amd64.iso isomount
 
 rsync --exclude=/casper/filesystem.squashfs -a isomount/ isonew/cd/
 
@@ -72,12 +73,12 @@ sudo cp /etc/resolv.conf /livecd/isonew/custom/etc/
 sudo cp /etc/apt/sources.list /livecd/isonew/custom/etc/apt/
 
 sudo cp code_*_amd64.deb /livecd/isonew/custom/root
+sudo cp VMware-Workstation-Full-14.0.0-6661328.x86_64.bundle /livecd/isonew/custom/root
 sudo cp geckodriver /livecd/isonew/custom/usr/local/bin
 sudo cp phantomjs   /livecd/isonew/custom/usr/bin
-sudo cp VMware-Workstation-Full-12.5.7-5813279.x86_64.bundle /livecd/isonew/custom/root
-
 
 chroot isonew/custom
+
 ### 進入虛擬系統 , 進行系統安裝設定
 
 mount -t proc none /proc
@@ -96,6 +97,9 @@ apt-get update
 #apt-get -y install virtualbox-guest-additions-iso
 
 apt-get -y install chromium-browser expect firefox gimp git ibus ibus-chewing ibus-table-cangjie libreoffice-l10n-zh-tw libreoffice-pdfimport lynx nbtscan net-tools nmap openssh-server p7zip p7zip-full p7zip-rar putty qemu-kvm remmina remmina-plugin-rdp remmina-plugin-vnc samba smplayer virtualbox virtualbox-guest-additions-iso virtualbox-guest-utils virtualbox-guest-x11 virtualbox-qt vlc
+
+apt-get -y install language-pack-zh-hant openssh-server
+
 
 apt-get -y install python3-pip python3-setools scrot python3-tk python3-dev 
 python3 -m pip install selenium
@@ -134,7 +138,7 @@ mksquashfs isonew/custom isonew/cd/casper/filesystem.squashfs
 
 
 cd isonew/cd
-mkisofs -r -V "UbuntuLiveCD" -b isolinux/isolinux.bin -c isolinux/boot.cat -cache-inodes -J -l -no-emul-boot -boot-load-size 4 -boot-info-table -o /sda3/VirtualBoxVMs/ubuntu-17.04-Ryan5-amd64.iso .
+mkisofs -r -V "UbuntuLiveCD" -b isolinux/isolinux.bin -c isolinux/boot.cat -cache-inodes -J -l -no-emul-boot -boot-load-size 4 -boot-info-table -o /sda3/VirtualBoxVMs/0000.iso .
 
 
 
