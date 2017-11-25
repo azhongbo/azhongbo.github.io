@@ -33,6 +33,43 @@ file '2.mp4'
 
 
 
+<h4>## H264 Stream ##</h4>
+
+wget http://h264.code-shop.com/download/apache_mod_h264_streaming-2.2.7.tar.gz
+
+解壓縮
+tar zxvf apache_mod_h264_streaming-2.2.7.tar.gz
+
+切換目錄
+cd mod_h264_streaming-2.2.7
+
+安裝前配置
+./configure --prefix=/usr/local/httpd/modules/ --with-apxs=/usr/local/httpd/bin/apxs
+
+編譯
+make
+
+安裝
+make install
+-----------------------------------------------------------------------------------------
+
+編輯 httpd.conf
+
+vi /usr/local/httpd/conf/httpd.conf
+LoadModule部分加入：
+
+LoadModule h264_streaming_module modules/mod_h264_streaming.so
+<IfModule mime_module></IfModule>標籤中加入：
+
+AddType video/mp4 .mp4 .m4v .f4v .f4p
+AddHandler h264-streaming.extensions .mp4
+
+重新啟動Apache HTTP Server
+/usr/local/httpd/bin/apachectl restart 
+
+
+
+
 <h4>## 啟動指令</h4>
 myPath=`pwd`
 
