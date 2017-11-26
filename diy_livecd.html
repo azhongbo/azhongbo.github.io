@@ -72,10 +72,10 @@ umount isomount
 sudo cp /etc/resolv.conf /livecd/isonew/custom/etc/
 sudo cp /etc/apt/sources.list /livecd/isonew/custom/etc/apt/
 
-sudo cp code_*_amd64.deb /livecd/isonew/custom/root
-sudo cp VMware-Workstation-Full-14.0.0-6661328.x86_64.bundle /livecd/isonew/custom/root
-sudo cp geckodriver /livecd/isonew/custom/usr/local/bin
-sudo cp phantomjs   /livecd/isonew/custom/usr/bin
+sudo cp /root/code*.deb /livecd/isonew/custom/root
+sudo cp /root/VMware-Workstation-Full-14.0.0-6661328.x86_64.bundle /livecd/isonew/custom/root
+sudo cp /usr/local/bin/geckodriver /livecd/isonew/custom/usr/local/bin
+sudo cp /usr/bin/phantomjs         /livecd/isonew/custom/usr/bin
 
 chroot isonew/custom
 
@@ -90,28 +90,38 @@ cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 add-apt-repository ppa:webupd8team/sublime-text-3
 apt-get update
 
-#apt-get -y install firefox gimp libreoffice-l10n-zh-tw ibus ibus-chewing ibus-table-cangjie remmina remmina-plugin-rdp remmina-plugin-vnc libreoffice-pdfimport vlc p7zip p7zip-full p7zip-rar putty openssh-server net-tools
-#apt-get -y install lynx nmap nbtscan expect
-#apt-get -y install chromium-browser samba virtualbox qemu-kvm expect git smplayer python3-setools python3-pip
-#apt-get -y install virtualbox-guest-utils virtualbox-guest-x11 virtualbox-qt
-#apt-get -y install virtualbox-guest-additions-iso
 
-apt-get -y install chromium-browser expect firefox gimp git ibus ibus-chewing ibus-table-cangjie libreoffice-l10n-zh-tw libreoffice-pdfimport lynx nbtscan net-tools nmap openssh-server p7zip p7zip-full p7zip-rar putty qemu-kvm remmina remmina-plugin-rdp remmina-plugin-vnc samba smplayer virtualbox virtualbox-guest-additions-iso virtualbox-guest-utils virtualbox-guest-x11 virtualbox-qt vlc
-
-apt-get -y install language-pack-zh-hant openssh-server
-
+apt-get -y install chromium-browser expect firefox gimp git ibus ibus-chewing ibus-table-cangjie libreoffice-l10n-zh-tw libreoffice-pdfimport lynx nbtscan net-tools nmap openssh-server p7zip p7zip-full p7zip-rar putty qemu-kvm remmina remmina-plugin-rdp remmina-plugin-vnc samba smplayer virtualbox virtualbox-guest-additions-iso virtualbox-guest-utils virtualbox-guest-x11 virtualbox-qt vlc language-pack-zh-hant openssh-server
 
 apt-get -y install python3-pip python3-setools scrot python3-tk python3-dev 
 python3 -m pip install selenium
 python3 -m pip install python3-xlib
 python3 -m pip install pyautogui
 
-
-
 apt-get -y install sublime-text-installer ubuntu-restricted-extras
-apt-get -y install apache2 php7.0 php7.0-sqlite3 sqlite3 php7.0-mysql mysql-server apache2-dev
+apt-get -y install openssh-server apache2 php7.0 php7.0-sqlite3 sqlite3 php7.0-mysql mysql-server apache2-dev
 
-dpkg -i /root/code_1.16.1-1505406497_amd64.deb
+
+
+##### Install H264 ##############
+cd /tmp
+wget http://h264.code-shop.com/download/apache_mod_h264_streaming-2.2.7.tar.gz
+tar -zxvf apache_mod_h264_streaming-2.2.7.tar.gz
+
+cd mod_h264_streaming-2.2.7
+./configure --with-apxs=`which apxs2`
+make
+make install
+echo 'LoadModule h264_streaming_module /usr/lib/apache2/modules/mod_h264_streaming.so' >> /etc/apache2/apache2.conf
+echo 'AddHandler h264-streaming.extensions .mp4' >> /etc/apache2/apache2.conf
+#################################
+
+
+##### Install VSCODE & Vmware ###
+dpkg -i /root/code*.deb
+/root/./VMware-Workstation-Full-14.0.0-6661328.x86_64.bundle --custom
+#################################
+
 
 apt --fix-broken install
 
@@ -120,7 +130,8 @@ rm -rf /tmp/*
 umount /proc /sys
 exit
 
-## vscode
+
+
 
 #####準備封裝#######################################
 chmod +w isonew/cd/casper/filesystem.manifest
