@@ -30,6 +30,8 @@ file '2.mp4'
 ## 分割 ##
 #ffmpeg -ss 00:00:16 -t 00:00:09 -i input.mp4 -c copy output.mp4
 
+## to mp3 ##
+ffmpeg -i 'aaa.wma' -acodec libmp3lame -ab 192k 'bbb.mp3'
 
 
 
