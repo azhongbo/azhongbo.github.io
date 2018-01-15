@@ -15,8 +15,17 @@
 <pre class='data'>
 
 
-<h4>CentOS 7 LDAP AD驗證 修正</h4>
+<h4>Linux 修正</h4>
+##CentOS 7 LDAP AD驗證 修正
 setsebool -P httpd_can_network_connect 1
+
+## SELinux 設定寫入權限
+## http://diary.tw/tim/entry/config-selinux-with-apache-and-php-to-write-permission
+chcon -t httpd_sys_rw_content_t /var/www/mysite1/upload -R
+
+## 關閉 SELinux
+https://www.phpini.com/linux/centos-7-disable-firewalld-selinux
+
 
 
 <h4>## 更換桌布</h4>
