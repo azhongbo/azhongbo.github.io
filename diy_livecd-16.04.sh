@@ -84,9 +84,13 @@ cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 apt-get update
 
 apt-get -y install virtualbox virtualbox-guest-utils virtualbox-guest-additions-iso  virtualbox-qt qemu qemu-kvm squashfs-tools
-apt-get -y install gnome-raw-thumbnailer ufraw-batch encfs k4dirstat nmon language-pack-zh-hant chromium-browser expect firefox gimp git ibus ibus-chewing ibus-table-cangjie libreoffice-l10n-zh-tw libreoffice-pdfimport lynx nbtscan net-tools nmap openssh-server p7zip p7zip-full p7zip-rar putty  qemu-kvm remmina remmina-plugin-rdp remmina-plugin-vnc samba smplayer virtualbox virtualbox-guest-additions-iso virtualbox-guest-utils virtualbox-qt vlc
+apt-get -y install uget gnome-raw-thumbnailer ufraw-batch encfs k4dirstat nmon language-pack-zh-hant chromium-browser expect firefox gimp git ibus ibus-chewing ibus-table-cangjie libreoffice-l10n-zh-tw libreoffice-pdfimport lynx nbtscan net-tools nmap openssh-server p7zip p7zip-full p7zip-rar putty  qemu-kvm remmina remmina-plugin-rdp remmina-plugin-vnc samba smplayer virtualbox virtualbox-guest-additions-iso virtualbox-guest-utils virtualbox-qt vlc
 
 apt-get -y install ubuntu-restricted-extras
+
+apt-get -y install tasksel
+tasksel install lamp-server
+
 apt-get -y install openssh-server apache2 php7.0 php7.0-sqlite3 sqlite3 php7.0-mysql mysql-server apache2-dev php-mongodb mongodb
 
 
