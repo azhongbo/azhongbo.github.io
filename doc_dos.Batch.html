@@ -1,0 +1,21 @@
+:: ##################################
+:: ######### 日期時間 ################
+:: ##################################
+%date:~-13,4%-%date:~-8,2%-%date:~-5,2% %time:~-11,8%
+
+
+:: ##################################
+:: ######### Function 副程式 #########
+:: ##################################
+
+call:myDosFunc 100 YeePEE
+call:myDosFunc 100,for me
+
+echo.&pause&goto:eof
+::-- Function section starts below here
+
+:myDosFunc
+echo. it could do %~1 of things %~2.
+goto:eof
+
+

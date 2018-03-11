@@ -1,24 +1,26 @@
 #!/bin/bash
 
-umount /dev/sdg2
-umount /dev/sda3
-
-mkdir /sda3
-mkdir /sdg2
-
-mount /dev/sda3 /sda3 -o uid=999
-mount /dev/sdg2 /sdg2 -o uid=999
 
 
+
+
+#### DEFAULT SOURCE #####################
 apt-get update
-
 apt-get -y install virtualbox virtualbox-guest-utils virtualbox-guest-additions-iso  virtualbox-qt qemu qemu-kvm squashfs-tools
+#########################################
 
 
 #########################################
-VBoxManage createhd --filename /sda3/temp.vdi --size 81920
+VBoxManage createhd --filename /sdb1/temp.vdi --size 81920
+
+
+umount /dev/sdb1
+mkdir  /sdb1
+mount  /dev/sdb1 /sdb1 -o uid=999
+
+
 modprobe nbd
-qemu-nbd -c /dev/nbd0 /sda3/temp.vdi
+qemu-nbd -c /dev/nbd0 /sdb1/temp.vdi
 
 echo "d
 n
@@ -34,17 +36,18 @@ mkfs.ext4 -F /dev/nbd0p1
 
 
 
-
-
-
 mkdir /livecd
 mount /dev/nbd0p1 /livecd
+
+
+#### NEW ####################################
+
 
 mkdir -p /livecd/isomount /livecd/isonew/{squashfs,cd,custom}
 
 cd /livecd
 
-mount -o loop,ro /sdg2/000/ubuntu-mate-16.04.3-desktop-amd64.iso isomount
+mount -o loop,ro  /sda3/VirtualBoxVMs/ubuntu-mate-16.04.3-desktop-amd64.iso isomount
 #mount -t tmpfs -o size=6656M tmpfs /livecd/isonew/custom/
 
 rsync --exclude=/casper/filesystem.squashfs -a isomount/ isonew/cd/
@@ -65,6 +68,12 @@ echo deb http://security.ubuntu.com/ubuntu/ xenial-security main restricted univ
 echo deb http://tw.archive.ubuntu.com/ubuntu/ xenial-updates main restricted universe multiverse >> /livecd/isonew/custom/etc/apt/sources.list
 cat /etc/resolv.conf > /livecd/isonew/custom/etc/resolv.conf 
 
+cp /root/code*.deb /livecd/isonew/custom/root
+cp /root/VMware-Workstation-Full-14.0.0-6661328.x86_64.bundle /livecd/isonew/custom/root
+cp /usr/local/bin/geckodriver /livecd/isonew/custom/usr/local/bin
+cp /usr/bin/phantomjs         /livecd/isonew/custom/usr/bin
+
+
 
 
 cd /livecd
@@ -80,46 +89,53 @@ cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 
 apt-get update
 
-apt-get -y install virtualbox virtualbox-guest-utils virtualbox-guest-additions-iso  virtualbox-qt qemu qemu-kvm squashfs-tools
-apt-get -y install uget gnome-raw-thumbnailer ufraw-batch encfs k4dirstat nmon language-pack-zh-hant chromium-browser expect firefox gimp git ibus ibus-chewing ibus-table-cangjie libreoffice-l10n-zh-tw libreoffice-pdfimport lynx nbtscan net-tools nmap openssh-server p7zip p7zip-full p7zip-rar putty  qemu-kvm remmina remmina-plugin-rdp remmina-plugin-vnc samba smplayer virtualbox virtualbox-guest-additions-iso virtualbox-guest-utils virtualbox-qt vlc
+apt-get -y install ubuntu-restricted-extras virtualbox virtualbox-guest-utils virtualbox-guest-additions-iso virtualbox-qt qemu qemu-kvm squashfs-tools
+apt-get -y install openssh-server tasksel uget curl shutter gnome-raw-thumbnailer ufraw-batch encfs k4dirstat nmon language-pack-zh-hant chromium-browser expect firefox gimp git ibus ibus-chewing ibus-table-cangjie libreoffice-l10n-zh-tw libreoffice-pdfimport lynx nbtscan net-tools nmap openssh-server p7zip p7zip-full p7zip-rar putty  qemu-kvm remmina remmina-plugin-rdp remmina-plugin-vnc samba smplayer vlc
 
-apt-get -y install ubuntu-restricted-extras
-
-apt-get -y install tasksel
 tasksel install lamp-server
+apt-get -y install php-mongodb mongodb
+apt-get -y install php7.0-sqlite3 sqlite3 php7.0-mysql php-mongodb mongodb apache2-dev 
 
-apt-get -y install openssh-server apache2 php7.0 php7.0-sqlite3 sqlite3 php7.0-mysql mysql-server apache2-dev php-mongodb mongodb
 
 
 ##### Install Python #######################################
-apt-get -y install python3-pip python3-tk python3-dev scrot 
-apt-get -y install python-pip  python-tk  python3-dev 
+apt-get -y install python3-pip python3-tk python3-dev scrot python-pip  python-tk  python3-dev 
 #python3-pip python3-setools
 
 python3 -m pip install --upgrade pip
 python3 -m pip install selenium
 python3 -m pip install python3-xlib
 python3 -m pip install pymongo
-python3 -m pip install pyautogui
 
 python -m pip install --upgrade pip
 python -m pip install selenium
-python -m pip install python3-xlib
+python -m pip install python-xlib
 python -m pip install pymongo
-python -m pip install pyautogui
+
+python3 -m pip install pyautogui
+python  -m pip install pyautogui
 #############################################################
 
 
 
 ##### Install sublime-text ##################################
 cd /tmp
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | apt-key add -
 apt-get -y install apt-transport-https
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+echo "deb https://download.sublimetext.com/ apt/stable/" | tee /etc/apt/sources.list.d/sublime-text.list
 apt-get update
 apt-get -y install sublime-text
 #############################################################
 
+
+##### Install MS sqlcmd ##################################
+curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | tee /etc/apt/sources.list.d/msprod.list
+apt-get update 
+apt-get install mssql-tools unixodbc-dev
+ln -s /opt/mssql-tools/bin/sqlcmd /usr/bin/sqlcmd
+ln -s /opt/mssql-tools/bin/bcp /usr/bin/bcp
+#############################################################
 
 
 ##### Install H264 ##########################################
