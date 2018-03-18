@@ -117,6 +117,19 @@ python  -m pip install pyautogui
 #############################################################
 
 
+##### 模擬器 ##################################
+apt-get -y install mednafen
+
+cd /tmp
+wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mednafen/mednafen_0.9.48+dfsg-1_amd64.deb
+dpkg -i mednafen_0.9.48+dfsg-1_amd64.deb
+
+cd /tmp
+wget http://kr.archive.ubuntu.com/ubuntu/pool/universe/m/mednaffe/mednaffe_0.8.6-1_amd64.deb
+dpkg -i mednaffe_0.8.6-1_amd64.deb
+#############################################################
+
+
 
 ##### Install sublime-text ##################################
 cd /tmp
