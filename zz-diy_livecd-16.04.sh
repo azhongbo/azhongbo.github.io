@@ -11,16 +11,11 @@ apt-get -y install virtualbox virtualbox-guest-utils virtualbox-guest-additions-
 
 
 #########################################
-VBoxManage createhd --filename /sdb1/temp.vdi --size 81920
-
-
-umount /dev/sdb1
-mkdir  /sdb1
-mount  /dev/sdb1 /sdb1 -o uid=999
+VBoxManage createhd --filename /ssd/ubuntu-16.04.vdi --size 81920
 
 
 modprobe nbd
-qemu-nbd -c /dev/nbd0 /sdb1/temp.vdi
+qemu-nbd -c /dev/nbd0 /ssd/ubuntu-16.04.vdi
 
 echo "d
 n
@@ -68,8 +63,8 @@ echo deb http://security.ubuntu.com/ubuntu/ xenial-security main restricted univ
 echo deb http://tw.archive.ubuntu.com/ubuntu/ xenial-updates main restricted universe multiverse >> /livecd/isonew/custom/etc/apt/sources.list
 cat /etc/resolv.conf > /livecd/isonew/custom/etc/resolv.conf 
 
-cp /root/code*.deb /livecd/isonew/custom/root
-cp /root/VMware-Workstation-Full-14.0.0-6661328.x86_64.bundle /livecd/isonew/custom/root
+cp /ssd/object/code_*_amd64.deb                   /livecd/isonew/custom/root
+cp /ssd/object/VMware-Workstation-Full-*.bundle   /livecd/isonew/custom/root
 cp /usr/local/bin/geckodriver /livecd/isonew/custom/usr/local/bin
 cp /usr/bin/phantomjs         /livecd/isonew/custom/usr/bin
 
@@ -90,12 +85,16 @@ cp /usr/share/zoneinfo/Asia/Taipei /etc/localtime
 apt-get update
 
 apt-get -y install ubuntu-restricted-extras virtualbox virtualbox-guest-utils virtualbox-guest-additions-iso virtualbox-qt qemu qemu-kvm squashfs-tools
-apt-get -y install openssh-server tasksel uget curl shutter gnome-raw-thumbnailer ufraw-batch encfs k4dirstat nmon language-pack-zh-hant chromium-browser expect firefox gimp git ibus ibus-chewing ibus-table-cangjie libreoffice-l10n-zh-tw libreoffice-pdfimport lynx nbtscan net-tools nmap openssh-server p7zip p7zip-full p7zip-rar putty  qemu-kvm remmina remmina-plugin-rdp remmina-plugin-vnc samba smplayer vlc
+apt-get -y install mdadm etherape openssh-server tasksel uget curl shutter gnome-raw-thumbnailer ufraw-batch encfs k4dirstat nmon language-pack-zh-hant chromium-browser expect firefox gimp git ibus ibus-chewing ibus-table-cangjie libreoffice-l10n-zh-tw libreoffice-pdfimport lynx nbtscan net-tools nmap openssh-server p7zip p7zip-full p7zip-rar putty  qemu-kvm remmina remmina-plugin-rdp remmina-plugin-vnc samba smplayer vlc
+
+apt --fix-broken install
+apt-get clean
+rm -rf /tmp/*
+
 
 tasksel install lamp-server
-apt-get -y install php-mongodb mongodb
-apt-get -y install php7.0-sqlite3 sqlite3 php7.0-mysql php-mongodb mongodb apache2-dev 
-
+apt-get -y install php7.0-sqlite3 sqlite3 php7.0-mysql apache2-dev 
+apt-get -y install php-mongodb mongodb php-mongodb mongodb
 
 
 ##### Install Python #######################################
@@ -118,7 +117,7 @@ python  -m pip install pyautogui
 
 
 ##### 模擬器 ##################################
-apt-get -y install mednafen
+apt-get -y install mednafen gameconqueror
 
 cd /tmp
 wget http://archive.ubuntu.com/ubuntu/pool/universe/m/mednafen/mednafen_0.9.48+dfsg-1_amd64.deb
@@ -145,7 +144,7 @@ apt-get -y install sublime-text
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
 curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | tee /etc/apt/sources.list.d/msprod.list
 apt-get update 
-apt-get install mssql-tools unixodbc-dev
+apt-get -y install mssql-tools unixodbc-dev
 ln -s /opt/mssql-tools/bin/sqlcmd /usr/bin/sqlcmd
 ln -s /opt/mssql-tools/bin/bcp /usr/bin/bcp
 #############################################################
@@ -183,7 +182,7 @@ umount /proc /sys
 exit
 
 
-
+rm /livecd/isonew/cd/casper/filesystem.squashfs
 
 cd /livecd
 chmod +w isonew/cd/casper/filesystem.manifest
