@@ -41,6 +41,9 @@ DIR="/usr/share/backgrounds/mate/nature"; PIC=$(ls $DIR | shuf -n1); CMPL=$DIR/$
 ## 轉檔 ##
 #ffmpeg -i input.m4v -f mp4 -c:v copy -c:a aac -b:a 384k -strict -2 output.mp4
 
+## For Win7 ##
+#ffmpeg -i in.mp4 -pix_fmt yuv420p -c:a copy -movflags +faststart out.mp4
+
 ## 合併 ##
 #cat mylist.txt
 file '1.mp4'
