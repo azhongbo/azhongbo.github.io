@@ -14,6 +14,40 @@
 <hr><h3>Python 相關</h3><hr>
 <pre class='data'>
 
+
+
+
+
+##### BeautifulSoup Sample #######
+
+
+from bs4 import BeautifulSoup
+from urllib.request import urlopen
+
+html = urlopen("http://localhost/test/test.html").read().decode('utf-8')
+
+soup = BeautifulSoup(html, features='lxml')
+
+
+####  所有 <a href=xx>xxx</a> ####
+all_data_1 = soup.find_all('a')
+
+for kk in all_data_1:
+    print(kk['href'])
+    
+
+####  所有 <div>xxx</div> ####
+all_data_2 = soup.find_all('div',{'class':'abc'})
+
+for mm in all_data_2:
+    print(mm)
+    print(mm.get_text())
+    
+
+
+
+
+
 apt-get -y install python3-pip python3-setools scrot python3-tk python3-dev 
 python3 -m pip install selenium
 python3 -m pip install python3-xlib
