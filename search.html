@@ -1,1 +1,164 @@
-abc
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<TITLE>資料搜尋</TITLE>
+<script>
+
+function searchAll()
+{
+    document.getElementById("showData").innerHTML = ""
+
+    include("data1.js");  // Pandas
+    include("data2.js");  // tensorflow
+    // include("data3.js");  // xxxx1
+    // include("data4.js");  // xxxx2
+    // include("data5.js");  // xxxx3
+
+}
+
+
+function include(file)
+{
+    var script = document.createElement("script");
+    script.src = file;
+    script.type = "text/javascript";
+    script.defer = true;
+    document.body.appendChild(script);
+}
+
+function chkData(data)
+{
+    var myKey = document.getElementById('myKey').value
+
+    if(  data.toLowerCase().indexOf(myKey.toLowerCase()) > -1  )
+    {
+        document.getElementById("showData").innerHTML = document.getElementById("showData").innerHTML +  accessData( data )  
+    }     
+}
+
+function accessData(myData)
+{
+    myData2 = ""
+    myArr = myData.split("\n")
+
+    var tb = ""
+    var tbHead = ""
+    var tbBody = ""
+
+    for(j=0;j<myArr.length;j++)
+    {
+        if( j <= 1 ){ tbHead = tbHead + myArr[j] + "\n" }
+        if( j >= 2 ){ tbBody = tbBody + myArr[j] + "\n" }
+    }
+
+    myData2 = `
+    <table class=box-table-a>
+        <thead>
+            <tr>
+                <th scope=col>`+ tbHead +`</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><pre>`+ tbBody +`</pre></td>
+            </tr>    
+        </tbody>       
+    </table>`
+
+    return myData2
+}
+</script>
+
+<style>
+#myKey
+{
+    height:40px;
+    padding: 5px 10px;
+    width:100%;
+    font-family: "Verdana", "Courier New","微軟正黑體","Lucida Sans Unicode";
+	font-size: 14px;
+}
+#showData
+{
+    font-family: "Verdana", "Courier New","微軟正黑體","Lucida Sans Unicode";
+	font-size: 14px;
+}
+#showDataDiv
+{
+    overflow: scroll;
+    width: 99%;
+    height:99%;
+    border:1px dashed #D7D7D7;
+    padding: 0px;
+    vertical-align: top;
+}
+
+.box-table-a
+{
+    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
+	font-size: 14px;
+	margin: 0px 0px 10px 15px;
+	width: 98%;
+	text-align: left;
+	border-collapse: collapse;
+}
+.box-table-a th
+{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 18px;
+	font-weight: normal;
+	padding: 8px;
+	background: #b9c9fe;
+	border-top: 4px solid #aabcfe;
+	border-bottom: 1px solid #fff;
+	color: #039;
+    color: #000;
+}
+.box-table-a td
+{
+	padding: 12px;
+	background: #e8edff; 
+	border-bottom: 1px solid #fff;
+	color: #669;
+	border-top: 1px solid transparent;
+}
+.box-table-a tr:hover td
+{
+	background: #d0dafd;
+	color: #339;
+}
+
+
+
+</style>
+
+
+
+
+<BODY>
+
+<table style="width:99%;height:99%;" border=0>
+    <tr>
+        <td style='height:40px;'>
+            <input id="myKey" type=text onkeydown="searchAll();" >
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div id="showDataDiv"><pre id="showData"></pre><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
+        </td>
+    </tr>
+</table>
+
+
+
+
+
+
+<script>
+// function searchAll()
+// {
+//     include("data1.js")
+// }
+</script>    
+
+</BODY>
+
