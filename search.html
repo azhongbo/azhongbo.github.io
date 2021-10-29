@@ -30,6 +30,8 @@
         font-size: 14px;
         background:#e9e9f6;
         padding:5;
+        cursor: pointer;
+        border: 1px solid blue;
     }
     .DBody{
         font-family: "Verdana", "Courier New","微軟正黑體","Lucida Sans Unicode";
@@ -56,6 +58,7 @@ function searchAll()
     include("data2.js");  // tensorflow
 
     include("data_system.js");
+    include("data_sql.js");
 
     // include("data3.js");  // xxxx1
     // include("data4.js");  // xxxx2
@@ -73,17 +76,26 @@ function include(file)
     document.body.appendChild(script);
 }
 
+
+
+var tbBodyNum = 0;
+
 function chkData(data)
 {
     var myKey = document.getElementById('myKey').value
 
     if(  data.toLowerCase().indexOf(myKey.toLowerCase()) > -1  )
     {
-        document.getElementById("showData").innerHTML = document.getElementById("showData").innerHTML +  accessData( data )  
+        tbBodyNum = tbBodyNum + 1;
+        var tbId = "tb" + tbBodyNum
+        document.getElementById("showData").innerHTML = document.getElementById("showData").innerHTML +  accessData( data,tbId )  
+        document.getElementById(tbId).style.display="none";
     }     
 }
 
-function accessData(myData)
+
+
+function accessData(myData,tbId)
 {
     myData2 = ""
     myArr = myData.split("\n")
@@ -98,13 +110,26 @@ function accessData(myData)
         if( j >= 2 ){ tbBody = tbBody + myArr[j] + "\n" }
     }
 
+
     myData2 = "";
-    myData2 = `<span class=DHead>`+tbHead+`</span>
-    <pre class=DBody>`+tbBody+`</pre>
+    myData2 = `<span class=DHead onClick="showtbBody('`+tbId+`')">`+tbHead+`</span><br><br>
+    <pre id=`+tbId+` class=DBody>`+tbBody+`</pre>
     `;
 
     return myData2
 }
+
+function showtbBody(tbId)
+{
+    if( document.getElementById(tbId).style.display == "none"){
+        document.getElementById(tbId).style.display = ""
+    }else{
+        document.getElementById(tbId).style.display = "none"
+    }
+
+
+}
+
 </script>
 
 
