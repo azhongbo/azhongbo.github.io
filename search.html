@@ -123,7 +123,8 @@ function accessData(myData,tbId)
 
 
     myData2 = "";
-    myData2 = `<span class=DHead onClick="showtbBody('`+tbId+`')">`+tbHead+`</span><br><br>
+    myData2 = `<span class=DHead onClick="ToClipBoard('`+tbId+`')">複製</span>
+               <span class=DHead onClick="showtbBody('`+tbId+`')">`+tbHead+`</span><br><br>
     <pre id=`+tbId+` class=DBody>`+tbBody+`</pre>
     `;
 
@@ -142,6 +143,21 @@ function showtbBody(tbId)
 }
 
 
+function ToClipBoard(tbId)
+{
+    document.getElementById('textArea').value = document.getElementById(tbId).innerHTML
+
+    document.getElementById('textArea').value = document.getElementById('textArea').value.replaceAll("&lt;","<")
+    document.getElementById('textArea').value = document.getElementById('textArea').value.replaceAll("&gt;",">")
+
+    
+
+
+    var content = document.getElementById('textArea');
+    content.select();
+    document.execCommand('copy');
+}
+
 </script>
 
 
@@ -149,7 +165,6 @@ function showtbBody(tbId)
 
 
 <BODY>
-
 
 <table style="width:99%;height:100%;" border=0>
     <tr>
@@ -167,7 +182,7 @@ function showtbBody(tbId)
     </tr>
 </table>
 
-
+<textarea id="textArea" style='width:1px; height:1px;'></textarea>
 
 
 

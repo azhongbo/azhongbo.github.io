@@ -41,16 +41,16 @@
 
 chkData(`
 ##### (data_html.js) HTML 播放器/ffmpeg 影片剪接 #####
-&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt; 
+&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt; 
 
-&lt;video width=&quot;320&quot; height=&quot;240&quot; controls&gt;
-&lt;source src=&quot;a1.mp4&quot; type=&quot;video/mp4&quot;&gt;
+&lt;video width="320" height="240" controls&gt;
+&lt;source src="a1.mp4" type="video/mp4"&gt;
 Your browser does not support the video tag.
 &lt;/video&gt;
 
 
 ## ffmpeg 裁切 crop=1360:768:0:0  width:height:xx:yy /分割/Win7/ FPS -r 10 #####
-ffmpeg -i Python-0921-1.mp4 -filter:v &quot;crop=1360:768:0:0&quot; -pix_fmt yuv420p -r 10 -c:a copy -movflags +faststart Python-0921-1.ok.mp4
+ffmpeg -i Python-0921-1.mp4 -filter:v "crop=1360:768:0:0" -pix_fmt yuv420p -r 10 -c:a copy -movflags +faststart Python-0921-1.ok.mp4
 
 ## ffmpeg 轉檔 ##
 ffmpeg -i input.m4v -f mp4 -c:v copy -c:a aac -b:a 384k -strict -2 output.mp4
@@ -82,12 +82,12 @@ chkData(`
 ###  HTML 標準範例 ####
 &lt;!-- file: mainCode_HTML_ --&gt;
 
-&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
-&lt;HTML xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;HTML xmlns="http://www.w3.org/1999/xhtml"&gt;
 &lt;HEAD&gt;
-&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
 &lt;TITLE&gt;&lt;/TITLE&gt;
-&lt;STYLE type=&quot;text/css&quot;&gt;
+&lt;STYLE type="text/css"&gt;
 &lt;/STYLE&gt;
 &lt;/HEAD&gt;
 &lt;BODY&gt;
@@ -102,15 +102,15 @@ chkData(`
 ###  HTML TOP 10 Table ####
 &lt;!-- file: mainCode_HTML_ --&gt;
 
-&lt;style type=&quot;text/css&quot;&gt;
+&lt;style type="text/css"&gt;
 body
 {
 	line-height: 1.6em;
 }
 #hor-minimalist-a
 {
-	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
-    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
 	font-size: 12px;
 	background: #fff;
 	margin: 45px;
@@ -139,8 +139,8 @@ body
 
 #hor-minimalist-b
 {
-	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
-    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
 	font-size: 12px;
 	background: #fff;
 	margin: 45px;
@@ -170,8 +170,8 @@ body
 
 #ver-minimalist
 {
-	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
-    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -199,8 +199,8 @@ body
 
 #box-table-a
 {
-	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
-    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -234,8 +234,8 @@ body
 
 #box-table-b
 {
-	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
-    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -266,8 +266,8 @@ body
 
 #hor-zebra
 {
-	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
-    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -294,8 +294,8 @@ body
 
 #ver-zebra
 {
-	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
-    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -340,8 +340,8 @@ body
 
 #one-column-emphasis
 {
-	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
-    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -376,8 +376,8 @@ body
 
 #newspaper-a
 {
-	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
-    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -407,8 +407,8 @@ body
 
 #newspaper-b
 {
-	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
-    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -442,8 +442,8 @@ body
 
 #newspaper-c
 {
-	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
-    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -473,8 +473,8 @@ body
 
 #rounded-corner
 {
-	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
-    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -520,8 +520,8 @@ body
 
 #background-image
 {
-	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
-    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -571,8 +571,8 @@ body
 
 #gradient-style
 {
-	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
-    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -612,7 +612,7 @@ body
 
 #pattern-style-a
 {
-	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -648,8 +648,8 @@ body
 
 #pattern-style-b
 {
-	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
-    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -686,13 +686,13 @@ body
 
 &lt;/head&gt;
 &lt;body&gt;
-&lt;table id=&quot;hor-minimalist-a&quot; summary=&quot;Employee Pay Sheet&quot;&gt;
+&lt;table id="hor-minimalist-a" summary="Employee Pay Sheet"&gt;
     &lt;thead&gt;
     	&lt;tr&gt;
-        	&lt;th scope=&quot;col&quot;&gt;Employee&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Salary&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Bonus&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Supervisor&lt;/th&gt;
+        	&lt;th scope="col"&gt;Employee&lt;/th&gt;
+            &lt;th scope="col"&gt;Salary&lt;/th&gt;
+            &lt;th scope="col"&gt;Bonus&lt;/th&gt;
+            &lt;th scope="col"&gt;Supervisor&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
@@ -723,13 +723,13 @@ body
     &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;table id=&quot;hor-minimalist-b&quot; summary=&quot;Employee Pay Sheet&quot;&gt;
+&lt;table id="hor-minimalist-b" summary="Employee Pay Sheet"&gt;
     &lt;thead&gt;
     	&lt;tr&gt;
-        	&lt;th scope=&quot;col&quot;&gt;Employee&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Salary&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Bonus&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Supervisor&lt;/th&gt;
+        	&lt;th scope="col"&gt;Employee&lt;/th&gt;
+            &lt;th scope="col"&gt;Salary&lt;/th&gt;
+            &lt;th scope="col"&gt;Bonus&lt;/th&gt;
+            &lt;th scope="col"&gt;Supervisor&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
@@ -761,13 +761,13 @@ body
 &lt;/table&gt;
 
 
-&lt;table id=&quot;ver-minimalist&quot; summary=&quot;Most Favorite Movies&quot;&gt;
+&lt;table id="ver-minimalist" summary="Most Favorite Movies"&gt;
     &lt;thead&gt;
     	&lt;tr&gt;
-        	&lt;th scope=&quot;col&quot;&gt;Comedy&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Adventure&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Action&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Children&lt;/th&gt;
+        	&lt;th scope="col"&gt;Comedy&lt;/th&gt;
+            &lt;th scope="col"&gt;Adventure&lt;/th&gt;
+            &lt;th scope="col"&gt;Action&lt;/th&gt;
+            &lt;th scope="col"&gt;Children&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
@@ -798,13 +798,13 @@ body
     &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;table id=&quot;box-table-a&quot; summary=&quot;Employee Pay Sheet&quot;&gt;
+&lt;table id="box-table-a" summary="Employee Pay Sheet"&gt;
     &lt;thead&gt;
     	&lt;tr&gt;
-        	&lt;th scope=&quot;col&quot;&gt;Employee&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Salary&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Bonus&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Supervisor&lt;/th&gt;
+        	&lt;th scope="col"&gt;Employee&lt;/th&gt;
+            &lt;th scope="col"&gt;Salary&lt;/th&gt;
+            &lt;th scope="col"&gt;Bonus&lt;/th&gt;
+            &lt;th scope="col"&gt;Supervisor&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
@@ -836,13 +836,13 @@ body
 &lt;/table&gt;
 
 
-&lt;table id=&quot;box-table-b&quot; summary=&quot;Most Favorit Movies&quot;&gt;
+&lt;table id="box-table-b" summary="Most Favorit Movies"&gt;
     &lt;thead&gt;
     	&lt;tr&gt;
-        	&lt;th scope=&quot;col&quot;&gt;Comedy&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Adventure&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Action&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Children&lt;/th&gt;
+        	&lt;th scope="col"&gt;Comedy&lt;/th&gt;
+            &lt;th scope="col"&gt;Adventure&lt;/th&gt;
+            &lt;th scope="col"&gt;Action&lt;/th&gt;
+            &lt;th scope="col"&gt;Children&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
@@ -874,17 +874,17 @@ body
 &lt;/table&gt;
 
 
-&lt;table id=&quot;hor-zebra&quot; summary=&quot;Employee Pay Sheet&quot;&gt;
+&lt;table id="hor-zebra" summary="Employee Pay Sheet"&gt;
     &lt;thead&gt;
     	&lt;tr&gt;
-        	&lt;th scope=&quot;col&quot;&gt;Employee&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Salary&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Bonus&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Supervisor&lt;/th&gt;
+        	&lt;th scope="col"&gt;Employee&lt;/th&gt;
+            &lt;th scope="col"&gt;Salary&lt;/th&gt;
+            &lt;th scope="col"&gt;Bonus&lt;/th&gt;
+            &lt;th scope="col"&gt;Supervisor&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
-    	&lt;tr class=&quot;odd&quot;&gt;
+    	&lt;tr class="odd"&gt;
         	&lt;td&gt;Stephen C. Cox&lt;/td&gt;
             &lt;td&gt;$300&lt;/td&gt;
             &lt;td&gt;$50&lt;/td&gt;
@@ -896,7 +896,7 @@ body
             &lt;td&gt;-&lt;/td&gt;
             &lt;td&gt;Annie&lt;/td&gt;
         &lt;/tr&gt;
-        &lt;tr class=&quot;odd&quot;&gt;
+        &lt;tr class="odd"&gt;
         	&lt;td&gt;Joyce Ming&lt;/td&gt;
             &lt;td&gt;$200&lt;/td&gt;
             &lt;td&gt;$35&lt;/td&gt;
@@ -912,19 +912,19 @@ body
 &lt;/table&gt;
 
 
-&lt;table id=&quot;ver-zebra&quot; summary=&quot;Most Favorite Movies&quot;&gt;
+&lt;table id="ver-zebra" summary="Most Favorite Movies"&gt;
     &lt;colgroup&gt;
-    	&lt;col class=&quot;vzebra-odd&quot; /&gt;
-    	&lt;col class=&quot;vzebra-even&quot; /&gt;
-    	&lt;col class=&quot;vzebra-odd&quot; /&gt;
-        &lt;col class=&quot;vzebra-even&quot; /&gt;
+    	&lt;col class="vzebra-odd" /&gt;
+    	&lt;col class="vzebra-even" /&gt;
+    	&lt;col class="vzebra-odd" /&gt;
+        &lt;col class="vzebra-even" /&gt;
     &lt;/colgroup&gt;
     &lt;thead&gt;
     	&lt;tr&gt;
-        	&lt;th scope=&quot;col&quot; id=&quot;vzebra-comedy&quot;&gt;Comedy&lt;/th&gt;
-            &lt;th scope=&quot;col&quot; id=&quot;vzebra-adventure&quot;&gt;Adventure&lt;/th&gt;
-            &lt;th scope=&quot;col&quot; id=&quot;vzebra-action&quot;&gt;Action&lt;/th&gt;
-            &lt;th scope=&quot;col&quot; id=&quot;vzebra-children&quot;&gt;Children&lt;/th&gt;
+        	&lt;th scope="col" id="vzebra-comedy"&gt;Comedy&lt;/th&gt;
+            &lt;th scope="col" id="vzebra-adventure"&gt;Adventure&lt;/th&gt;
+            &lt;th scope="col" id="vzebra-action"&gt;Action&lt;/th&gt;
+            &lt;th scope="col" id="vzebra-children"&gt;Children&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
@@ -955,17 +955,17 @@ body
     &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;table id=&quot;one-column-emphasis&quot; summary=&quot;2007 Major IT Companies' Profit&quot;&gt;
+&lt;table id="one-column-emphasis" summary="2007 Major IT Companies' Profit"&gt;
     &lt;colgroup&gt;
-    	&lt;col class=&quot;oce-first&quot; /&gt;
+    	&lt;col class="oce-first" /&gt;
     &lt;/colgroup&gt;
     &lt;thead&gt;
     	&lt;tr&gt;
-        	&lt;th scope=&quot;col&quot;&gt;Company&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Q1&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Q2&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Q3&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Q4&lt;/th&gt;
+        	&lt;th scope="col"&gt;Company&lt;/th&gt;
+            &lt;th scope="col"&gt;Q1&lt;/th&gt;
+            &lt;th scope="col"&gt;Q2&lt;/th&gt;
+            &lt;th scope="col"&gt;Q3&lt;/th&gt;
+            &lt;th scope="col"&gt;Q4&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
@@ -1001,14 +1001,14 @@ body
 &lt;/table&gt;
 
 
-&lt;table id=&quot;newspaper-a&quot; summary=&quot;2007 Major IT Companies' Profit&quot;&gt;
+&lt;table id="newspaper-a" summary="2007 Major IT Companies' Profit"&gt;
     &lt;thead&gt;
     	&lt;tr&gt;
-        	&lt;th scope=&quot;col&quot;&gt;Company&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Q1&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Q2&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Q3&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Q4&lt;/th&gt;
+        	&lt;th scope="col"&gt;Company&lt;/th&gt;
+            &lt;th scope="col"&gt;Q1&lt;/th&gt;
+            &lt;th scope="col"&gt;Q2&lt;/th&gt;
+            &lt;th scope="col"&gt;Q3&lt;/th&gt;
+            &lt;th scope="col"&gt;Q4&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
@@ -1044,19 +1044,19 @@ body
 &lt;/table&gt;
 
 
-&lt;table id=&quot;newspaper-b&quot; summary=&quot;2007 Major IT Companies' Profit&quot;&gt;
+&lt;table id="newspaper-b" summary="2007 Major IT Companies' Profit"&gt;
     &lt;thead&gt;
     	&lt;tr&gt;
-        	&lt;th scope=&quot;col&quot;&gt;Company&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Q1&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Q2&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Q3&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Q4&lt;/th&gt;
+        	&lt;th scope="col"&gt;Company&lt;/th&gt;
+            &lt;th scope="col"&gt;Q1&lt;/th&gt;
+            &lt;th scope="col"&gt;Q2&lt;/th&gt;
+            &lt;th scope="col"&gt;Q3&lt;/th&gt;
+            &lt;th scope="col"&gt;Q4&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
         &lt;tfoot&gt;
     	&lt;tr&gt;
-        	&lt;td colspan=&quot;5&quot;&gt;&lt;em&gt;The above data were fictional and made up, please do not sue me&lt;/em&gt;&lt;/td&gt;
+        	&lt;td colspan="5"&gt;&lt;em&gt;The above data were fictional and made up, please do not sue me&lt;/em&gt;&lt;/td&gt;
         &lt;/tr&gt;
     &lt;/tfoot&gt;
     &lt;tbody&gt;
@@ -1091,13 +1091,13 @@ body
     &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;table id=&quot;newspaper-c&quot; summary=&quot;Personal Movie Rating&quot;&gt;
+&lt;table id="newspaper-c" summary="Personal Movie Rating"&gt;
     &lt;thead&gt;
     	&lt;tr&gt;
-        	&lt;th scope=&quot;col&quot;&gt;Favorite&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Great&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Nice&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Bad&lt;/th&gt;
+        	&lt;th scope="col"&gt;Favorite&lt;/th&gt;
+            &lt;th scope="col"&gt;Great&lt;/th&gt;
+            &lt;th scope="col"&gt;Nice&lt;/th&gt;
+            &lt;th scope="col"&gt;Bad&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
@@ -1129,20 +1129,20 @@ body
 &lt;/table&gt;
 
 
-&lt;table id=&quot;rounded-corner&quot; summary=&quot;2007 Major IT Companies' Profit&quot;&gt;
+&lt;table id="rounded-corner" summary="2007 Major IT Companies' Profit"&gt;
     &lt;thead&gt;
     	&lt;tr&gt;
-        	&lt;th scope=&quot;col&quot; class=&quot;rounded-company&quot;&gt;Company&lt;/th&gt;
-            &lt;th scope=&quot;col&quot; class=&quot;rounded-q1&quot;&gt;Q1&lt;/th&gt;
-            &lt;th scope=&quot;col&quot; class=&quot;rounded-q2&quot;&gt;Q2&lt;/th&gt;
-            &lt;th scope=&quot;col&quot; class=&quot;rounded-q3&quot;&gt;Q3&lt;/th&gt;
-            &lt;th scope=&quot;col&quot; class=&quot;rounded-q4&quot;&gt;Q4&lt;/th&gt;
+        	&lt;th scope="col" class="rounded-company"&gt;Company&lt;/th&gt;
+            &lt;th scope="col" class="rounded-q1"&gt;Q1&lt;/th&gt;
+            &lt;th scope="col" class="rounded-q2"&gt;Q2&lt;/th&gt;
+            &lt;th scope="col" class="rounded-q3"&gt;Q3&lt;/th&gt;
+            &lt;th scope="col" class="rounded-q4"&gt;Q4&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
         &lt;tfoot&gt;
     	&lt;tr&gt;
-        	&lt;td colspan=&quot;4&quot; class=&quot;rounded-foot-left&quot;&gt;&lt;em&gt;The above data were fictional and made up, please do not sue me&lt;/em&gt;&lt;/td&gt;
-        	&lt;td class=&quot;rounded-foot-right&quot;&gt;&nbsp;&lt;/td&gt;
+        	&lt;td colspan="4" class="rounded-foot-left"&gt;&lt;em&gt;The above data were fictional and made up, please do not sue me&lt;/em&gt;&lt;/td&gt;
+        	&lt;td class="rounded-foot-right"&gt;&nbsp;&lt;/td&gt;
         &lt;/tr&gt;
     &lt;/tfoot&gt;
     &lt;tbody&gt;
@@ -1177,17 +1177,17 @@ body
     &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;table id=&quot;background-image&quot; summary=&quot;Meeting Results&quot;&gt;
+&lt;table id="background-image" summary="Meeting Results"&gt;
     &lt;thead&gt;
     	&lt;tr&gt;
-        	&lt;th scope=&quot;col&quot;&gt;Employee&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Division&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Suggestions&lt;/th&gt;
+        	&lt;th scope="col"&gt;Employee&lt;/th&gt;
+            &lt;th scope="col"&gt;Division&lt;/th&gt;
+            &lt;th scope="col"&gt;Suggestions&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tfoot&gt;
     	&lt;tr&gt;
-        	&lt;td colspan=&quot;4&quot;&gt;IE 6 users won't see the transparent background if the hack is not applied&lt;/td&gt;
+        	&lt;td colspan="4"&gt;IE 6 users won't see the transparent background if the hack is not applied&lt;/td&gt;
         &lt;/tr&gt;
     &lt;/tfoot&gt;
     &lt;tbody&gt;
@@ -1215,18 +1215,18 @@ body
 &lt;/table&gt;
 
 
-&lt;table id=&quot;gradient-style&quot; summary=&quot;Meeting Results&quot;&gt;
+&lt;table id="gradient-style" summary="Meeting Results"&gt;
     &lt;thead&gt;
     	&lt;tr&gt;
-        	&lt;th scope=&quot;col&quot;&gt;Employee&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Division&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Suggestions&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Rating&lt;/th&gt;
+        	&lt;th scope="col"&gt;Employee&lt;/th&gt;
+            &lt;th scope="col"&gt;Division&lt;/th&gt;
+            &lt;th scope="col"&gt;Suggestions&lt;/th&gt;
+            &lt;th scope="col"&gt;Rating&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tfoot&gt;
     	&lt;tr&gt;
-        	&lt;td colspan=&quot;4&quot;&gt;Give background color to the table cells to achieve seamless transition&lt;/td&gt;
+        	&lt;td colspan="4"&gt;Give background color to the table cells to achieve seamless transition&lt;/td&gt;
         &lt;/tr&gt;
     &lt;/tfoot&gt;
     &lt;tbody&gt;
@@ -1258,13 +1258,13 @@ body
 &lt;/table&gt;
 
 
-&lt;table id=&quot;pattern-style-a&quot; summary=&quot;Meeting Results&quot;&gt;
+&lt;table id="pattern-style-a" summary="Meeting Results"&gt;
    &lt;thead&gt;
     	&lt;tr&gt;
-        	&lt;th scope=&quot;col&quot;&gt;Employee&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Salary&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Bonus&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Supervisor&lt;/th&gt;
+        	&lt;th scope="col"&gt;Employee&lt;/th&gt;
+            &lt;th scope="col"&gt;Salary&lt;/th&gt;
+            &lt;th scope="col"&gt;Bonus&lt;/th&gt;
+            &lt;th scope="col"&gt;Supervisor&lt;/th&gt;
         &lt;/tr&gt;
   &lt;/thead&gt;
     &lt;tbody&gt;
@@ -1295,13 +1295,13 @@ body
     &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;table id=&quot;pattern-style-b&quot; summary=&quot;Meeting Results&quot;&gt;
+&lt;table id="pattern-style-b" summary="Meeting Results"&gt;
     &lt;thead&gt;
     	&lt;tr&gt;
-        	&lt;th scope=&quot;col&quot;&gt;Nation&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Capital&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Language&lt;/th&gt;
-            &lt;th scope=&quot;col&quot;&gt;Unique&lt;/th&gt;
+        	&lt;th scope="col"&gt;Nation&lt;/th&gt;
+            &lt;th scope="col"&gt;Capital&lt;/th&gt;
+            &lt;th scope="col"&gt;Language&lt;/th&gt;
+            &lt;th scope="col"&gt;Unique&lt;/th&gt;
         &lt;/tr&gt;
     &lt;/thead&gt;
     &lt;tbody&gt;
@@ -1337,7 +1337,7 @@ body
 chkData(`
 ##### (data_html.js) CSS 範例 #####
 &lt;!-- file: mainCode_HTML_ --&gt;
-&lt;style type=&quot;text/css&quot;&gt;
+&lt;style type="text/css"&gt;
 #myId
 {
     /* position: relative (相對定位) / absolute (絕對定位) / fixed (浮動定位) / static (靜態定位-預設) */
@@ -1346,7 +1346,7 @@ chkData(`
     left:    50px;
     z-index: 10;    
 	
-    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
+    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
 	font-size: 12px;
 	background: #fff;
 	
@@ -1414,29 +1414,29 @@ chkData(`
 chkData(`
 ##### (data_html.js) Form 表單 #####
 &lt;!-- file: mainCode_HTML_ --&gt;
-&lt;form action=&quot;test.php&quot; method=&quot;post&quot; target=&quot;my_iframe&quot;&gt;
+&lt;form action="test.php" method="post" target="my_iframe"&gt;
 
-    姓名：&lt;input type=&quot;text&quot; name=&quot;UserName&quot;&gt;   &lt;br&gt;
-    內容：&lt;textarea name=&quot;Content&quot;&gt;&lt;/textarea&gt;  &lt;br&gt;
+    姓名：&lt;input type="text" name="UserName"&gt;   &lt;br&gt;
+    內容：&lt;textarea name="Content"&gt;&lt;/textarea&gt;  &lt;br&gt;
 
     &lt;!-- Checkboxes --&gt;
-    &lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot;&gt; &lt;label&gt;Milk  &lt;/label&gt;           &lt;br&gt;    
-    &lt;input type=&quot;checkbox&quot;&gt;                   &lt;label&gt;Sugar &lt;/label&gt;           &lt;br&gt;
-    &lt;input type=&quot;checkbox&quot; disabled&gt;          &lt;label&gt;Lemon (Disabled)&lt;/label&gt; &lt;br&gt;
+    &lt;input type="checkbox" checked="checked"&gt; &lt;label&gt;Milk  &lt;/label&gt;           &lt;br&gt;    
+    &lt;input type="checkbox"&gt;                   &lt;label&gt;Sugar &lt;/label&gt;           &lt;br&gt;
+    &lt;input type="checkbox" disabled&gt;          &lt;label&gt;Lemon (Disabled)&lt;/label&gt; &lt;br&gt;
     
 
     &lt;!-- radio --&gt;
-    &lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;male&quot; checked&gt;  &lt;label&gt;Male&lt;/label&gt;
-    &lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;female&quot;&gt;        &lt;label&gt;Female&lt;/label&gt;
-    &lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;&quot; disabled&gt;     &lt;label&gt;Don't know (Disabled)&lt;/label&gt; 
+    &lt;input type="radio" name="gender" value="male" checked&gt;  &lt;label&gt;Male&lt;/label&gt;
+    &lt;input type="radio" name="gender" value="female"&gt;        &lt;label&gt;Female&lt;/label&gt;
+    &lt;input type="radio" name="gender" value="" disabled&gt;     &lt;label&gt;Don't know (Disabled)&lt;/label&gt; 
 
     &lt;br&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;送出表單&quot;&gt;
+    &lt;input type="submit" value="送出表單"&gt;
 
 &lt;/form&gt;
 
 &lt;!-- 隱藏的 iframe --&gt;
-&lt;iframe name=&quot;my_iframe&quot; src=&quot;test2.php&quot; style='display:none;' scrolling='no' frameborder=0 &gt;&lt;/iframe&gt;
+&lt;iframe name="my_iframe" src="test2.php" style='display:none;' scrolling='no' frameborder=0 &gt;&lt;/iframe&gt;
 `)
 
 
@@ -1448,7 +1448,7 @@ chkData(`
 &lt;table&gt;
 	&lt;tbody&gt;
 		&lt;tr&gt;
-			&lt;td colspan=&quot;2&quot;&gt;水平合併&lt;/td&gt;
+			&lt;td colspan="2"&gt;水平合併&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
 			&lt;td&gt;&nbsp;&lt;/td&gt;
@@ -1460,7 +1460,7 @@ chkData(`
 &lt;table&gt;
 	&lt;tbody&gt;
 		&lt;tr&gt;
-			&lt;td rowspan=&quot;2&quot;&gt;垂直合併&lt;/td&gt;
+			&lt;td rowspan="2"&gt;垂直合併&lt;/td&gt;
 			&lt;td&gt;&nbsp;&lt;/td&gt;
 		&lt;/tr&gt;
 		&lt;tr&gt;
@@ -1476,7 +1476,7 @@ chkData(`
 &lt;!-- HTML CSS 畫面滾動 position 定位 --&gt;
 &lt;!-- file: mainCode_HTML_ --&gt;
 
-&lt;div id=&quot;fiexd-header&quot;&gt;
+&lt;div id="fiexd-header"&gt;
     &lt;h1&gt;test&lt;/h1&gt;
 &lt;/div&gt;
 &lt;style&gt;
@@ -1493,7 +1493,7 @@ chkData(`
 
   /* CSS Hack：寫一些讓某種瀏覽器看得懂、某種瀏覽器看不懂的 CSS 語法 */
   _position:absolute;  /* position fixed for IE6 */
-  _top:expression(documentElement.scrollTop+&quot;px&quot;);
+  _top:expression(documentElement.scrollTop+"px");
 }
 
 &lt;/style&gt;
@@ -1505,7 +1505,7 @@ chkData(`
 &lt;!-- HTML 各種瀏覽器 CSS --&gt;
 &lt;!-- file: mainCode_HTML_ --&gt;
 
-&lt;style type=&quot;text/css&quot;&gt; 
+&lt;style type="text/css"&gt; 
 /* Chrome 29+	 */
 @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
     #css-test
@@ -1538,5 +1538,5 @@ _:-ms-fullscreen, :root
 }
 &lt;/style&gt;
 
-&lt;font id=&quot;css-test&quot;&gt;1234&lt;/font&gt;
+&lt;font id="css-test"&gt;1234&lt;/font&gt;
 `)
