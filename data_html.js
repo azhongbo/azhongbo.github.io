@@ -1344,10 +1344,10 @@ chkData(`
     top:     50px;
     left:    50px;
     z-index: 10;    
-	
+
     font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
-	font-size: 12px;
-	background: #fff;
+    font-size: 12px;
+    background: #fff;
 	
 
     font-weight: normal;
@@ -1356,11 +1356,11 @@ chkData(`
     margin: 15px;
     padding: 0px 0px 0px 0px;
 
-	width:  480px;
+    width:  480px;
     height: 300px;
-	border-collapse: collapse;
+    border-collapse: collapse;
 
-	text-align: left;
+    text-align: left;
     vertical-align: middle;
 
     overflow: auto;      /* 預設會自動使用捲軸 */
