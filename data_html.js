@@ -41,16 +41,16 @@
 
 chkData(`
 ##### (data_html.js) HTML 播放器/ffmpeg 影片剪接 #####
-<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt; 
 
-<video width="320" height="240" controls>
-<source src="a1.mp4" type="video/mp4">
+&lt;video width=&quot;320&quot; height=&quot;240&quot; controls&gt;
+&lt;source src=&quot;a1.mp4&quot; type=&quot;video/mp4&quot;&gt;
 Your browser does not support the video tag.
-</video>
+&lt;/video&gt;
 
 
 ## ffmpeg 裁切 crop=1360:768:0:0  width:height:xx:yy /分割/Win7/ FPS -r 10 #####
-ffmpeg -i Python-0921-1.mp4 -filter:v "crop=1360:768:0:0" -pix_fmt yuv420p -r 10 -c:a copy -movflags +faststart Python-0921-1.ok.mp4
+ffmpeg -i Python-0921-1.mp4 -filter:v &quot;crop=1360:768:0:0&quot; -pix_fmt yuv420p -r 10 -c:a copy -movflags +faststart Python-0921-1.ok.mp4
 
 ## ffmpeg 轉檔 ##
 ffmpeg -i input.m4v -f mp4 -c:v copy -c:a aac -b:a 384k -strict -2 output.mp4
@@ -80,19 +80,19 @@ ffmpeg -i 'aaa.wma' -acodec libmp3lame -ab 192k 'bbb.mp3'
 chkData(`
 ##### (data_html.js) 基本格式 #####
 ###  HTML 標準範例 ####
-<!-- file: mainCode_HTML_ -->
+&lt;!-- file: mainCode_HTML_ --&gt;
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<HTML xmlns="http://www.w3.org/1999/xhtml">
-<HEAD>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<TITLE></TITLE>
-<STYLE type="text/css">
-</STYLE>
-</HEAD>
-<BODY>
-</BODY>
-</HTML> 
+&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
+&lt;HTML xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
+&lt;HEAD&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+&lt;TITLE&gt;&lt;/TITLE&gt;
+&lt;STYLE type=&quot;text/css&quot;&gt;
+&lt;/STYLE&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;/BODY&gt;
+&lt;/HTML&gt; 
 `)
 
 
@@ -100,17 +100,17 @@ chkData(`
 chkData(`
 ##### (data_html.js) TOP 10 Table #####
 ###  HTML TOP 10 Table ####
-<!-- file: mainCode_HTML_ -->
+&lt;!-- file: mainCode_HTML_ --&gt;
 
-<style type="text/css">
+&lt;style type=&quot;text/css&quot;&gt;
 body
 {
 	line-height: 1.6em;
 }
 #hor-minimalist-a
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
+	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
+    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
 	font-size: 12px;
 	background: #fff;
 	margin: 45px;
@@ -139,8 +139,8 @@ body
 
 #hor-minimalist-b
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
+	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
+    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
 	font-size: 12px;
 	background: #fff;
 	margin: 45px;
@@ -170,8 +170,8 @@ body
 
 #ver-minimalist
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
+	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
+    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -199,8 +199,8 @@ body
 
 #box-table-a
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
+	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
+    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -234,8 +234,8 @@ body
 
 #box-table-b
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
+	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
+    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -266,8 +266,8 @@ body
 
 #hor-zebra
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
+	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
+    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -294,8 +294,8 @@ body
 
 #ver-zebra
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
+	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
+    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -340,8 +340,8 @@ body
 
 #one-column-emphasis
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
+	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
+    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -376,8 +376,8 @@ body
 
 #newspaper-a
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
+	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
+    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -407,8 +407,8 @@ body
 
 #newspaper-b
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
+	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
+    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -442,8 +442,8 @@ body
 
 #newspaper-c
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
+	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
+    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -473,8 +473,8 @@ body
 
 #rounded-corner
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
+	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
+    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -520,8 +520,8 @@ body
 
 #background-image
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
+	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
+    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -571,8 +571,8 @@ body
 
 #gradient-style
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
+	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
+    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -612,7 +612,7 @@ body
 
 #pattern-style-a
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -648,8 +648,8 @@ body
 
 #pattern-style-b
 {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
+	font-family: &quot;Lucida Sans Unicode&quot;, &quot;Lucida Grande&quot;, Sans-Serif;
+    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
 	font-size: 12px;
 	margin: 45px;
 	width: 480px;
@@ -681,663 +681,663 @@ body
 	color: #339;
 	background: #cdcdee;
 }
-</style>
+&lt;/style&gt;
 
 
-</head>
-<body>
-<table id="hor-minimalist-a" summary="Employee Pay Sheet">
-    <thead>
-    	<tr>
-        	<th scope="col">Employee</th>
-            <th scope="col">Salary</th>
-            <th scope="col">Bonus</th>
-            <th scope="col">Supervisor</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td>Stephen C. Cox</td>
-            <td>$300</td>
-            <td>$50</td>
-            <td>Bob</td>
-        </tr>
-        <tr>
-        	<td>Josephin Tan</td>
-            <td>$150</td>
-            <td>-</td>
-            <td>Annie</td>
-        </tr>
-        <tr>
-        	<td>Joyce Ming</td>
-            <td>$200</td>
-            <td>$35</td>
-            <td>Andy</td>
-        </tr>
-        <tr>
-        	<td>James A. Pentel</td>
-            <td>$175</td>
-            <td>$25</td>
-            <td>Annie</td>
-        </tr>
-    </tbody>
-</table>
+&lt;/head&gt;
+&lt;body&gt;
+&lt;table id=&quot;hor-minimalist-a&quot; summary=&quot;Employee Pay Sheet&quot;&gt;
+    &lt;thead&gt;
+    	&lt;tr&gt;
+        	&lt;th scope=&quot;col&quot;&gt;Employee&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Salary&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Bonus&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Supervisor&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    	&lt;tr&gt;
+        	&lt;td&gt;Stephen C. Cox&lt;/td&gt;
+            &lt;td&gt;$300&lt;/td&gt;
+            &lt;td&gt;$50&lt;/td&gt;
+            &lt;td&gt;Bob&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Josephin Tan&lt;/td&gt;
+            &lt;td&gt;$150&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;Annie&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Joyce Ming&lt;/td&gt;
+            &lt;td&gt;$200&lt;/td&gt;
+            &lt;td&gt;$35&lt;/td&gt;
+            &lt;td&gt;Andy&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;James A. Pentel&lt;/td&gt;
+            &lt;td&gt;$175&lt;/td&gt;
+            &lt;td&gt;$25&lt;/td&gt;
+            &lt;td&gt;Annie&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
 
-<table id="hor-minimalist-b" summary="Employee Pay Sheet">
-    <thead>
-    	<tr>
-        	<th scope="col">Employee</th>
-            <th scope="col">Salary</th>
-            <th scope="col">Bonus</th>
-            <th scope="col">Supervisor</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td>Stephen C. Cox</td>
-            <td>$300</td>
-            <td>$50</td>
-            <td>Bob</td>
-        </tr>
-        <tr>
-        	<td>Josephin Tan</td>
-            <td>$150</td>
-            <td>-</td>
-            <td>Annie</td>
-        </tr>
-        <tr>
-        	<td>Joyce Ming</td>
-            <td>$200</td>
-            <td>$35</td>
-            <td>Andy</td>
-        </tr>
-        <tr>
-        	<td>James A. Pentel</td>
-            <td>$175</td>
-            <td>$25</td>
-            <td>Annie</td>
-        </tr>
-    </tbody>
-</table>
-
-
-<table id="ver-minimalist" summary="Most Favorite Movies">
-    <thead>
-    	<tr>
-        	<th scope="col">Comedy</th>
-            <th scope="col">Adventure</th>
-            <th scope="col">Action</th>
-            <th scope="col">Children</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td>Scary Movie</td>
-            <td>Indiana Jones</td>
-            <td>The Punisher</td>
-            <td>Wall-E</td>
-        </tr>
-        <tr>
-        	<td>Epic Movie</td>
-            <td>Star Wars</td>
-            <td>Bad Boys</td>
-            <td>Madagascar</td>
-        </tr>
-        <tr>
-        	<td>Spartan</td>
-            <td>LOTR</td>
-            <td>Die Hard</td>
-            <td>Finding Nemo</td>
-        </tr>
-        <tr>
-        	<td>Dr. Dolittle</td>
-            <td>The Mummy</td>
-            <td>300</td>
-            <td>A Bug's Life</td>
-        </tr>
-    </tbody>
-</table>
-
-<table id="box-table-a" summary="Employee Pay Sheet">
-    <thead>
-    	<tr>
-        	<th scope="col">Employee</th>
-            <th scope="col">Salary</th>
-            <th scope="col">Bonus</th>
-            <th scope="col">Supervisor</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td>Stephen C. Cox</td>
-            <td>$300</td>
-            <td>$50</td>
-            <td>Bob</td>
-        </tr>
-        <tr>
-        	<td>Josephin Tan</td>
-            <td>$150</td>
-            <td>-</td>
-            <td>Annie</td>
-        </tr>
-        <tr>
-        	<td>Joyce Ming</td>
-            <td>$200</td>
-            <td>$35</td>
-            <td>Andy</td>
-        </tr>
-        <tr>
-        	<td>James A. Pentel</td>
-            <td>$175</td>
-            <td>$25</td>
-            <td>Annie</td>
-        </tr>
-    </tbody>
-</table>
+&lt;table id=&quot;hor-minimalist-b&quot; summary=&quot;Employee Pay Sheet&quot;&gt;
+    &lt;thead&gt;
+    	&lt;tr&gt;
+        	&lt;th scope=&quot;col&quot;&gt;Employee&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Salary&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Bonus&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Supervisor&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    	&lt;tr&gt;
+        	&lt;td&gt;Stephen C. Cox&lt;/td&gt;
+            &lt;td&gt;$300&lt;/td&gt;
+            &lt;td&gt;$50&lt;/td&gt;
+            &lt;td&gt;Bob&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Josephin Tan&lt;/td&gt;
+            &lt;td&gt;$150&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;Annie&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Joyce Ming&lt;/td&gt;
+            &lt;td&gt;$200&lt;/td&gt;
+            &lt;td&gt;$35&lt;/td&gt;
+            &lt;td&gt;Andy&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;James A. Pentel&lt;/td&gt;
+            &lt;td&gt;$175&lt;/td&gt;
+            &lt;td&gt;$25&lt;/td&gt;
+            &lt;td&gt;Annie&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
 
 
-<table id="box-table-b" summary="Most Favorit Movies">
-    <thead>
-    	<tr>
-        	<th scope="col">Comedy</th>
-            <th scope="col">Adventure</th>
-            <th scope="col">Action</th>
-            <th scope="col">Children</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td>Scary Movie</td>
-            <td>Indiana Jones</td>
-            <td>The Punisher</td>
-            <td>Wall-E</td>
-        </tr>
-        <tr>
-        	<td>Epic Movie</td>
-            <td>Star Wars</td>
-            <td>Bad Boys</td>
-            <td>Madagascar</td>
-        </tr>
-        <tr>
-        	<td>Spartan</td>
-            <td>LOTR</td>
-            <td>Die Hard</td>
-            <td>Finding Nemo</td>
-        </tr>
-        <tr>
-        	<td>Dr. Dolittle</td>
-            <td>The Mummy</td>
-            <td>300</td>
-            <td>A Bug's Life</td>
-        </tr>
-    </tbody>
-</table>
+&lt;table id=&quot;ver-minimalist&quot; summary=&quot;Most Favorite Movies&quot;&gt;
+    &lt;thead&gt;
+    	&lt;tr&gt;
+        	&lt;th scope=&quot;col&quot;&gt;Comedy&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Adventure&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Action&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Children&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    	&lt;tr&gt;
+        	&lt;td&gt;Scary Movie&lt;/td&gt;
+            &lt;td&gt;Indiana Jones&lt;/td&gt;
+            &lt;td&gt;The Punisher&lt;/td&gt;
+            &lt;td&gt;Wall-E&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Epic Movie&lt;/td&gt;
+            &lt;td&gt;Star Wars&lt;/td&gt;
+            &lt;td&gt;Bad Boys&lt;/td&gt;
+            &lt;td&gt;Madagascar&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Spartan&lt;/td&gt;
+            &lt;td&gt;LOTR&lt;/td&gt;
+            &lt;td&gt;Die Hard&lt;/td&gt;
+            &lt;td&gt;Finding Nemo&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Dr. Dolittle&lt;/td&gt;
+            &lt;td&gt;The Mummy&lt;/td&gt;
+            &lt;td&gt;300&lt;/td&gt;
+            &lt;td&gt;A Bug's Life&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table id=&quot;box-table-a&quot; summary=&quot;Employee Pay Sheet&quot;&gt;
+    &lt;thead&gt;
+    	&lt;tr&gt;
+        	&lt;th scope=&quot;col&quot;&gt;Employee&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Salary&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Bonus&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Supervisor&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    	&lt;tr&gt;
+        	&lt;td&gt;Stephen C. Cox&lt;/td&gt;
+            &lt;td&gt;$300&lt;/td&gt;
+            &lt;td&gt;$50&lt;/td&gt;
+            &lt;td&gt;Bob&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Josephin Tan&lt;/td&gt;
+            &lt;td&gt;$150&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;Annie&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Joyce Ming&lt;/td&gt;
+            &lt;td&gt;$200&lt;/td&gt;
+            &lt;td&gt;$35&lt;/td&gt;
+            &lt;td&gt;Andy&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;James A. Pentel&lt;/td&gt;
+            &lt;td&gt;$175&lt;/td&gt;
+            &lt;td&gt;$25&lt;/td&gt;
+            &lt;td&gt;Annie&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
 
 
-<table id="hor-zebra" summary="Employee Pay Sheet">
-    <thead>
-    	<tr>
-        	<th scope="col">Employee</th>
-            <th scope="col">Salary</th>
-            <th scope="col">Bonus</th>
-            <th scope="col">Supervisor</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr class="odd">
-        	<td>Stephen C. Cox</td>
-            <td>$300</td>
-            <td>$50</td>
-            <td>Bob</td>
-        </tr>
-        <tr>
-        	<td>Josephin Tan</td>
-            <td>$150</td>
-            <td>-</td>
-            <td>Annie</td>
-        </tr>
-        <tr class="odd">
-        	<td>Joyce Ming</td>
-            <td>$200</td>
-            <td>$35</td>
-            <td>Andy</td>
-        </tr>
-        <tr>
-        	<td>James A. Pentel</td>
-            <td>$175</td>
-            <td>$25</td>
-            <td>Annie</td>
-        </tr>
-    </tbody>
-</table>
+&lt;table id=&quot;box-table-b&quot; summary=&quot;Most Favorit Movies&quot;&gt;
+    &lt;thead&gt;
+    	&lt;tr&gt;
+        	&lt;th scope=&quot;col&quot;&gt;Comedy&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Adventure&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Action&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Children&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    	&lt;tr&gt;
+        	&lt;td&gt;Scary Movie&lt;/td&gt;
+            &lt;td&gt;Indiana Jones&lt;/td&gt;
+            &lt;td&gt;The Punisher&lt;/td&gt;
+            &lt;td&gt;Wall-E&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Epic Movie&lt;/td&gt;
+            &lt;td&gt;Star Wars&lt;/td&gt;
+            &lt;td&gt;Bad Boys&lt;/td&gt;
+            &lt;td&gt;Madagascar&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Spartan&lt;/td&gt;
+            &lt;td&gt;LOTR&lt;/td&gt;
+            &lt;td&gt;Die Hard&lt;/td&gt;
+            &lt;td&gt;Finding Nemo&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Dr. Dolittle&lt;/td&gt;
+            &lt;td&gt;The Mummy&lt;/td&gt;
+            &lt;td&gt;300&lt;/td&gt;
+            &lt;td&gt;A Bug's Life&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
 
 
-<table id="ver-zebra" summary="Most Favorite Movies">
-    <colgroup>
-    	<col class="vzebra-odd" />
-    	<col class="vzebra-even" />
-    	<col class="vzebra-odd" />
-        <col class="vzebra-even" />
-    </colgroup>
-    <thead>
-    	<tr>
-        	<th scope="col" id="vzebra-comedy">Comedy</th>
-            <th scope="col" id="vzebra-adventure">Adventure</th>
-            <th scope="col" id="vzebra-action">Action</th>
-            <th scope="col" id="vzebra-children">Children</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td>Scary Movie</td>
-            <td>Indiana Jones</td>
-            <td>The Punisher</td>
-            <td>Wall-E</td>
-        </tr>
-        <tr>
-        	<td>Epic Movie</td>
-            <td>Star Wars</td>
-            <td>Bad Boys</td>
-            <td>Madagascar</td>
-        </tr>
-        <tr>
-        	<td>Spartan</td>
-            <td>LOTR</td>
-            <td>Die Hard</td>
-            <td>Finding Nemo</td>
-        </tr>
-        <tr>
-        	<td>Dr. Dolittle</td>
-            <td>The Mummy</td>
-            <td>300</td>
-            <td>A Bug's Life</td>
-        </tr>
-    </tbody>
-</table>
-
-<table id="one-column-emphasis" summary="2007 Major IT Companies' Profit">
-    <colgroup>
-    	<col class="oce-first" />
-    </colgroup>
-    <thead>
-    	<tr>
-        	<th scope="col">Company</th>
-            <th scope="col">Q1</th>
-            <th scope="col">Q2</th>
-            <th scope="col">Q3</th>
-            <th scope="col">Q4</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td>Microsoft</td>
-            <td>20.3</td>
-            <td>30.5</td>
-            <td>23.5</td>
-            <td>40.3</td>
-        </tr>
-        <tr>
-        	<td>Google</td>
-            <td>50.2</td>
-            <td>40.63</td>
-            <td>45.23</td>
-            <td>39.3</td>
-        </tr>
-        <tr>
-        	<td>Apple</td>
-            <td>25.4</td>
-            <td>30.2</td>
-            <td>33.3</td>
-            <td>36.7</td>
-        </tr>
-        <tr>
-        	<td>IBM</td>
-            <td>20.4</td>
-            <td>15.6</td>
-            <td>22.3</td>
-            <td>29.3</td>
-        </tr>
-    </tbody>
-</table>
+&lt;table id=&quot;hor-zebra&quot; summary=&quot;Employee Pay Sheet&quot;&gt;
+    &lt;thead&gt;
+    	&lt;tr&gt;
+        	&lt;th scope=&quot;col&quot;&gt;Employee&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Salary&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Bonus&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Supervisor&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    	&lt;tr class=&quot;odd&quot;&gt;
+        	&lt;td&gt;Stephen C. Cox&lt;/td&gt;
+            &lt;td&gt;$300&lt;/td&gt;
+            &lt;td&gt;$50&lt;/td&gt;
+            &lt;td&gt;Bob&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Josephin Tan&lt;/td&gt;
+            &lt;td&gt;$150&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;Annie&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr class=&quot;odd&quot;&gt;
+        	&lt;td&gt;Joyce Ming&lt;/td&gt;
+            &lt;td&gt;$200&lt;/td&gt;
+            &lt;td&gt;$35&lt;/td&gt;
+            &lt;td&gt;Andy&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;James A. Pentel&lt;/td&gt;
+            &lt;td&gt;$175&lt;/td&gt;
+            &lt;td&gt;$25&lt;/td&gt;
+            &lt;td&gt;Annie&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
 
 
-<table id="newspaper-a" summary="2007 Major IT Companies' Profit">
-    <thead>
-    	<tr>
-        	<th scope="col">Company</th>
-            <th scope="col">Q1</th>
-            <th scope="col">Q2</th>
-            <th scope="col">Q3</th>
-            <th scope="col">Q4</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td>Microsoft</td>
-            <td>20.3</td>
-            <td>30.5</td>
-            <td>23.5</td>
-            <td>40.3</td>
-        </tr>
-        <tr>
-        	<td>Google</td>
-            <td>50.2</td>
-            <td>40.63</td>
-            <td>45.23</td>
-            <td>39.3</td>
-        </tr>
-        <tr>
-        	<td>Apple</td>
-            <td>25.4</td>
-            <td>30.2</td>
-            <td>33.3</td>
-            <td>36.7</td>
-        </tr>
-        <tr>
-        	<td>IBM</td>
-            <td>20.4</td>
-            <td>15.6</td>
-            <td>22.3</td>
-            <td>29.3</td>
-        </tr>
-    </tbody>
-</table>
+&lt;table id=&quot;ver-zebra&quot; summary=&quot;Most Favorite Movies&quot;&gt;
+    &lt;colgroup&gt;
+    	&lt;col class=&quot;vzebra-odd&quot; /&gt;
+    	&lt;col class=&quot;vzebra-even&quot; /&gt;
+    	&lt;col class=&quot;vzebra-odd&quot; /&gt;
+        &lt;col class=&quot;vzebra-even&quot; /&gt;
+    &lt;/colgroup&gt;
+    &lt;thead&gt;
+    	&lt;tr&gt;
+        	&lt;th scope=&quot;col&quot; id=&quot;vzebra-comedy&quot;&gt;Comedy&lt;/th&gt;
+            &lt;th scope=&quot;col&quot; id=&quot;vzebra-adventure&quot;&gt;Adventure&lt;/th&gt;
+            &lt;th scope=&quot;col&quot; id=&quot;vzebra-action&quot;&gt;Action&lt;/th&gt;
+            &lt;th scope=&quot;col&quot; id=&quot;vzebra-children&quot;&gt;Children&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    	&lt;tr&gt;
+        	&lt;td&gt;Scary Movie&lt;/td&gt;
+            &lt;td&gt;Indiana Jones&lt;/td&gt;
+            &lt;td&gt;The Punisher&lt;/td&gt;
+            &lt;td&gt;Wall-E&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Epic Movie&lt;/td&gt;
+            &lt;td&gt;Star Wars&lt;/td&gt;
+            &lt;td&gt;Bad Boys&lt;/td&gt;
+            &lt;td&gt;Madagascar&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Spartan&lt;/td&gt;
+            &lt;td&gt;LOTR&lt;/td&gt;
+            &lt;td&gt;Die Hard&lt;/td&gt;
+            &lt;td&gt;Finding Nemo&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Dr. Dolittle&lt;/td&gt;
+            &lt;td&gt;The Mummy&lt;/td&gt;
+            &lt;td&gt;300&lt;/td&gt;
+            &lt;td&gt;A Bug's Life&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table id=&quot;one-column-emphasis&quot; summary=&quot;2007 Major IT Companies' Profit&quot;&gt;
+    &lt;colgroup&gt;
+    	&lt;col class=&quot;oce-first&quot; /&gt;
+    &lt;/colgroup&gt;
+    &lt;thead&gt;
+    	&lt;tr&gt;
+        	&lt;th scope=&quot;col&quot;&gt;Company&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Q1&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Q2&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Q3&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Q4&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    	&lt;tr&gt;
+        	&lt;td&gt;Microsoft&lt;/td&gt;
+            &lt;td&gt;20.3&lt;/td&gt;
+            &lt;td&gt;30.5&lt;/td&gt;
+            &lt;td&gt;23.5&lt;/td&gt;
+            &lt;td&gt;40.3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Google&lt;/td&gt;
+            &lt;td&gt;50.2&lt;/td&gt;
+            &lt;td&gt;40.63&lt;/td&gt;
+            &lt;td&gt;45.23&lt;/td&gt;
+            &lt;td&gt;39.3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Apple&lt;/td&gt;
+            &lt;td&gt;25.4&lt;/td&gt;
+            &lt;td&gt;30.2&lt;/td&gt;
+            &lt;td&gt;33.3&lt;/td&gt;
+            &lt;td&gt;36.7&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;IBM&lt;/td&gt;
+            &lt;td&gt;20.4&lt;/td&gt;
+            &lt;td&gt;15.6&lt;/td&gt;
+            &lt;td&gt;22.3&lt;/td&gt;
+            &lt;td&gt;29.3&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
 
 
-<table id="newspaper-b" summary="2007 Major IT Companies' Profit">
-    <thead>
-    	<tr>
-        	<th scope="col">Company</th>
-            <th scope="col">Q1</th>
-            <th scope="col">Q2</th>
-            <th scope="col">Q3</th>
-            <th scope="col">Q4</th>
-        </tr>
-    </thead>
-        <tfoot>
-    	<tr>
-        	<td colspan="5"><em>The above data were fictional and made up, please do not sue me</em></td>
-        </tr>
-    </tfoot>
-    <tbody>
-    	<tr>
-        	<td>Microsoft</td>
-            <td>20.3</td>
-            <td>30.5</td>
-            <td>23.5</td>
-            <td>40.3</td>
-        </tr>
-        <tr>
-        	<td>Google</td>
-            <td>50.2</td>
-            <td>40.63</td>
-            <td>45.23</td>
-            <td>39.3</td>
-        </tr>
-        <tr>
-        	<td>Apple</td>
-            <td>25.4</td>
-            <td>30.2</td>
-            <td>33.3</td>
-            <td>36.7</td>
-        </tr>
-        <tr>
-        	<td>IBM</td>
-            <td>20.4</td>
-            <td>15.6</td>
-            <td>22.3</td>
-            <td>29.3</td>
-        </tr>
-    </tbody>
-</table>
-
-<table id="newspaper-c" summary="Personal Movie Rating">
-    <thead>
-    	<tr>
-        	<th scope="col">Favorite</th>
-            <th scope="col">Great</th>
-            <th scope="col">Nice</th>
-            <th scope="col">Bad</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td>Passion of the Christ</td>
-            <td>Bourne Ultimatum</td>
-            <td>Shoot 'Em Up</td>
-            <td>Ali</td>
-        </tr>
-        <tr>
-        	<td>The Big Fish</td>
-            <td>The Mummy</td>
-            <td>Apocalypto</td>
-            <td>Monster</td>
-        </tr>
-        <tr>
-        	<td>Shawshank Redemption</td>
-            <td>Cold Mountain</td>
-            <td>Indiana Jones</td>
-            <td>Dead or Alive</td>
-        </tr>
-        <tr>
-        	<td>Greatest Story Ever Told</td>
-            <td>I Am Legend</td>
-            <td>Star Wars</td>
-            <td>Saw 3</td>
-        </tr>
-    </tbody>
-</table>
+&lt;table id=&quot;newspaper-a&quot; summary=&quot;2007 Major IT Companies' Profit&quot;&gt;
+    &lt;thead&gt;
+    	&lt;tr&gt;
+        	&lt;th scope=&quot;col&quot;&gt;Company&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Q1&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Q2&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Q3&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Q4&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    	&lt;tr&gt;
+        	&lt;td&gt;Microsoft&lt;/td&gt;
+            &lt;td&gt;20.3&lt;/td&gt;
+            &lt;td&gt;30.5&lt;/td&gt;
+            &lt;td&gt;23.5&lt;/td&gt;
+            &lt;td&gt;40.3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Google&lt;/td&gt;
+            &lt;td&gt;50.2&lt;/td&gt;
+            &lt;td&gt;40.63&lt;/td&gt;
+            &lt;td&gt;45.23&lt;/td&gt;
+            &lt;td&gt;39.3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Apple&lt;/td&gt;
+            &lt;td&gt;25.4&lt;/td&gt;
+            &lt;td&gt;30.2&lt;/td&gt;
+            &lt;td&gt;33.3&lt;/td&gt;
+            &lt;td&gt;36.7&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;IBM&lt;/td&gt;
+            &lt;td&gt;20.4&lt;/td&gt;
+            &lt;td&gt;15.6&lt;/td&gt;
+            &lt;td&gt;22.3&lt;/td&gt;
+            &lt;td&gt;29.3&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
 
 
-<table id="rounded-corner" summary="2007 Major IT Companies' Profit">
-    <thead>
-    	<tr>
-        	<th scope="col" class="rounded-company">Company</th>
-            <th scope="col" class="rounded-q1">Q1</th>
-            <th scope="col" class="rounded-q2">Q2</th>
-            <th scope="col" class="rounded-q3">Q3</th>
-            <th scope="col" class="rounded-q4">Q4</th>
-        </tr>
-    </thead>
-        <tfoot>
-    	<tr>
-        	<td colspan="4" class="rounded-foot-left"><em>The above data were fictional and made up, please do not sue me</em></td>
-        	<td class="rounded-foot-right">&nbsp;</td>
-        </tr>
-    </tfoot>
-    <tbody>
-    	<tr>
-        	<td>Microsoft</td>
-            <td>20.3</td>
-            <td>30.5</td>
-            <td>23.5</td>
-            <td>40.3</td>
-        </tr>
-        <tr>
-        	<td>Google</td>
-            <td>50.2</td>
-            <td>40.63</td>
-            <td>45.23</td>
-            <td>39.3</td>
-        </tr>
-        <tr>
-        	<td>Apple</td>
-            <td>25.4</td>
-            <td>30.2</td>
-            <td>33.3</td>
-            <td>36.7</td>
-        </tr>
-        <tr>
-        	<td>IBM</td>
-            <td>20.4</td>
-            <td>15.6</td>
-            <td>22.3</td>
-            <td>29.3</td>
-        </tr>
-    </tbody>
-</table>
+&lt;table id=&quot;newspaper-b&quot; summary=&quot;2007 Major IT Companies' Profit&quot;&gt;
+    &lt;thead&gt;
+    	&lt;tr&gt;
+        	&lt;th scope=&quot;col&quot;&gt;Company&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Q1&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Q2&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Q3&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Q4&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+        &lt;tfoot&gt;
+    	&lt;tr&gt;
+        	&lt;td colspan=&quot;5&quot;&gt;&lt;em&gt;The above data were fictional and made up, please do not sue me&lt;/em&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+    &lt;tbody&gt;
+    	&lt;tr&gt;
+        	&lt;td&gt;Microsoft&lt;/td&gt;
+            &lt;td&gt;20.3&lt;/td&gt;
+            &lt;td&gt;30.5&lt;/td&gt;
+            &lt;td&gt;23.5&lt;/td&gt;
+            &lt;td&gt;40.3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Google&lt;/td&gt;
+            &lt;td&gt;50.2&lt;/td&gt;
+            &lt;td&gt;40.63&lt;/td&gt;
+            &lt;td&gt;45.23&lt;/td&gt;
+            &lt;td&gt;39.3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Apple&lt;/td&gt;
+            &lt;td&gt;25.4&lt;/td&gt;
+            &lt;td&gt;30.2&lt;/td&gt;
+            &lt;td&gt;33.3&lt;/td&gt;
+            &lt;td&gt;36.7&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;IBM&lt;/td&gt;
+            &lt;td&gt;20.4&lt;/td&gt;
+            &lt;td&gt;15.6&lt;/td&gt;
+            &lt;td&gt;22.3&lt;/td&gt;
+            &lt;td&gt;29.3&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
 
-<table id="background-image" summary="Meeting Results">
-    <thead>
-    	<tr>
-        	<th scope="col">Employee</th>
-            <th scope="col">Division</th>
-            <th scope="col">Suggestions</th>
-        </tr>
-    </thead>
-    <tfoot>
-    	<tr>
-        	<td colspan="4">IE 6 users won't see the transparent background if the hack is not applied</td>
-        </tr>
-    </tfoot>
-    <tbody>
-    	<tr>
-        	<td>Stephen C. Cox</td>
-            <td>Marketing</td>
-            <td>Make discount offers</td>
-        </tr>
-        <tr>
-        	<td>Josephin Tan</td>
-            <td>Advertising</td>
-            <td>Give bonuses</td>
-        </tr>
-        <tr>
-        	<td>Joyce Ming</td>
-            <td>Marketing</td>
-            <td>New designs</td>
-        </tr>
-        <tr>
-        	<td>James A. Pentel</td>
-            <td>Marketing</td>
-            <td>Better Packaging</td>
-        </tr>
-    </tbody>
-</table>
-
-
-<table id="gradient-style" summary="Meeting Results">
-    <thead>
-    	<tr>
-        	<th scope="col">Employee</th>
-            <th scope="col">Division</th>
-            <th scope="col">Suggestions</th>
-            <th scope="col">Rating</th>
-        </tr>
-    </thead>
-    <tfoot>
-    	<tr>
-        	<td colspan="4">Give background color to the table cells to achieve seamless transition</td>
-        </tr>
-    </tfoot>
-    <tbody>
-    	<tr>
-        	<td>Stephen C. Cox</td>
-            <td>Marketing</td>
-            <td>Make discount offers</td>
-            <td>3/10</td>
-        </tr>
-        <tr>
-        	<td>Josephin Tan</td>
-            <td>Advertising</td>
-            <td>Give bonuses</td>
-        	<td>5/10</td>
-        </tr>
-        <tr>
-        	<td>Joyce Ming</td>
-            <td>Marketing</td>
-            <td>New designs</td>
-        	<td>8/10</td>
-        </tr>
-        <tr>
-        	<td>James A. Pentel</td>
-            <td>Marketing</td>
-            <td>Better Packaging</td>
-            <td>8/10</td>
-        </tr>
-    </tbody>
-</table>
+&lt;table id=&quot;newspaper-c&quot; summary=&quot;Personal Movie Rating&quot;&gt;
+    &lt;thead&gt;
+    	&lt;tr&gt;
+        	&lt;th scope=&quot;col&quot;&gt;Favorite&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Great&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Nice&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Bad&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    	&lt;tr&gt;
+        	&lt;td&gt;Passion of the Christ&lt;/td&gt;
+            &lt;td&gt;Bourne Ultimatum&lt;/td&gt;
+            &lt;td&gt;Shoot 'Em Up&lt;/td&gt;
+            &lt;td&gt;Ali&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;The Big Fish&lt;/td&gt;
+            &lt;td&gt;The Mummy&lt;/td&gt;
+            &lt;td&gt;Apocalypto&lt;/td&gt;
+            &lt;td&gt;Monster&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Shawshank Redemption&lt;/td&gt;
+            &lt;td&gt;Cold Mountain&lt;/td&gt;
+            &lt;td&gt;Indiana Jones&lt;/td&gt;
+            &lt;td&gt;Dead or Alive&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Greatest Story Ever Told&lt;/td&gt;
+            &lt;td&gt;I Am Legend&lt;/td&gt;
+            &lt;td&gt;Star Wars&lt;/td&gt;
+            &lt;td&gt;Saw 3&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
 
 
-<table id="pattern-style-a" summary="Meeting Results">
-   <thead>
-    	<tr>
-        	<th scope="col">Employee</th>
-            <th scope="col">Salary</th>
-            <th scope="col">Bonus</th>
-            <th scope="col">Supervisor</th>
-        </tr>
-  </thead>
-    <tbody>
-    	<tr>
-        	<td>Stephen C. Cox</td>
-            <td>$300</td>
-            <td>$50</td>
-            <td>Bob</td>
-        </tr>
-        <tr>
-        	<td>Josephin Tan</td>
-            <td>$150</td>
-            <td>-</td>
-            <td>Annie</td>
-        </tr>
-        <tr>
-        	<td>Joyce Ming</td>
-            <td>$200</td>
-            <td>$35</td>
-            <td>Andy</td>
-        </tr>
-        <tr>
-        	<td>James A. Pentel</td>
-            <td>$175</td>
-            <td>$25</td>
-            <td>Annie</td>
-        </tr>
-    </tbody>
-</table>
+&lt;table id=&quot;rounded-corner&quot; summary=&quot;2007 Major IT Companies' Profit&quot;&gt;
+    &lt;thead&gt;
+    	&lt;tr&gt;
+        	&lt;th scope=&quot;col&quot; class=&quot;rounded-company&quot;&gt;Company&lt;/th&gt;
+            &lt;th scope=&quot;col&quot; class=&quot;rounded-q1&quot;&gt;Q1&lt;/th&gt;
+            &lt;th scope=&quot;col&quot; class=&quot;rounded-q2&quot;&gt;Q2&lt;/th&gt;
+            &lt;th scope=&quot;col&quot; class=&quot;rounded-q3&quot;&gt;Q3&lt;/th&gt;
+            &lt;th scope=&quot;col&quot; class=&quot;rounded-q4&quot;&gt;Q4&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+        &lt;tfoot&gt;
+    	&lt;tr&gt;
+        	&lt;td colspan=&quot;4&quot; class=&quot;rounded-foot-left&quot;&gt;&lt;em&gt;The above data were fictional and made up, please do not sue me&lt;/em&gt;&lt;/td&gt;
+        	&lt;td class=&quot;rounded-foot-right&quot;&gt;&nbsp;&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+    &lt;tbody&gt;
+    	&lt;tr&gt;
+        	&lt;td&gt;Microsoft&lt;/td&gt;
+            &lt;td&gt;20.3&lt;/td&gt;
+            &lt;td&gt;30.5&lt;/td&gt;
+            &lt;td&gt;23.5&lt;/td&gt;
+            &lt;td&gt;40.3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Google&lt;/td&gt;
+            &lt;td&gt;50.2&lt;/td&gt;
+            &lt;td&gt;40.63&lt;/td&gt;
+            &lt;td&gt;45.23&lt;/td&gt;
+            &lt;td&gt;39.3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Apple&lt;/td&gt;
+            &lt;td&gt;25.4&lt;/td&gt;
+            &lt;td&gt;30.2&lt;/td&gt;
+            &lt;td&gt;33.3&lt;/td&gt;
+            &lt;td&gt;36.7&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;IBM&lt;/td&gt;
+            &lt;td&gt;20.4&lt;/td&gt;
+            &lt;td&gt;15.6&lt;/td&gt;
+            &lt;td&gt;22.3&lt;/td&gt;
+            &lt;td&gt;29.3&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
 
-<table id="pattern-style-b" summary="Meeting Results">
-    <thead>
-    	<tr>
-        	<th scope="col">Nation</th>
-            <th scope="col">Capital</th>
-            <th scope="col">Language</th>
-            <th scope="col">Unique</th>
-        </tr>
-    </thead>
-    <tbody>
-    	<tr>
-        	<td>Japan</td>
-            <td>Tokyo</td>
-            <td>Japanese</td>
-            <td>Karate</td>
-        </tr>
-        <tr>
-        	<td>South Korea</td>
-            <td>Seoul</td>
-            <td>Korean</td>
-            <td>Ginseng</td>
-        </tr>
-        <tr>
-        	<td>China</td>
-            <td>Beijing</td>
-            <td>Mandarin</td>
-            <td>Kung-Fu</td>
-        </tr>
-        <tr>
-        	<td>Indonesia</td>
-            <td>Jakarta</td>
-            <td>Indonesian</td>
-            <td>Batik</td>
-        </tr>
-    </tbody>
-</table>
+&lt;table id=&quot;background-image&quot; summary=&quot;Meeting Results&quot;&gt;
+    &lt;thead&gt;
+    	&lt;tr&gt;
+        	&lt;th scope=&quot;col&quot;&gt;Employee&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Division&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Suggestions&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tfoot&gt;
+    	&lt;tr&gt;
+        	&lt;td colspan=&quot;4&quot;&gt;IE 6 users won't see the transparent background if the hack is not applied&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+    &lt;tbody&gt;
+    	&lt;tr&gt;
+        	&lt;td&gt;Stephen C. Cox&lt;/td&gt;
+            &lt;td&gt;Marketing&lt;/td&gt;
+            &lt;td&gt;Make discount offers&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Josephin Tan&lt;/td&gt;
+            &lt;td&gt;Advertising&lt;/td&gt;
+            &lt;td&gt;Give bonuses&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Joyce Ming&lt;/td&gt;
+            &lt;td&gt;Marketing&lt;/td&gt;
+            &lt;td&gt;New designs&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;James A. Pentel&lt;/td&gt;
+            &lt;td&gt;Marketing&lt;/td&gt;
+            &lt;td&gt;Better Packaging&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;table id=&quot;gradient-style&quot; summary=&quot;Meeting Results&quot;&gt;
+    &lt;thead&gt;
+    	&lt;tr&gt;
+        	&lt;th scope=&quot;col&quot;&gt;Employee&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Division&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Suggestions&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Rating&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tfoot&gt;
+    	&lt;tr&gt;
+        	&lt;td colspan=&quot;4&quot;&gt;Give background color to the table cells to achieve seamless transition&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+    &lt;tbody&gt;
+    	&lt;tr&gt;
+        	&lt;td&gt;Stephen C. Cox&lt;/td&gt;
+            &lt;td&gt;Marketing&lt;/td&gt;
+            &lt;td&gt;Make discount offers&lt;/td&gt;
+            &lt;td&gt;3/10&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Josephin Tan&lt;/td&gt;
+            &lt;td&gt;Advertising&lt;/td&gt;
+            &lt;td&gt;Give bonuses&lt;/td&gt;
+        	&lt;td&gt;5/10&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Joyce Ming&lt;/td&gt;
+            &lt;td&gt;Marketing&lt;/td&gt;
+            &lt;td&gt;New designs&lt;/td&gt;
+        	&lt;td&gt;8/10&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;James A. Pentel&lt;/td&gt;
+            &lt;td&gt;Marketing&lt;/td&gt;
+            &lt;td&gt;Better Packaging&lt;/td&gt;
+            &lt;td&gt;8/10&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;table id=&quot;pattern-style-a&quot; summary=&quot;Meeting Results&quot;&gt;
+   &lt;thead&gt;
+    	&lt;tr&gt;
+        	&lt;th scope=&quot;col&quot;&gt;Employee&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Salary&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Bonus&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Supervisor&lt;/th&gt;
+        &lt;/tr&gt;
+  &lt;/thead&gt;
+    &lt;tbody&gt;
+    	&lt;tr&gt;
+        	&lt;td&gt;Stephen C. Cox&lt;/td&gt;
+            &lt;td&gt;$300&lt;/td&gt;
+            &lt;td&gt;$50&lt;/td&gt;
+            &lt;td&gt;Bob&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Josephin Tan&lt;/td&gt;
+            &lt;td&gt;$150&lt;/td&gt;
+            &lt;td&gt;-&lt;/td&gt;
+            &lt;td&gt;Annie&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Joyce Ming&lt;/td&gt;
+            &lt;td&gt;$200&lt;/td&gt;
+            &lt;td&gt;$35&lt;/td&gt;
+            &lt;td&gt;Andy&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;James A. Pentel&lt;/td&gt;
+            &lt;td&gt;$175&lt;/td&gt;
+            &lt;td&gt;$25&lt;/td&gt;
+            &lt;td&gt;Annie&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table id=&quot;pattern-style-b&quot; summary=&quot;Meeting Results&quot;&gt;
+    &lt;thead&gt;
+    	&lt;tr&gt;
+        	&lt;th scope=&quot;col&quot;&gt;Nation&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Capital&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Language&lt;/th&gt;
+            &lt;th scope=&quot;col&quot;&gt;Unique&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+    	&lt;tr&gt;
+        	&lt;td&gt;Japan&lt;/td&gt;
+            &lt;td&gt;Tokyo&lt;/td&gt;
+            &lt;td&gt;Japanese&lt;/td&gt;
+            &lt;td&gt;Karate&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;South Korea&lt;/td&gt;
+            &lt;td&gt;Seoul&lt;/td&gt;
+            &lt;td&gt;Korean&lt;/td&gt;
+            &lt;td&gt;Ginseng&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;China&lt;/td&gt;
+            &lt;td&gt;Beijing&lt;/td&gt;
+            &lt;td&gt;Mandarin&lt;/td&gt;
+            &lt;td&gt;Kung-Fu&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+        	&lt;td&gt;Indonesia&lt;/td&gt;
+            &lt;td&gt;Jakarta&lt;/td&gt;
+            &lt;td&gt;Indonesian&lt;/td&gt;
+            &lt;td&gt;Batik&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
 `)
 
 
 chkData(`
 ##### (data_html.js) CSS 範例 #####
-<!-- file: mainCode_HTML_ -->
-<style type="text/css">
+&lt;!-- file: mainCode_HTML_ --&gt;
+&lt;style type=&quot;text/css&quot;&gt;
 #myId
 {
     /* position: relative (相對定位) / absolute (絕對定位) / fixed (浮動定位) / static (靜態定位-預設) */
@@ -1346,7 +1346,7 @@ chkData(`
     left:    50px;
     z-index: 10;    
 	
-    font-family: "Microsoft JhengHei","微軟正黑體","Lucida Sans Unicode";
+    font-family: &quot;Microsoft JhengHei&quot;,&quot;微軟正黑體&quot;,&quot;Lucida Sans Unicode&quot;;
 	font-size: 12px;
 	background: #fff;
 	
@@ -1406,37 +1406,37 @@ chkData(`
     cursor: context-menu;  /*選單 Opera*/
 
 }
-</style>
+&lt;/style&gt;
 `)
 
 
 
 chkData(`
 ##### (data_html.js) Form 表單 #####
-<!-- file: mainCode_HTML_ -->
-<form action="test.php" method="post" target="my_iframe">
+&lt;!-- file: mainCode_HTML_ --&gt;
+&lt;form action=&quot;test.php&quot; method=&quot;post&quot; target=&quot;my_iframe&quot;&gt;
 
-    姓名：<input type="text" name="UserName">   <br>
-    內容：<textarea name="Content"></textarea>  <br>
+    姓名：&lt;input type=&quot;text&quot; name=&quot;UserName&quot;&gt;   &lt;br&gt;
+    內容：&lt;textarea name=&quot;Content&quot;&gt;&lt;/textarea&gt;  &lt;br&gt;
 
-    <!-- Checkboxes -->
-    <input type="checkbox" checked="checked"> <label>Milk  </label>           <br>    
-    <input type="checkbox">                   <label>Sugar </label>           <br>
-    <input type="checkbox" disabled>          <label>Lemon (Disabled)</label> <br>
+    &lt;!-- Checkboxes --&gt;
+    &lt;input type=&quot;checkbox&quot; checked=&quot;checked&quot;&gt; &lt;label&gt;Milk  &lt;/label&gt;           &lt;br&gt;    
+    &lt;input type=&quot;checkbox&quot;&gt;                   &lt;label&gt;Sugar &lt;/label&gt;           &lt;br&gt;
+    &lt;input type=&quot;checkbox&quot; disabled&gt;          &lt;label&gt;Lemon (Disabled)&lt;/label&gt; &lt;br&gt;
     
 
-    <!-- radio -->
-    <input type="radio" name="gender" value="male" checked>  <label>Male</label>
-    <input type="radio" name="gender" value="female">        <label>Female</label>
-    <input type="radio" name="gender" value="" disabled>     <label>Don't know (Disabled)</label> 
+    &lt;!-- radio --&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;male&quot; checked&gt;  &lt;label&gt;Male&lt;/label&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;female&quot;&gt;        &lt;label&gt;Female&lt;/label&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;gender&quot; value=&quot;&quot; disabled&gt;     &lt;label&gt;Don't know (Disabled)&lt;/label&gt; 
 
-    <br>
-    <input type="submit" value="送出表單">
+    &lt;br&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;送出表單&quot;&gt;
 
-</form>
+&lt;/form&gt;
 
-<!-- 隱藏的 iframe -->
-<iframe name="my_iframe" src="test2.php" style='display:none;' scrolling='no' frameborder=0 ></iframe>
+&lt;!-- 隱藏的 iframe --&gt;
+&lt;iframe name=&quot;my_iframe&quot; src=&quot;test2.php&quot; style='display:none;' scrolling='no' frameborder=0 &gt;&lt;/iframe&gt;
 `)
 
 
@@ -1444,42 +1444,42 @@ chkData(`
 
 chkData(`
 ##### (data_html.js) 表格合併 #####
-<!-- file: mainCode_HTML_ -->
-<table>
-	<tbody>
-		<tr>
-			<td colspan="2">水平合併</td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-			<td>&nbsp;</td>
-		</tr>
-	</tbody>
-</table>
+&lt;!-- file: mainCode_HTML_ --&gt;
+&lt;table&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td colspan=&quot;2&quot;&gt;水平合併&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;&nbsp;&lt;/td&gt;
+			&lt;td&gt;&nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
 
-<table>
-	<tbody>
-		<tr>
-			<td rowspan="2">垂直合併</td>
-			<td>&nbsp;</td>
-		</tr>
-		<tr>
-			<td>&nbsp;</td>
-		</tr>
-	</tbody>
-</table>
+&lt;table&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td rowspan=&quot;2&quot;&gt;垂直合併&lt;/td&gt;
+			&lt;td&gt;&nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;&nbsp;&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
 `)
 
 
 chkData(`
 ##### (data_html.js) CSS 畫面滾動 position 定位 #####
-<!-- HTML CSS 畫面滾動 position 定位 -->
-<!-- file: mainCode_HTML_ -->
+&lt;!-- HTML CSS 畫面滾動 position 定位 --&gt;
+&lt;!-- file: mainCode_HTML_ --&gt;
 
-<div id="fiexd-header">
-    <h1>test</h1>
-</div>
-<style>
+&lt;div id=&quot;fiexd-header&quot;&gt;
+    &lt;h1&gt;test&lt;/h1&gt;
+&lt;/div&gt;
+&lt;style&gt;
 #fiexd-header{
   position:fixed;
   top:  10;
@@ -1493,19 +1493,19 @@ chkData(`
 
   /* CSS Hack：寫一些讓某種瀏覽器看得懂、某種瀏覽器看不懂的 CSS 語法 */
   _position:absolute;  /* position fixed for IE6 */
-  _top:expression(documentElement.scrollTop+"px");
+  _top:expression(documentElement.scrollTop+&quot;px&quot;);
 }
 
-</style>
+&lt;/style&gt;
 `)
 
 
 chkData(`
 ##### (data_html.js) 各種瀏覽器 CSS #####
-<!-- HTML 各種瀏覽器 CSS -->
-<!-- file: mainCode_HTML_ -->
+&lt;!-- HTML 各種瀏覽器 CSS --&gt;
+&lt;!-- file: mainCode_HTML_ --&gt;
 
-<style type="text/css"> 
+&lt;style type=&quot;text/css&quot;&gt; 
 /* Chrome 29+	 */
 @media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
     #css-test
@@ -1536,7 +1536,7 @@ _:-ms-fullscreen, :root
         color:blue;
     }
 }
-</style>
+&lt;/style&gt;
 
-<font id="css-test">1234</font>
+&lt;font id=&quot;css-test&quot;&gt;1234&lt;/font&gt;
 `)
