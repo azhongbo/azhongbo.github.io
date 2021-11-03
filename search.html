@@ -123,7 +123,11 @@ function accessData(myData,tbId)
 
     myData2 = "";
     myData2 = `<span class=DHead onClick="ToClipBoard('`+tbId+`')">複製</span>
-               <span class=DHead onClick="showtbBody('`+tbId+`')">`+tbHead+`</span><br><br>
+               <span class=DHead 
+                onmouseout  ="showtbBody3('`+tbId+`')" 
+                onmouseover ="showtbBody2('`+tbId+`')" 
+                
+                onClick     ="showtbBody('`+tbId+`')"      >`+tbHead+`</span><br><br>
     <pre id=`+tbId+` class=DBody>`+tbBody+`</pre>
     `;
 
@@ -137,9 +141,17 @@ function showtbBody(tbId)
     }else{
         document.getElementById(tbId).style.display = "none"
     }
-
-
 }
+function showtbBody2(tbId,ddisplay)
+{
+    document.getElementById('dBox').style.display="";
+    document.getElementById('dBox').innerHTML = "<pre>" + document.getElementById(tbId).innerHTML + "</pre>"; 
+}
+function showtbBody3(tbId,ddisplay)
+{
+    document.getElementById('dBox').style.display="none";
+}
+
 
 
 function ToClipBoard(tbId)
@@ -148,9 +160,6 @@ function ToClipBoard(tbId)
 
     document.getElementById('textArea').value = document.getElementById('textArea').value.replaceAll("&lt;","<")
     document.getElementById('textArea').value = document.getElementById('textArea').value.replaceAll("&gt;",">")
-
-    
-
 
     var content = document.getElementById('textArea');
     content.select();
@@ -163,6 +172,13 @@ function ToClipBoard(tbId)
 
 
 <BODY>
+
+
+        
+        
+        
+
+
 
 <table style="width:99%;height:100%;" border=0>
     <tr>
@@ -184,10 +200,80 @@ function ToClipBoard(tbId)
 
 
 
+<style>
+#dBox{
+position:absolute;
+top:     50px;
+left:    50px;
+z-index: 10;
+/* width: 800px; */
+/* height:500px; */
+border: 1px solid rgba(0, 0, 255, 0.315);
+font-size:12px;
+background-color: #d7d7d7f5;
+padding: 5px;
+}
+</style>
 
-<script>
-document.getElementById("showDataDiv").style.height = document.body.clientHeight * 0.95;
-</script>    
+
+<div id=dBox>
+</div>
+
+
+
+
+<script language="JavaScript" type="text/javascript">
+dHeight()
+function dHeight()
+{
+    setTimeout(function () {
+        document.getElementById("showDataDiv").style.height = document.body.clientHeight * 0.95;
+        dHeight();
+    }, 500);
+}
+</script>
+
+
+
+<script language="JavaScript1.2">
+    var IE = document.all?true:false
+    if (!IE) document.captureEvents(Event.MOUSEMOVE)  // If NS -- that is, !IE -- then set up for mouse capture
+    document.onmousemove = getMouseXY; // Set-up to use getMouseXY function onMouseMove
+    
+    var myLeft = 0  // Temporary variables to hold mouse x-y pos.s
+    var myTop = 0   // Temporary variables to hold mouse x-y pos.s
+    document.getElementById('dBox').style.display = "none";
+
+    
+    function getMouseXY(e)  // Main function to retrieve mouse x-y pos.s
+    {
+        if (IE) 
+        {
+            // grab the x-y pos.s if browser is IE
+            myLeft = event.clientX + document.body.scrollLeft
+            myTop = event.clientY + document.body.scrollTop
+        } 
+        else 
+        {
+            // grab the x-y pos.s if browser is NS
+            myLeft = e.pageX
+            myTop = e.pageY
+        }
+    
+        // catch possible negative values in NS4
+        if ( myLeft < 0 ){ myLeft = 0}
+        if ( myTop  < 0 ){ myTop  = 0}  
+        
+        document.getElementById('dBox').style.left = myLeft+5
+        document.getElementById('dBox').style.top  = myTop + 5
+        return true
+    }
+    
+    </script>
+
+
+
+
 
 </BODY>
 
