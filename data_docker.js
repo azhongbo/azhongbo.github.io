@@ -18,10 +18,33 @@
 // `)
 
 
-// chkData(`
-// ##### (data_docker.js) 主旨放這裡 #####
-// 內容放這裡
-// `)
+chkData(`
+##### (data_docker.js) 安裝 Docer 教學 #####
+
+## 安裝 docker 
+## https://docs.docker.com/engine/install/ubuntu/
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg lsb-release
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+## 安裝 docker-compose
+## https://docs.docker.com/compose/install/
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+
+## 安裝 portainer
+## https://github.com/twtrubiks/docker-tutorial
+
+docker search portainer
+docker pull portainer/portainer
+docker volume create portainer_data
+docker run --name=portainer -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+`)
 
 
 
@@ -30,7 +53,6 @@
 chkData(`
 ##### (data_docker.js) download command 命令 #####
 ###  Docker command 命令 ####
-### 檔案: Dockerfile
 
 docker pull tomcat:jre-9  ## 下載 tomcat
 docker pull ubuntu  ## 下載 ubuntu
@@ -45,7 +67,6 @@ docker run -it --rm ubuntu bash
 chkData(`
 ##### (data_docker.js) Dockfile Ubuntu PHP 7.4 #####
 ###  Docker Ubuntu PHP 7.4 ####
-### 檔案: Dockerfile
 
 FROM ubuntu
 COPY startHttp /bin
@@ -86,13 +107,9 @@ docker run -dit --rm -p 80:80 -v /usr/local/docker/UbuntuPHP74/html:/var/www/htm
 `)
 
 
-
-
-MyCodeTitle  = "RyanCode Docker ( save load images 匯出匯入 )"
 chkData(`
 ##### (data_docker.js) save load images 匯出匯入 #####
 ###  Docker save load images 匯出匯入 ####
-### 檔案: Dockerfile
 
 docker save -o <path for generated tar file> <image name>
 docker load -i <path to image tar file>
