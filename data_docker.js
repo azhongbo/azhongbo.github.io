@@ -12,10 +12,50 @@
 // `)
 
 
-// chkData(`
-// ##### (data_docker.js) 主旨放這裡 #####
-// 內容放這裡
-// `)
+chkData(`
+##### (data_docker.js) php mysql mysqladmin #####
+
+# vi docker-compose.yml
+version: '3'
+services:
+  web:
+    image: php:7.0-apache
+    restart: always
+    ports:
+      - 80:80
+      - "443:443"
+    volumes:
+      - /docker/www:/var/www/html
+    depends_on:
+      - mysql      
+
+  mysql:
+    image: mysql:5.6
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - /docker/mysql:/var/lib/mysql
+    
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: test_db
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+
+  phpmyadmin:
+    restart: always
+    depends_on:
+      - mysql
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql
+
+$ docker-compose up -d
+`)
 
 
 chkData(`
@@ -83,6 +123,21 @@ docker search portainer
 docker pull portainer/portainer
 docker volume create portainer_data
 docker run --name=portainer -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+
+## 設定 portainer
+# 於左側框架點選 [Endpoints] 後，選擇 [local]。
+# 於 [Endpoint details] 頁面中輸入 NAS Public IP，這是 Docker 部署 Container 的 Default IP。 
+
+# non root 執行 docker
+# 建立 docker group , 如果已經有就不用
+# sudo groupadd docker
+# 將 my_username 帳號加上 docker 群組中
+sudo usermod -G docker -a my_username
+# 立刻更新
+newgrp docker
+# 重啟服務
+sudo systemctl restart docker
+
 `)
 
 
