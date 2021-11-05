@@ -19,6 +19,45 @@
 
 
 chkData(`
+##### (data_docker.js) docker Postgres #####
+
+# vi docker-compose.yml
+
+version: '3.7'
+services:
+    MyPgDB:
+        image: postgres
+        container_name: MyPgDB
+        restart: always
+        environment:
+            - "TZ=Asia/Taipei"
+            - "POSTGRES_DB=MyPgDB"
+            - POSTGRES_PASSWORD=123456
+        expose:
+            - "5432"
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./data:/var/lib/postgresql/data/
+
+
+# docker-compose up -d
+`)
+
+
+chkData(`
+##### (data_docker.js) docker volumes #####
+Container 之間的資料共享
+
+啟動第一個 Container
+docker run -it -v /data --name=container1 centos /bin/bash
+
+啟動第二個 Container
+docker run -it --volumes-from container1 --name=container2 centos /bin/bash
+`)
+
+
+chkData(`
 ##### (data_docker.js) 安裝 Docer 教學 #####
 
 ## 安裝 docker 
