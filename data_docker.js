@@ -12,6 +12,46 @@
 // `)
 
 
+// chkData(`
+// ##### (data_docker.js) 主旨放這裡 #####
+// 內容放這裡
+// `)
+
+
+chkData(`
+##### (data_docker.js) postgresql pgadmin4 #####
+version: '3'
+services:
+
+  postgresql:
+    image: postgres:12
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+
+    mem_limit: 1536MB
+    mem_reservation: 1G
+    volumes:
+      - /docker/postgres:/var/lib/postgresql/data      
+    ports:
+      - "5432:5432"
+
+  pgadmin4:
+    image: dpage/pgadmin4
+    depends_on:
+      - postgresql
+    ports:
+      - "53603:53603"
+      - "80:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@abc.com
+      PGADMIN_DEFAULT_PASSWORD: root1234
+`)
+
+
+
+
+
 chkData(`
 ##### (data_docker.js) php mysql mysqladmin #####
 #
