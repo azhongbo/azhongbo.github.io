@@ -16,14 +16,14 @@ chkData(`
 ##### (data_docker.js) 安裝 gitlab #####
 
 ## 使用 docker run
-sudo docker run --detach \
-  --hostname gitlab.example.com \
-  --publish 443:443 --publish 80:80 --publish 2022:22 \
-  --name gitlab \
-  --restart always \
-  --volume /gitlab/config:/etc/gitlab:Z \
-  --volume /gitlab/logs:/var/log/gitlab:Z \
-  --volume /gitlab/data:/var/opt/gitlab:Z \
+sudo docker run --detach \\
+  --hostname gitlab.example.com \\
+  --publish 443:443 --publish 80:80 --publish 2022:22 \\
+  --name gitlab \\
+  --restart always \\
+  --volume /gitlab/config:/etc/gitlab:Z \\
+  --volume /gitlab/logs:/var/log/gitlab:Z \\
+  --volume /gitlab/data:/var/opt/gitlab:Z \\
   gitlab/gitlab-ce:latest
 
 
