@@ -12,10 +12,53 @@
 // `)
 
 
-// chkData(`
-// ##### (data_docker.js) 主旨放這裡 #####
-// 內容放這裡
-// `)
+chkData(`
+##### (data_docker.js) 安裝 gitlab #####
+
+## 使用 docker run
+sudo docker run --detach \
+  --hostname gitlab.example.com \
+  --publish 443:443 --publish 80:80 --publish 2022:22 \
+  --name gitlab \
+  --restart always \
+  --volume /gitlab/config:/etc/gitlab:Z \
+  --volume /gitlab/logs:/var/log/gitlab:Z \
+  --volume /gitlab/data:/var/opt/gitlab:Z \
+  gitlab/gitlab-ce:latest
+
+
+## 使用 docker-compose.yml
+version: '3.2'
+services:
+ 
+  gitlab:
+    image: gitlab/gitlab-ce:latest
+    hostname: gitlab.example.com
+    container_name: gitlab
+    restart: always
+    volumes:
+      - /gitlab/config:/etc/gitlab
+      - /gitlab/logs:/var/log/gitlab
+      - /gitlab/data:/var/opt/gitlab
+    ports:
+      - 443:443
+      - 80:80
+
+
+# 更改 root 密碼
+# docker exec -it 容器名稱 bash
+
+# 重設密碼
+gitlab-rails console -e production
+user = User.where(id: 1).first
+user.password = '12345678'
+user.password_confirmation = '12345678'
+user.save
+exit
+
+`)
+
+
 
 
 chkData(`
@@ -25,6 +68,7 @@ services:
 
   postgresql:
     image: postgres:12
+    restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 123456
@@ -38,6 +82,7 @@ services:
 
   pgadmin4:
     image: dpage/pgadmin4
+    restart: always
     depends_on:
       - postgresql
     ports:
@@ -156,19 +201,6 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
-
-## 安裝 portainer
-## https://github.com/twtrubiks/docker-tutorial
-
-docker search portainer
-docker pull portainer/portainer
-docker volume create portainer_data
-docker run --name=portainer -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
-
-## 設定 portainer
-# 於左側框架點選 [Endpoints] 後，選擇 [local]。
-# 於 [Endpoint details] 頁面中輸入 NAS Public IP，這是 Docker 部署 Container 的 Default IP。 
-
 # non root 執行 docker
 # 建立 docker group , 如果已經有就不用
 # sudo groupadd docker
@@ -178,6 +210,19 @@ sudo usermod -G docker -a my_username
 newgrp docker
 # 重啟服務
 sudo systemctl restart docker
+
+
+## 安裝 portainer
+## https://github.com/twtrubiks/docker-tutorial
+
+docker search portainer
+docker pull portainer/portainer
+docker volume create portainer_data
+docker run --name=portainer --restart=always -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer
+
+## 設定 portainer
+# 於左側框架點選 [Endpoints] 後，選擇 [local]。
+# 於 [Endpoint details] 頁面中輸入 NAS Public IP，這是 Docker 部署 Container 的 Default IP。 
 
 `)
 
