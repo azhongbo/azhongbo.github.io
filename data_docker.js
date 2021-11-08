@@ -49,7 +49,7 @@ RUN python3 -m pip install flask requests psycopg2
 # docker run -dit -p 8001:80 -v ./app:/app --name ubuntu-flask ubuntu/flask:1001 /app/main.py
 
 
-#### ./app/main.py for ubuntu/flask ####
+#### 網頁 flask 的內容 ./app/main.py ####
 #!/usr/bin/python3
 import os
 from flask import *
@@ -64,7 +64,7 @@ app.run(host='0.0.0.0', port=80, debug=True)
 
 
 
-#### docker-compose.yml 啟動內容 ####
+#### 使用 docker-compose.yml 啟動 ####
 # vi docker-compose.yml
 services:
   flask:
