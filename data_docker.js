@@ -12,6 +12,93 @@
 // `)
 
 
+// chkData(`
+// ##### (data_docker.js) 主旨放這裡 #####
+// 內容放這裡
+// `)
+
+
+chkData(`
+##### (data_docker.js) ubuntu flask postgresql #####
+
+#### 建立 ubuntu/flask 的 Dockerfile 內容 ####
+
+FROM ubuntu
+
+RUN apt-get update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata
+
+RUN apt-get -y install net-tools curl systemd php7.4-sqlite3 sqlite3 iputils-ping
+RUN ln -sf /usr/share/zoneinfo/Asia/Taipei /etc/localtime
+
+RUN echo "Asia/Taipei" > /etc/timezone
+RUN dpkg-reconfigure --frontend noninteractive tzdata
+RUN echo "Asia/Taipei" > /etc/timezone
+
+RUN apt-get -y install python3 python3-pip python3-tk python3-dev scrot libpq-dev
+RUN python3 -m pip install flask requests psycopg2
+
+
+#### 建制與匯出 ubuntu/flask ####
+# docker build -t ubuntu/flask:1001 .
+# docker save ubuntu/flask:1001 -o ubuntu-flask.tar
+
+
+#### 匯入與啟動 ubuntu/flask ####
+# docker load -i ubuntu-flask.tar 
+# docker run -dit -p 8001:80 -v ./app:/app --name ubuntu-flask ubuntu/flask:1001 /app/main.py
+
+
+#### ./app/main.py for ubuntu/flask ####
+#!/usr/bin/python3
+import os
+from flask import *
+
+app = Flask(__name__)
+
+@app.route( "/test" )
+def test():
+    return "test"
+
+app.run(host='0.0.0.0', port=80, debug=True)
+
+
+
+#### docker-compose.yml 啟動內容 ####
+# vi docker-compose.yml
+services:
+  flask:
+    image: ubuntu/flask
+    container_name: flask
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./app:/app    
+    command: /app/main.py
+
+    depends_on:
+      - flask_db
+
+  flask_db:
+    image: postgres:12.4
+    container_name: flask_db
+    restart: always
+    environment: 
+        - "TZ=Asia/Taipei"
+        - "POSTGRES_DB=mydb"
+        - POSTGRES_PASSWORD=12345678
+    expose:
+        - "5432"
+    ports:
+        - "5432:5432"
+    volumes:
+        - ./postgres:/var/lib/postgresql/data
+
+`)
+
+
+
 chkData(`
 ##### (data_docker.js) 安裝 gitlab #####
 
