@@ -17,16 +17,50 @@
 // `)
 
 
-// chkData(`
-// ##### (data_python_numpy.js) 主旨放這裡 #####
-// 內容放這裡
-// `)
+chkData(`
+##### (data_python_numpy.js) Numpy append #####
+
+np.append( [1,2,3] , [4,5,6,7,8,9] ) # array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+np.append( [1,2,3] , [[6,7],[8,9]] ) # array([1, 2, 3, 6, 7, 8, 9]) , 展平後沿著 axis=0 方向合併
+
+## 使用 axis , 必須考慮形狀 , 結果如下
+np.append( [[1,2],[3,4]] ,[[5,6],[7,8]] , axis=0 )
+# array([[1, 2],
+#        [3, 4],
+#        [5, 6],
+#        [7, 8]])
+
+np.append( [[1,2],[3,4]] ,[[5,6],[7,8]] , axis=1 )
+# array([[1, 2, 5, 6],
+#        [3, 4, 7, 8]])
+
+`)
 
 
-// chkData(`
-// ##### (data_python_numpy.js) 主旨放這裡 #####
-// 內容放這裡
-// `)
+chkData(`
+##### (data_python_numpy.js) NumPy reshape resize 陣列重塑形狀和調整大小 #####
+
+import numpy as np
+
+a = np.arange(8) 
+
+b = a.reshape(4,2)  #轉換成了形狀為 (4, 2) 的一個矩陣
+b = a.reshape(4,-1) # -1 表示自動計算
+b = a.reshape(3,4)  #前後數目不一樣的話，就會有錯誤 ValueError 報出
+
+np.arange(8).reshape(2,4,order='C') # 按行填充
+# array([[0, 1, 2, 3],
+#        [4, 5, 6, 7]])
+np.arange(8).reshape(2,4,order='F') # 按列填充
+# array([[0, 2, 4, 6],
+#        [1, 3, 5, 7]])
+
+# reshape & resize 差異
+# resize 沒有 order 引數了，只有 order='C'的方式。
+# resize 轉換的矩陣形狀中的元素數量跟原矩陣不同，它會強制進行轉換，而不報錯。
+# resize 新陣列跟原陣列並不共用一個記憶體，所以彼此元素的改變不會影響到對方。
+
+`)
 
 
 
