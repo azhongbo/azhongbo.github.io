@@ -219,7 +219,7 @@ nd[::2]     ## 兩個進行切片
 
 
 chkData(`
-##### (data_numpy.js) 建立 1D 2D 3D 陣列 #####
+##### (data_python_numpy.js) Numpy 建立 1D 2D 3D 陣列 #####
 ## 建立 陣列
 np.array([3,4,5]) #根據 list 建立 array
 np.empty(3) # 建立任意數的一維 array
@@ -244,7 +244,7 @@ np.zeros([2,2,3])
 
 
 chkData(`
-##### (data_numpy.js) 1D 2D 切片 #####
+##### (data_python_numpy.js) Numpy 1D 2D 切片 #####
 ## 1D 切片
 a = [1,2,3,4,5]
 a[2:-1] # 取出 index=2和 index-1 [3, 4]
@@ -272,7 +272,7 @@ b[::-1,::-1] # 全部反向取出
 
 
 chkData(`
-##### (data_numpy.js) Numpy的 axis(軸) & dimension(惟度) #####
+##### (data_python_numpy.js) Numpy 的 axis(軸) & dimension(維度) #####
 
 a = np.array([[1,2,3],[4,5,6]])
 # array([[1, 2, 3],
@@ -294,7 +294,7 @@ display(b.sum(axis=2))
 
 
 chkData(`
-##### (data_numpy.js) 測試　Numpy 速度, 使用 np.sum vs sum #####
+##### (data_python_numpy.js) Numpy 速度測試，使用 np.sum vs sum #####
 
 import time
 a = np.random.randn(100000) ## 產生一堆數字
@@ -318,8 +318,9 @@ np.sum 花費 0.030289173126220703
 `)
 
 
+
 chkData(`
-##### (data_numpy.js) 基本操作 #####
+##### (data_python_numpy.js) Numpy 基本操作 #####
 import numpy as np
 
 ## 將 [1,2,3] 這個 array 轉換成陣列
@@ -384,8 +385,6 @@ b.T # 轉置, 形狀變 (3,2)
 # array([[1, 4],
 #        [2, 5],
 #        [3, 6]])
-
-
 
 `)
 
