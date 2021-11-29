@@ -17,6 +17,54 @@
 // `)
 
 
+// chkData(`
+// ##### (data_python_numpy.js) 主旨放這裡 #####
+// 內容放這裡
+// `)
+
+
+chkData(`
+##### (data_python_numpy.js) Numpy np.all() & np.any() #####
+
+# np.all() 比對所有值, 均為1才回傳True
+a = np.array([0,1,2,3,4,5,6,7]).all()   # False
+b = np.array([1,1,1,1,1,1,1,1]).all()   # True
+c = np.array([True,True,True]).all()    # True
+d = np.array([False,False,False]).all() # False
+e = np.array([False,False,False]).all() # False
+
+f = np.array([[1,1,1],
+              [1,0,1],
+              [1,1,1]]).all() # False
+
+g = np.array([[1,1,1],
+              [1,1,1],
+              [1,1,1]]).all() # True
+
+a = np.array([[0,0,0],
+              [0,0,0],
+              [0,0,0],
+              
+              [255,0,255],
+              [0,255,255],
+              [255,255,255]])
+b = np.array([255,0,255])
+
+print( np.all(a==b,axis=1) ) # [False False False  True False False]
+
+# np.any()
+np.array([1,2,3]).any() # True
+np.array([1,1,0]).any() # True
+np.array([1,1,1]).any() # True
+np.array([True,True]).any()   # True
+np.array([True,False]).any()   # True
+
+a = np.array([[9,4,8],[2,4,6]])
+np.any(a>5) # True
+
+`)
+
+
 chkData(`
 ##### (data_python_numpy.js) Numpy append #####
 
