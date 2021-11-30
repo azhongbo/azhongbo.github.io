@@ -17,10 +17,36 @@
 // `)
 
 
-// chkData(`
-// ##### (data_python_numpy.js) 主旨放這裡 #####
-// 內容放這裡
-// `)
+chkData(`
+##### (data_python_numpy.js) Numpy np.where() #####
+
+a = np.array([2,4,6,8,10])
+np.where(a>5) # 輸出: a>5 的 index  (array([2, 3, 4], dtype=int64),)
+a[np.where(a>5)] # 輸出 a>5 的值  array([ 6,  8, 10])
+
+# 比較每個值是否 >=2 , 是的話輸出 1,不是輸出-1
+a = np.arange(10)   # array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+np.where(a>=2,1,-1) # array([-1, -1,  1,  1,  1,  1,  1,  1,  1,  1])
+
+np.where([[True,False], [True,True]],
+         [[1,2], [3,4]], 
+         [[9,8], [7,6]])
+
+# array([[1, 8],  True,False 1,8
+#        [3, 4]]) True,True 3,4
+
+
+a = 10
+np.where([[True,False], [True,False]],
+             [["chosen","not chosen"], ["chosen","not chosen"]],
+             [["not chosen","chosen"], ["not chosen","chosen"]])
+# array([['chosen', 'chosen'],
+#        ['chosen', 'chosen']], dtype='<U10')
+
+a = np.arange(27).reshape(3,3,3)
+np.where(a>=5)
+
+`)
 
 
 chkData(`
