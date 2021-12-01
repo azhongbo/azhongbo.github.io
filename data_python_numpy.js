@@ -17,6 +17,50 @@
 // `)
 
 
+// chkData(`
+// ##### (data_python_numpy.js) 主旨放這裡 #####
+// 內容放這裡
+// `)
+
+
+chkData(`
+##### (data_python_numpy.js) Numpy np.argmax() np.argmin() #回傳 最大值 最小值的 index #####
+a = np.array([3,7,4,1,5,9,7])
+index = np.argmax(a) # 回傳 index = 5 是最大值
+a[index] # 顯示 index = 5 的值為 9
+
+a = np.array([[1,3,5,7],[2,4,6,8]])
+# array([[1, 3, 5, 7],
+#        [2, 4, 6, 8]])
+np.argmax(a,axis=0) # 輸出 array([1, 1, 1, 1], dtype=int64)
+np.argmax(a,axis=1) # 輸出 array([3, 3], dtype=int64)
+`)
+
+
+chkData(`
+##### (data_python_numpy.js) Numpy np.maximum() np.minimum()輸入兩個值並比較, 回傳最大最小的那一個 #####
+value = [1,2,3,4,5,6,7]
+np.maximum(value,5) #array([5, 5, 5, 5, 5, 6, 7])
+`)
+
+
+chkData(`
+##### (data_python_numpy.js) Numpy np.max() np.min()取出最大值 最小值 #####
+a = np.array([0,1,2,3,4,5,6,7])
+np.max(a) # 取出最大值 7
+
+a = np.array([0,1,2,3,4,5,6,7,8]).reshape(3,3)
+# [[0 1 2]
+#  [3 4 5]
+#  [6 7 8]]
+
+np.max(a,axis=0) # array([6, 7, 8])
+np.max(a,axis=1) # array([2, 5, 8])
+
+`)
+
+
+
 chkData(`
 ##### (data_python_numpy.js) Numpy np.where() #####
 
