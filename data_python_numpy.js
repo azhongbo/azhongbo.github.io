@@ -24,6 +24,104 @@
 
 
 chkData(`
+##### (data_python_numpy.js) Numpy np.ones np.ones_like 產出都為1 #####
+a = np.arange(10,dtype='float') # [0. 1. 2. 3. 4. 5. 6. 7. 8. 9.]
+np.ones(10)      #array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+np.ones(a.shape) #array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+np.ones_like(a)  #array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+`)
+
+
+chkData(`
+##### (data_python_numpy.js) Numpy np.zeros np.zeros_like 產出都為0 #####
+a = np.arange(10,dtype='float') # [0. 1. 2. 3. 4. 5. 6. 7. 8. 9.]
+np.zeros(10)      #array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
+np.zeros(a.shape) #array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
+np.zeros_like(a)  #array([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])
+`)
+
+
+chkData(`
+##### (data_python_numpy.js) Numpy np.hstack()  np.vstack() 水平垂直堆疊 #####
+a = np.array([1,2,3])
+b = np.array([4,5,6])
+
+np.hstack((a,b)) #輸出 array([1, 2, 3, 4, 5, 6])
+np.vstack((a,b)) #輸出 # array([[1, 2, 3],[4, 5, 6]])
+
+# 水平堆疊 2x4 + 2x3 軸0要一樣
+a = np.arange(8).reshape(2,4)
+b = np.arange(6).reshape(2,3)
+# array([[0, 1, 2, 3],
+#        [4, 5, 6, 7]])
+# array([[0, 1, 2],
+#        [3, 4, 5]])
+np.hstack((a,b))
+# array([[0, 1, 2, 3, 0, 1, 2],
+#        [4, 5, 6, 7, 3, 4, 5]])
+
+# 垂直堆疊 4x2 + 3x2 軸1一樣
+a = np.arange(8).reshape(4,2)
+b = np.arange(6).reshape(3,2)
+np.vstack((a,b))
+
+# 水平堆疊 軸1堆疊 軸 0,2 要一樣
+a = np.arange(24).reshape(2,3,4)
+b = np.arange(8).reshape(2,1,4)
+c = np.hstack((a,b)) ## 書出 2x4x4
+
+# 垂直堆疊 軸0堆疊 軸 1,2 要一樣
+a = np.arange(24).reshape(2,3,4)
+b = np.arange(12).reshape(1,3,4)
+c = np.vstack((a,b)) # 3x3x4
+
+# np.hstack() 2D以上, 除了軸1 其餘要一樣
+a = np.arange(12).reshape(2,6)
+b = np.arange(14).reshape(2,7)
+
+a = np.arange(24).reshape(2,3,4)
+b = np.arange(32).reshape(2,4,4)
+
+a = np.arange(40).reshape(2,1,4,5)
+b = np.arange(80).reshape(2,2,4,5)
+
+# np.vstack() 2D以上, 除了軸0 其餘要一樣
+a = np.arange(12).reshape(6,2)
+b = np.arange(14).reshape(7,2)
+
+a = np.arange(24).reshape(3,2,4)
+b = np.arange(32).reshape(4,2,4)
+
+a = np.arange(40).reshape(1,2,4,5)
+b = np.arange(80).reshape(2,2,4,5)
+
+`)
+
+
+chkData(`
+##### (data_python_numpy.js) Numpy np.sort() 排序 #####
+a = np.array([[2,15,1],[3,9,6]])
+# [[ 2 15  1]
+#  [ 3  9  6]]
+
+np.sort(a,axis=1) #預設對軸=1排序
+# array([[ 1,  2, 15],
+#        [ 3,  6,  9]])
+np.sort(a,axis=0) #對軸=0排序
+# array([[ 2,  9,  1],
+#        [ 3, 15,  6]])
+
+`)
+
+
+chkData(`
+##### (data_python_numpy.js) Numpy np.transpose() 轉置 #####
+a = np.arange(15).reshape(3,5)
+a.T
+`)
+
+
+chkData(`
 ##### (data_python_numpy.js) Numpy np.argmax() np.argmin() #回傳 最大值 最小值的 index #####
 a = np.array([3,7,4,1,5,9,7])
 index = np.argmax(a) # 回傳 index = 5 是最大值
