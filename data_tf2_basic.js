@@ -37,6 +37,10 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 from tensorflow.keras.datasets import cifar10
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
 
 physical_device = tf.config.list_physical_devices('GPU')
 tf.config.experimental.set_memory_growth( physical_device[0] , True )
@@ -204,7 +208,6 @@ train_history = model.fit(train_normalization,   # 填入 train 資料 (已正�
 
 
 ###### 繪製正確率 錯誤率 ######
-import matplotlib.pyplot as plt
 def show_train_history(train_history):
     plt.plot(train_history.history['accuracy'])
     plt.plot(train_history.history['loss'])
@@ -224,14 +227,20 @@ scores = model.evaluate( test_normalization, test_labels, batch_size=32, verbose
 print(f"accuracy={scores[1]}")
 
 ###### 預測資料 ######
-prediction = model.predict_classes(test_normalization)
-prediction
+# 使用 Sequential model 時候的預測方式
+# prediction = model.predict_classes(test_normalization)
+
+# 使用 functional model 時候的預測方式
+# prediction = model.predict(test_normalization)
+# prediction = np.argmax( prediction, axis=1 )
+
+prediction #顯示預測資料
+
 
 ###### 顯示測驗結果 ######
 plot_images_labels_prediction(test_images,test_labels,prediction,idx=340)
 
 ###### 建立混淆矩陣 ######
-import pandas as pd
 pd.crosstab(test_labels, 
             prediction, 
             rownames=['test_labels'],
