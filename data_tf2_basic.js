@@ -108,6 +108,7 @@ from tensorflow.keras import layers, utils
 from tensorflow.keras.layers import Dropout
 from tensorflow.keras.datasets import mnist
 from tensorflow.keras import utils
+import matplotlib.pyplot as plt
 
 physical_devices = tf.config.list_physical_devices('GPU')
 tf.config.experimental.set_memory_growth(physical_devices[0],True)
@@ -118,8 +119,8 @@ tf.config.experimental.set_memory_growth(physical_devices[0],True)
 (train_images, train_labels) , (test_images, test_labels ) = mnist.load_data()
 
 # 正規化
-train_normalization = x_train_images.reshape(-1,28*28).astype('float32') / 255.0
-test_normalization  = x_test_images.reshape(-1,28*28).astype("float32")  / 255.0
+train_normalization = train_images.reshape(-1,28*28).astype('float32') / 255.0
+test_normalization  = test_images.reshape(-1,28*28).astype("float32")  / 255.0
 
 # OneHot (後面 model.fit 會自動處理 onehot )
 # train_label_onehot = utils.to_categorical(train_labels)
@@ -222,6 +223,9 @@ show_train_history(train_history)
 scores = model.evaluate( test_normalization, test_labels, batch_size=32, verbose=2)
 print(f"accuracy={scores[1]}")
 
+###### 預測資料 ######
+prediction = model.predict_classes(test_normalization)
+prediction
 
 ###### 顯示測驗結果 ######
 plot_images_labels_prediction(test_images,test_labels,prediction,idx=340)
@@ -239,7 +243,7 @@ df = pd.DataFrame({'test_labels': test_labels, 'prediction': prediction})
 df[:10]
 
 ###### dataframe 找出預測錯誤 ######
-df[(df.test_labels==5)&(df.prediction!=5)]
+df[(df.test_labels==5)\&(df.prediction!=5)]
 
 ###### 顯示錯誤的圖片 ######
 plot_images_labels_prediction(test_images,test_labels,prediction,idx=4360,num=1)
