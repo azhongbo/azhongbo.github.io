@@ -23,78 +23,211 @@
 // `)
 
 
-
 chkData(`
-##### (data_tf2_basic.js) Aladdin Persson 4 CNN cifar10 #####
+##### (data_tf2_basic.js) Aladdin Persson 4 CNN Cifar10 #####
 
 ## TensorFlow Tutorial 4 - Convolutional Neural Networks with Sequential and Functional API
 ## https://www.youtube.com/watch?v=WAciKiDP2bo
 ## https://github.com/aladdinpersson/Machine-Learning-Collection/blob/master/ML/TensorFlow/Basics/tutorial4-convnet.py
 
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras import layers
+from tensorflow.keras import layers, utils
+from tensorflow.keras.layers import Dropout
 from tensorflow.keras.datasets import cifar10
+from tensorflow.keras import utils
+
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
+np.random.seed(10)
+import ssl
+ssl._create_default_https_context = ssl._create_unverified_context
+
+physical_devices = tf.config.list_physical_devices('GPU')
+tf.config.experimental.set_memory_growth(physical_devices[0],True)
+
+###### 載入 Cifar10 #######
+
+(train_images, train_labels) , (test_images, test_labels) = cifar10.load_data()
+label_dict={0:"airplane",1:"automobile",2:"bird",3:"cat",4:"deer",5:"dog",6:"frog",7:"horse",8:"ship",9:"truck"}
+
+train_images.shape #(50000, 32, 32, 3)
+train_4Dimages = train_images.reshape( train_images.shape[0],32,32,3 ).astype("float32")  ## 50000,32,32 =>  50000,32,32,3
+test_4Dimages  = test_images.reshape( test_images.shape[0],32,32,3 ).astype("float32")    ## 10000,32,32 =>  10000,32,32,3
+
+## 正規化
+train_4Dimages_normalize = train_4Dimages /255.0
+test_4Dimages_normalize = test_4Dimages /255.0
 
 
-physical_device = tf.config.list_physical_devices('GPU')
-tf.config.experimental.set_memory_growth( physical_device[0] , True )
-(x_train, y_train) , (x_test, y_test) = cifar10.load_data()
-x_train = x_train.astype("float32") / 255.0
-x_test  = x_test.astype("float32") / 255.0
+###### 顯示圖片 ######
+def plot_image(image):
+    fig = plt.gcf()
+    fig.set_size_inches(2,2)
+    plt.imshow(image, cmap="binary")
+    plt.show
 
-## Sequential mode ##
-# model = keras.Sequential([
-#     keras.Input(shape=[32, 32, 3]),
-#     layers.Conv2D(32, 3, padding="valid", activation="relu"),
-#     layers.MaxPooling2D(pool_size=[2,2]),
-#     layers.Conv2D(64, 3, activation="relu"),
-#     layers.MaxPooling2D(pool_size=[2,2]),
-#     layers.Conv2D(128,3, activation="relu"),
-#     layers.Flatten(),
-#     layers.Dense(64, activation="relu"),
-#     layers.Dense(10)
-# ])
+def plot_images_labels_prediction(images,labels,prediction,idx,num=10):
+    fig = plt.gcf()
+    fig.set_size_inches(12,14)
+    if num>25: num=25
+    for i in range(0, num):
+        ax=plt.subplot(5, 5, 1+i)
+        ax.imshow(images[idx], cmap="binary")
+        title = f"{str(i)} , {label_dict[labels[i][0]]}"
+        
+        if len(prediction)>0:
+            title+= f"=> {label_dict[prediction[i]]}"
+        
+        ax.set_title(title,fontsize=10)
+        ax.set_xticks([])
+        ax.set_yticks([])
+        idx+=1
+    plt.show()
+
+plot_images_labels_prediction(train_images, train_labels,[],0)
 
 
-## functional mode ##
+###### Sequential mode ######
+model = keras.Sequential([
+    keras.Input(shape=[32, 32, 3]),
+    
+    layers.Conv2D(32, 3, padding="same", activation="relu"),  ## filter 32, 每個濾鏡 3x3, 不改變大小 padding="same" (另外一個為 valid)
+    Dropout(rate=(0.25)),                                     ## 丟棄 %25神經元
+    layers.Conv2D(32, 3, padding="valid", activation="relu"),
+    layers.MaxPooling2D(pool_size=[2,2]),                     ## 建立池化層
+
+    layers.Conv2D(64, 3, padding="same", activation="relu"),
+    Dropout(rate=(0.25)),                                     ## 丟棄 %25神經元
+    layers.Conv2D(64, 3, padding="same", activation="relu"),
+    layers.MaxPooling2D(pool_size=[2,2]),                     ## 建立池化層
+    
+    layers.Conv2D(128, 3, padding="same", activation="relu"),
+    Dropout(rate=(0.25)),                                     ## 丟棄 %25神經元
+    layers.Conv2D(128, 3, padding="same", activation="relu"),
+    layers.MaxPooling2D(pool_size=[2,2]),                     ## 建立池化層
+    
+    layers.Flatten(),
+    layers.Dense(200, activation="relu"),
+    layers.Dense(20, activation="relu"),
+    Dropout(rate=(0.25)),
+    layers.Dense(10,activation="softmax"),
+])
+
+
+###### functional mode ######
 inputs = keras.Input(shape=(32, 32, 3))
 
-x = layers.Conv2D(32, 3, padding="valid")(inputs)
-x = layers.BatchNormalization()(x)
-x = keras.activations.relu(x)
-x = layers.MaxPooling2D(pool_size=[2,2])(x)
+# x = layers.Conv2D(32, 3, padding="same", name="Conv2D-32")(inputs)
+# x = layers.BatchNormalization()(x)
+# x = keras.activations.relu(x)
+# x = layers.Dropout(rate=(0.25))(x)
+# x = layers.MaxPooling2D(pool_size=[2,2])(x)
 
-x = layers.Conv2D(64, 3, padding="same")(x)
-x = layers.BatchNormalization()(x)
-x = keras.activations.relu(x)
-x = layers.MaxPooling2D(pool_size=[2,2])(x)
+# x = layers.Conv2D(64, 3, padding="same", name="Conv2D-64")(x)
+# x = layers.BatchNormalization()(x)
+# x = keras.activations.relu(x)
+# x = layers.Dropout(rate=(0.25))(x)
+# x = layers.MaxPooling2D(pool_size=[2,2])(x)
 
-x = layers.Conv2D(128, 3)(x)
-x = layers.BatchNormalization()(x)
-x = keras.activations.relu(x)
+# x = layers.Conv2D(128, 3, padding="same", name="Conv2D-128")(x)
+# x = layers.BatchNormalization()(x)
+# x = keras.activations.relu(x)
+# x = layers.Dropout(rate=(0.25))(x)
+# x = layers.MaxPooling2D(pool_size=[2,2])(x)
 
-x = layers.Flatten()(x)
-x = layers.Dense(64, activation="relu")(x)
-outputs = layers.Dense(10)(x)
-model = keras.Model(inputs=inputs, outputs=outputs)
+# x = layers.Flatten()(x)
+# x = layers.Dense(2000, activation="relu")(x)
+# x = layers.Dense(1000, activation="relu")(x)
+# x = layers.Dense(500, activation="relu")(x)
+# x = layers.Dense(100, activation="relu")(x)
+# x = layers.Dense(50, activation="relu")(x)
+# x = layers.Dropout(rate=(0.25))(x)
+# outputs = layers.Dense(10, activation="softmax")(x)
+# model = keras.Model(inputs=inputs, outputs=outputs)
 
-print(model.summary())
+model.summary()
+
+
+###### 開始訓練 ######
 
 model.compile(
-    loss=keras.losses.SparseCategoricalCrossentropy(from_logits=True),
-    optimizer = keras.optimizers.Adam(lr=3e-4),
-    metrics=["accuracy"]
+    loss=keras.losses.SparseCategoricalCrossentropy(from_logits=False),
+    optimizer=keras.optimizers.Adam(lr=0.001),
+    metrics=["accuracy"],
 )
 
-model.fit(x_train, y_train, batch_size=64, epochs=10, verbose=2)
-model.evaluate(x_test, y_test, batch_size=64, verbose=2)
+try:
+    model.load_weights("CIFAR-10.h5")
+    print("Load Successfuly")
+except:
+    print("Load Error")
+
+train_history = model.fit(train_4Dimages_normalize,  # 填入 train 資料 (已正規化)
+                          train_labels,              # 填入 標籤 (不需要 OneHot)
+                          batch_size=32, 
+                          epochs=10, 
+                          verbose=2,             # 顯示訓練過程
+                          validation_split=0.2)  # validation_split 80%訓練 20%驗證
+
+model.save_weights("CIFAR-10.h5")
+print("Save Successfuly")
+
+
+###### 顯示訓練結果 ######
+def show_train_history(train_history):
+    plt.plot(train_history.history['accuracy'])
+    plt.plot(train_history.history['loss'])
+    plt.plot(train_history.history['val_accuracy'])
+    plt.plot(train_history.history['val_loss'])
+    plt.title("Train History")
+    plt.ylabel('accuracy')
+    plt.xlabel('Epoch')
+    plt.legend(['accuracy','loss','val_accuracy','val_loss'],loc='upper right')
+    plt.show()
+
+show_train_history(train_history)
+
+
+###### 驗證測試資料的準確率 ######
+scores = model.evaluate( test_4Dimages_normalize, test_labels, batch_size=32, verbose=2)
+print(f"accuracy={scores[1]}")
+
+###### 預測資料 ######
+prediction = model.predict(test_4Dimages_normalize)
+prediction = np.argmax( prediction, axis=1 )
+
+prediction #顯示預測資料
+
+###### 繪出前面10筆 ######
+plot_images_labels_prediction(test_images,test_labels,prediction,0,10)
+
+###### 顯示預測機率細項 ######
+def show_Predicted_Probability(y,prediction,x_img,Predicted_Probability,i):
+    print('label:',label_dict[y[i][0]],'prediction:',label_dict[prediction[i]])
+    plt.figure(figsize=(2,2))
+    plt.imshow(np.reshape(x_img[i],(32,32,3)))
+    plt.show()
+    for j in range(10):
+        print( f"{label_dict[j]}\tprobability: {Predicted_Probability[i][j]}"    )
+
+## 輸入測試資料可以得到預測機率
+Predicted_Probability=model.predict(test_4Dimages_normalize) #計算每張圖片被預測為某個類的概率
+
+show_Predicted_Probability(test_labels,prediction,test_images,Predicted_Probability,3)
+
+## 使用混淆矩陣
+import pandas as pd
+pd.crosstab(test_labels.reshape(-1), 
+            prediction, 
+            rownames=['test_labels'],
+            colnames=['prediction'] )
+
 `)
+
 
 
 chkData(`
