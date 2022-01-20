@@ -12,10 +12,28 @@
 // `)
 
 
-// chkData(`
-// ##### (data_docker.js) 主旨放這裡 #####
-// 內容放這裡
-// `)
+chkData(`
+##### (data_docker.js) 安裝 jitsi #####
+git clone https://github.com/jitsi/docker-jitsi-meet && cd docker-jitsi-meet
+
+cp env.example .env
+./gen-passwords.sh
+
+mkdir -p ./jitsi-meet-cfg/{web/crontabs,web/letsencrypt,transcripts,prosody/config,prosody/prosody-plugins-custom,jicofo,jvb,jigasi,jibri}
+
+docker-compose up -d
+
+# keys 的位置 ~/docker-jitsi-meet/jitsi-meet-cfg/web/keys
+
+# 修改 .env
+.env
+CONFIG=./jitsi-meet-cfg
+HTTPS_PORT=443
+TZ=Asia/Taipei
+PUBLIC_URL=https://xxx.xxx.com
+DOCKER_HOST_ADDRESS=192.168.xx.xx
+
+`)
 
 
 chkData(`
