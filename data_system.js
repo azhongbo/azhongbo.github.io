@@ -12,10 +12,42 @@
 // `)
 
 
-// chkData(`
-// ##### (data_system.js) 主旨放這裡 #####
-// 內容放這裡
-// `)
+chkData(`
+##### (data_system.js) ufw 防火牆範例 #####
+#!/bin/bash
+
+## 參考資料  https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-18-04
+
+echo y | ufw reset           ## 清空設定
+ufw default deny incoming    ## 阻擋進入
+ufw default allow outgoing   ## 允許出去
+
+## 範例1
+ufw allow http
+ufw allow https
+ufw allow in 10000:20000/udp
+
+## 範例2
+ufw allow from 192.168.1.5 to any port 22
+ufw allow from 192.168.1.5 to any port 5432
+ufw allow from 192.168.1.5 to any port 9000
+
+## 範例3
+# ufw allow OpenSSH
+# ufw allow 6000:6007/tcp
+# ufw allow from 192.168.1.5 to any port 22
+# ufw allow from 192.168.1.0/24
+# ufw allow from 192.168.1.0/24 to any port 22
+# ufw allow in on eth1 to any port 3306
+# ufw allow in on eth0 to any port 80
+
+# ufw app list
+# ufw show added
+# ufw deny http
+# ufw status numbered
+
+ufw enable
+`)
 
 
 chkData(`
