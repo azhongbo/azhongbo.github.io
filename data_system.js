@@ -47,6 +47,41 @@ ufw allow from 192.168.1.5 to any port 9000
 # ufw status numbered
 
 ufw enable
+
+
+#### ufw for docker (Ubuntu) ####
+
+## 參考 https://blog.36web.rocks/2016/07/08/docker-behind-ufw.html
+
+## ufw 加入 2375
+ufw allow 2375/tcp
+ufw reload
+
+
+vi /etc/default/ufw
+DEFAULT_FORWARD_POLICY="ACCEPT"   ##  DROP 改為 ACCEPT
+
+vi /etc/default/docker
+DOCKER_OPTS="--iptables=false"   # 在 DOCKER_OPTS 加上 --iptables=false
+
+vi /etc/systemd/system/docker.service.d/behind-ufw.conf  ## 加入下面 service
+[Service]
+ExecStart=
+ExecStart=/usr/bin/dockerd --iptables=false -H fd://
+
+vi /etc/ufw/before.rules
+ ## 找到 *filter ，並在前面加入下列
+*nat
+:POSTROUTING ACCEPT [0:0]
+-A POSTROUTING ! -o docker0 -s 172.17.0.0/16 -j MASQUERADE
+COMMIT
+
+## 重新啟動 docker
+service docker restart
+systemctl daemon-reload
+systemctl restart docker.service
+
+## 重新開機
 `)
 
 
