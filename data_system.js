@@ -19,7 +19,7 @@
 
 
 chkData(`
-##### (data_system.js) 檔案異動檢查 #####
+##### (data_system.js) file changed 檔案異動檢查 #####
 #!/bin/bash
 previous="$(stat *)"
 while sleep 3; do
