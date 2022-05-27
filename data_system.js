@@ -12,6 +12,26 @@
 // `)
 
 
+// chkData(`
+// ##### (data_system.js) 主旨放這裡 #####
+// 內容放這裡
+// `)
+
+
+chkData(`
+##### (data_system.js) 檔案異動檢查 #####
+#!/bin/bash
+previous="$(stat *)"
+while sleep 3; do
+    current="$(stat *)"
+    if  [[ $current != $previous ]]; then
+        echo "Some files changed."
+    fi
+    previous=$current
+done
+`)
+
+
 chkData(`
 ##### (data_system.js) ufw 防火牆範例 #####
 #!/bin/bash
