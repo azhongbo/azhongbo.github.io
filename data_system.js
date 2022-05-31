@@ -107,25 +107,37 @@ systemctl restart docker.service
 
 chkData(`
 ##### (data_system.js) squid proxy #####
-apt-get install squid squid-common 
-subl /etc/squid
+# apt-get install squid squid-common 
+# vi /etc/squid/squid.conf
 http_access allow localnet
 http_access allow localhost
 #http_access deny all
 http_access allow all
 acl localnet src 192.168.0.0/16
+cache_dir ufs /var/spool/squid 3000 16 256 max-size=200000000
+
+## 重啟 squid ##
+service squid stop
+rm -rf /var/spool/squid/*
+squid -z
+service squid restart
+
 ## nuget behind proxy ##
 nuget.exe config -set http_proxy=http://my.proxy.address:port
+
 ## vscode extension behind proxy ##
 code --proxy-server=http://myproxy.example.com:3128
-## git  behind proxy ##
+
+## git behind proxy ##
 git config --global http.proxy http://my.proxy.address:8080
-## apt  behind proxy ##
+
+## apt behind proxy ##
 vi /etc/apt/apt.conf
 Acquire::http::Proxy "http://my.proxy.address:8080";
+
 ## docker  behind proxy ##
-mkdir -p /etc/systemd/system/docker.service.d
-vi /etc/systemd/system/docker.service.d/proxy.conf
+#mkdir -p /etc/systemd/system/docker.service.d
+#vi /etc/systemd/system/docker.service.d/proxy.conf
 [Service]
 Environment="HTTP_PROXY=http://my.proxy.address:8080"
 Environment="HTTPS_PROXY=http://my.proxy.address:8080"
