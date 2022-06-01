@@ -16,10 +16,21 @@
 // `)
 
 
-// chkData(`
-// ##### (data_docker.js) 主旨放這裡 #####
-// 內容放這裡
-// `)
+chkData(`
+##### (data_docker.js) keep container running 保持運作 #####
+keep container running 保持運作
+sleep infinity
+
+# vi docker-compose.yml
+version: '3'
+services:
+  some-app:
+    tty: true
+    command: tail -f /dev/null
+
+# vi Dockerfile
+CMD sleep infinity
+`)
 
 
 chkData(`
