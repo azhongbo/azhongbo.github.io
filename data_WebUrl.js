@@ -21,6 +21,19 @@
 chkData(`
 ##### (data_WebUrl.js) Python web url #####
 
+
+### 網頁設計師的六個實用小工具分享 ###
+https://5xruby.tw/posts/for-web-designer-tools
+
+https://htmlcolorcodes.com/  # 線上配色、選色小工具
+https://cssgradient.io/      # 線上漸層色與 CSS 產生器
+https://nekocalc.com/px-to-rem-converter # Pixel 與 REM 換算工具
+https://shadows.brumm.af/    # 柔和的陰影
+https://designsystemsforfigma.com/ # 各家 Design System
+
+
+
+
 ###  Docker url ####
 千锋Java教程：36 Docker 镜像 Dockerfile 定制镜像
 https://www.youtube.com/watch?v=xvtzu16n6lU&list=PLwDQt7s1o9J55UmZFIk6w16k3Kz0ke8x5&index=43
