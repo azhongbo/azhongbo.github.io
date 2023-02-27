@@ -17,7 +17,7 @@ ssl.conf               # 憑證設定檔
 
 
 #### nginx 設定ssl 指令
-# nginx.key & nginx.crt 要複製到 ngixn/ssl 裡面
+## nginx.key & nginx.crt 要複製到 ngixn/ssl 裡面
 openssl req -x509 -new -nodes -sha256 -utf8 -days 3650 -newkey rsa:2048 -keyout nginx.key -out nginx.crt -config ssl.conf
 
 
@@ -37,5 +37,5 @@ docker-php-ext-install pdo_mysql
 docker-php-ext-install mysqli pdo pdo_mysql
 docker-php-source delete
 
-# docker 裡面 php 安裝完畢退出容氣候, 要記得封裝成 image, 指令 >>>  docker commit your_xxxx_id image_new_name
+## docker 裡面 php 安裝完畢退出容氣候, 要記得封裝成 image, 指令 >>>  docker commit your_xxxx_id image_new_name
 
