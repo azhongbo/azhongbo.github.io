@@ -1,0 +1,26 @@
+services:
+  flask:
+    image: flask:v01
+    container_name: flask
+    working_dir: /app
+    # restart: always
+    volumes:
+      - ./flask:/app
+    environment:
+      - APP_NAME=FlaskApp
+    expose:
+      - 8080
+    command: "uwsgi --ini wsgi.ini"
+
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx/logs:/var/log/nginx
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    container_name: nginx
+    # restart: always
+    ports:
+      - 8080:80
+    depends_on:
+      - flask
