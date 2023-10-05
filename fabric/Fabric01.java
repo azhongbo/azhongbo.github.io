@@ -6,6 +6,56 @@
 // https://www.youtube.com/watch?v=5ms6RiR4SQ4&list=PLKGarocXCE1EO43Dlf5JGh7Yk-kRAXUEJ&index=3
 
 
+// https://fabricmc.net/develop/template/
+// Mod Name: Tutorial Mod
+// Mod ID: tutorialmod
+// Package Name: net.kaupenjoe.tutorialmod
+// 1.20.1
+// 打勾 Data Generation
+
+
+
+// #####################################################################################################
+// TutorialMod 類別是模組的主類別，它負責註冊模組的物品類別和物品。
+// src\main\java\net\kaupenjoe\tutorialmod\TutorialMod.java
+
+package net.kaupenjoe.tutorialmod;
+import net.fabricmc.api.ModInitializer; //此行導入 Fabric Mod 程式庫的 ModInitializer 介面。ModInitializer 介面定義了一個 onInitialize() 方法，用於在模組載入時初始化模組。
+import net.kaupenjoe.tutorialmod.item.ModItemGroups; //此行導入了模組的 物品註冊類別。 
+import net.kaupenjoe.tutorialmod.item.ModItems;      //此行導入了模組的 物品類別。
+
+// 此行導入了 slf4j 程式庫的 Logger 和 LoggerFactory 類別。slf4j 是一個用於記錄日誌的程式庫。
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+// 此行宣告了一個名為 TutorialMod 的類別。此類別繼承了 ModInitializer 介面，並實作了 onInitialize() 方法。
+public class TutorialMod implements ModInitializer {
+    
+    // 此兩行宣告了模組的 ID 和日誌記錄器。模組 ID 用於指定模組的名稱，日誌記錄器用於記錄模組的日誌。
+	public static final String MOD_ID = "tutorialmod";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+    // 此方法是 ModInitializer 介面的預設方法。它將在模組載入時被呼叫。
+    // 此方法中呼叫了 ModItemGroups.registerItemGroups() 和 ModItems.registerModItems() 方法來註冊模組的物品類別和物品。
+	@Override
+	public void onInitialize() {
+		ModItemGroups.registerItemGroups();
+		ModItems.registerModItems();
+	}
+}
+
+
+// #####################################################################################################
+// src\main\resources\assets\fabric_mod.json
+
+
+
+
+
+
+
+
+// #####################################################################################################
 // src\main\java\net\kaupenjoe\tutorialmod\item\ModItemGroups.java
 package net.kaupenjoe.tutorialmod.item;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup; // 這是從 Fabric API 導入的 FabricItemGroup 類。此類允許您創建自定義項目組。
@@ -33,6 +83,8 @@ public class ModItemGroups {
     }
 }
 
+
+// #####################################################################################################
 // src\main\java\net\kaupenjoe\tutorialmod\item\ModItems.java
 package net.kaupenjoe.tutorialmod.item;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;  // 這是從 Fabric API 導入的 FabricItemSettings 類。此類用於配置 Fabric 模組中創建的新項目的設置。
@@ -79,36 +131,8 @@ public class ModItems {
     }
 }
 
-// 請協助說明下面 java 每一行的用途
-// TutorialMod 類別是模組的主類別，它負責註冊模組的物品類別和物品。
-// src\main\java\net\kaupenjoe\tutorialmod\TutorialMod.java
 
-package net.kaupenjoe.tutorialmod;
-import net.fabricmc.api.ModInitializer; //此行導入 Fabric Mod 程式庫的 ModInitializer 介面。ModInitializer 介面定義了一個 onInitialize() 方法，用於在模組載入時初始化模組。
-import net.kaupenjoe.tutorialmod.item.ModItemGroups; //此行導入了模組的 物品註冊類別。 
-import net.kaupenjoe.tutorialmod.item.ModItems;      //此行導入了模組的 物品類別。
-
-// 此行導入了 slf4j 程式庫的 Logger 和 LoggerFactory 類別。slf4j 是一個用於記錄日誌的程式庫。
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-// 此行宣告了一個名為 TutorialMod 的類別。此類別繼承了 ModInitializer 介面，並實作了 onInitialize() 方法。
-public class TutorialMod implements ModInitializer {
-    
-    // 此兩行宣告了模組的 ID 和日誌記錄器。模組 ID 用於指定模組的名稱，日誌記錄器用於記錄模組的日誌。
-	public static final String MOD_ID = "tutorialmod";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
-
-    // 此方法是 ModInitializer 介面的預設方法。它將在模組載入時被呼叫。
-    // 此方法中呼叫了 ModItemGroups.registerItemGroups() 和 ModItems.registerModItems() 方法來註冊模組的物品類別和物品。
-	@Override
-	public void onInitialize() {
-		ModItemGroups.registerItemGroups();
-		ModItems.registerModItems();
-	}
-}
-
-
+// #####################################################################################################
 // src\main\java\net\kaupenjoe\tutorialmod\TutorialModClient.java
 package net.kaupenjoe.tutorialmod;
 import net.fabricmc.api.ClientModInitializer;
@@ -120,7 +144,7 @@ public class  TutorialModClient implements ClientModInitializer {
     }
 }
 
-
+// #####################################################################################################
 // src\main\resources\assets\tutorialmod\lang\en_us.json
 {
     "item.tutorialmod.ruby": "Ruby",
@@ -128,6 +152,8 @@ public class  TutorialModClient implements ClientModInitializer {
     "itemgroup.ruby": "Ruby Tutorial Group"
 }
 
+
+// #####################################################################################################
 // src\main\resources\assets\tutorialmod\models\item\ruby.json
 {
     "parent": "item/generated",
@@ -136,6 +162,8 @@ public class  TutorialModClient implements ClientModInitializer {
     }
 }
 
+
+// #####################################################################################################
 // src\main\resources\assets\tutorialmod\models\item\raw_ruby.json
 {
     "parent": "item/generated",
@@ -144,5 +172,7 @@ public class  TutorialModClient implements ClientModInitializer {
     }
 }
 
+
+// #####################################################################################################
 // src\main\resources\assets\tutorialmod\textures\item\ruby.png
 // src\main\resources\assets\tutorialmod\textures\item\raw_ruby.png
