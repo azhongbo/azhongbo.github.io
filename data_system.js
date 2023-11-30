@@ -156,9 +156,17 @@ server = 10.12.25.5
 server_port = 3128
 ## socks5 server
 ssh -gD 3128 127.0.0.1
+
 ##   port maping
 ssh -gL 8080:localhost:80 root@127.0.0.1
 ssh -gR 6666:localhost:8080 root@127.0.0.1
+
+WebServer:80 === client:8081 (<<<)
+ssh -gL 8081:WebServer:80 admin@WebServer
+
+RemotePC:8082 === client:8081 (<<<)
+ssh -gR 8082:localhost:8081  admin@RemotePC
+
 
 `)
 
