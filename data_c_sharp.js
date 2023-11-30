@@ -239,9 +239,11 @@ file.Close();
 `)
 
 
+
+
 chkData(`
-##### (data_c_sharp.js) C# POST 傳送資料 to web #####
-###  C# POST DATA TO WEB ####
+##### (data_c_sharp.js) C# POST 傳送資料 to http #####
+###  C# POST DATA TO HTTP ####
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -306,6 +308,64 @@ namespace post
     }
 }
 `)
+
+
+
+chkData(`
+##### (data_c_sharp.js) C# POST 傳送資料 to https #####
+###  C# POST DATA TO HTTPS ####
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.IO;
+using System.Net;
+using System.Collections.Specialized;
+using System.Web;
+using System.Diagnostics;
+using System.Security;
+using System.Net.Sockets;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Net.NetworkInformation;
+using System.Management;
+using Microsoft.Win32;
+using System.Threading.Tasks;
+using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
+using System.Net.Http;
+
+private void httpsPostData(string url)
+{
+    // 上傳資料
+    try
+    {
+        Dictionary<string, string> values = new Dictionary<string, string>
+        {
+            { "key1"  , "value1"  },
+            { "key2"  , "value2"  },
+            { "key3"  , "value3"  },
+            { "key4"  , "value4"  },
+        };
+
+       FormUrlEncodedContent content = new FormUrlEncodedContent(values);
+       ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+       HttpClientHandler handler = new HttpClientHandler();
+       HttpClient client = new HttpClient(handler);
+       HttpResponseMessage response = client.PostAsync(url, content).Result;
+       string responseFromServer = response.Content.ReadAsStringAsync().Result;
+   }
+   catch(Exception myError) { string error = myError.ToString(); }
+}
+
+`)
+
+
 
 
 
