@@ -19,6 +19,27 @@
 
 
 chkData(`
+##### (data_system.js) gnome 桌面畫圖塗鴉工具 #####
+
+## 網址
+https://ubuntuhandbook.org/index.php/2021/02/start-drawing-on-screen-ubuntu-2004/
+
+## 安裝
+apt install gnome-shell-extension-draw-on-your-screen
+
+## 重啟桌面
+Alt+F2 >> r >> Enter
+
+## 開啟設定
+gnome-extensions list
+gnome-extensions enable drawOnYourScreen@abakkk.framagit.org 
+
+## 開始使用
+Alt + Super + D
+`)
+
+
+chkData(`
 ##### (data_system.js) file changed 檔案異動檢查 #####
 #!/bin/bash
 previous="$(stat *)"
