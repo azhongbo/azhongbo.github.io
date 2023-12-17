@@ -12,10 +12,26 @@
 // `)
 
 
-// chkData(`
-// ##### (data_system.js) 主旨放這裡 #####
-// 內容放這裡
-// `)
+chkData(`
+##### (data_system.js) sfc snex9x #####
+sudo apt install flatpak
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+### Install Snes9x FlatPak ###
+flatpak install flathub com.snes9x.Snes9x
+
+
+####################################################
+sudo add-apt-repository multiverse
+sudo apt-get install retroarch libretro-snes9x
+
+####################################################
+sudo add-apt-repository ppa:libretro/testing
+sudo apt-get install retroarch libretro-snes9x
+
+### 遊戲修改 ###
+apt install gameconqueror
+`)
 
 
 chkData(`
