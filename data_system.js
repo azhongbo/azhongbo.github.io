@@ -11,6 +11,24 @@
 // 內容放這裡
 // `)
 
+// chkData(`
+// ##### (data_system.js) 主旨放這裡 #####
+// 內容放這裡
+// `)
+
+chkData(`
+##### (data_system.js) vscode remote ssh server #####
+~/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d
+
+wget https://update.code.visualstudio.com/commit:abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/server-linux-x64/stable
+
+mkdir -p ~/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d
+tar zxvf vscode-server-linux-x64.tar.gz -C ~/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d --strip 1
+touch ~/.vscode-server/bin/abd2f3db4bdb28f9e95536dfa84d8479f1eb312d/0
+
+出處 https://stackoverflow.com/questions/56671520/how-can-i-install-vscode-server-in-linux-offline
+`)
+
 
 chkData(`
 ##### (data_system.js) sfc snex9x #####
