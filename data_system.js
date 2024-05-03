@@ -173,6 +173,22 @@ http_access allow all
 acl localnet src 192.168.0.0/16
 cache_dir ufs /var/spool/squid 3000 16 256 max-size=200000000
 
+# -- docker-compose.yml ------------------------    
+services:
+  ubuntu:
+    image: ubuntu:latest
+    container_name: ubuntu
+    volumes:
+      - ./squid.conf:/etc/squid/squid.conf
+    ports:
+      - 3128:3128
+    command: rrun
+
+# -- /bin/rrun ------------------------    
+squid
+sleep infinity
+
+
 ## 重啟 squid ##
 service squid stop
 rm -rf /var/spool/squid/*
