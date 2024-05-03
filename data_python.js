@@ -17,13 +17,43 @@
 // `)
 
 
-// chkData(`
-// ##### (data_python.js) 主旨放這裡 #####
-// 內容放這裡
-// `)
+chkData(`
+##### (data_python.js) gemini ryan #####
+gemini ryan
 
+## apt install xclip
+import os, sys, time, json
 
+def get_data(_string):
+    _forward = "http://xx.xx.xx.xx:xx"
+    myTime = time.strftime('%Y%m%d%H%M%S',time.localtime(time.time() + 0 * 24 * 60 * 60 ) )
+    _mykey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    file1 = f"/tmp/ask-{myTime}-1.txt"
+    file2 = f"/tmp/ask-{myTime}-2.txt"
+    runcmd = "curl -x __FORWARD__HERE___ -H 'Content-Type: application/json' -d '{\"contents\":[{\"parts\":[{\"text\":\"__INPUT__HERE___\"}]}]}' -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=__MYKEY__HERE___'"
+    runcmd = runcmd.replace("__INPUT__HERE___"   ,_string  )
+    runcmd = runcmd.replace("__FORWARD__HERE___" ,_forward )
+    runcmd = runcmd.replace("__MYKEY__HERE___"   ,_mykey  )
+    mydata_string = os.popen(runcmd).read()
+    mydata = json.loads(mydata_string)
+    mydata2 = mydata['candidates'][0]
+    mydata3 = mydata2['content']
+    mydata4 = mydata3['parts'][0]
+    mydata5 = mydata4['text']
+    fp = open(file1,'w')
+    fp.write(mydata_string)
+    fp.close
+    fp = open(file2,'w')
+    fp.write(mydata5)
+    fp.close
+    os.popen(f"code {file2}")
 
+_string = os.popen("xclip -o").read()
+if 'aaaa' in _string:
+    _string = _string[4:]
+    get_data(_string)
+
+`)
 
 
 chkData(`

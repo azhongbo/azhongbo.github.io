@@ -11,10 +11,12 @@
 // 內容放這裡
 // `)
 
-// chkData(`
-// ##### (data_system.js) 主旨放這裡 #####
-// 內容放這裡
-// `)
+chkData(`
+##### (data_system.js) terminal 設定快速鍵 #####
+terminal 設定快速鍵
+gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Ctrl><Alt>T']"
+gsettings set org.gnome.desktop.default-applications.terminal exec "'x-terminal-emulator'"
+`)
 
 chkData(`
 ##### (data_system.js) vscode remote ssh server #####
