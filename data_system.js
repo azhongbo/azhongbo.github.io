@@ -13,8 +13,9 @@
 
 chkData(`
 ##### (data_system.js) terminal 設定快速鍵 #####
-terminal 設定快速鍵
-gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Ctrl><Alt>T']"
+terminal 設定快速鍵s
+< Primary >< Alt > T
+gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Primary><Alt>T']"
 gsettings set org.gnome.desktop.default-applications.terminal exec "'x-terminal-emulator'"
 `)
 
