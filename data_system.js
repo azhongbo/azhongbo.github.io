@@ -11,6 +11,20 @@
 // 內容放這裡
 // `)
 
+
+// chkData(`
+// ##### (data_system.js) 主旨放這裡 #####
+// 內容放這裡
+// `)
+
+
+chkData(`
+##### (data_system.js) Ubuntu 工作區桌面 程序坞或启动器 Dock Launcher #####
+Ubuntu 桌面 Desktop Workspaces 工作區的虛擬桌面 Dock 程序坞 Dock 启动器 Launcher 設定跟隨
+gsettings set org.gnome.shell.extensions.dash-to-dock isolate-workspaces true
+`)
+
+
 chkData(`
 ##### (data_system.js) terminal 設定快速鍵 #####
 terminal 設定快速鍵s
