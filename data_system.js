@@ -12,10 +12,17 @@
 // `)
 
 
-// chkData(`
-// ##### (data_system.js) 主旨放這裡 #####
-// 內容放這裡
-// `)
+chkData(`
+##### (data_system.js) x2x xclock 設定 #####
+pkill xclock
+xclock &
+sleep 1
+wmctrl -r xclock -e 0,2825,0,10,825
+wmctrl -r xclock -b toggle,above
+
+kill $(ps aux | grep ssh | grep x2x | awk '{print $2}')
+ssh 192.168.1.1 'x2x -east -to :0'
+`)
 
 
 chkData(`
