@@ -11,10 +11,38 @@
 // `)
 
 
-// chkData(`
-// ##### (data_python.js) 主旨放這裡 #####
-// 內容放這裡
-// `)
+chkData(`
+##### (data_python.js) Python gi web #####
+###  Python gi web####
+
+#!/usr/bin/python3
+# sudo apt-get install python3-gi python3-gi-cairo gir1.2-gtk-3.0 gir1.2-webkit2-4.0
+
+import gi
+gi.require_version('Gtk', '3.0')
+gi.require_version('WebKit2', '4.0')
+from gi.repository import Gtk, WebKit2
+
+class BrowserWindow(Gtk.Window):
+    def __init__(self):
+        super().__init__(title="使用者手冊")
+        self.set_default_size(800, 600)
+
+        # 建立 WebKit2 WebView
+        self.webview = WebKit2.WebView()
+        self.add(self.webview)
+
+        # 載入本地 HTML 檔案
+        file_path = "/home/user/Documents/index.html"
+        self.webview.load_uri(f"file://{file_path}")
+
+        self.connect("destroy", Gtk.main_quit)
+
+if __name__ == "__main__":
+    win = BrowserWindow()
+    win.show_all()
+    Gtk.main()
+`)
 
 
 chkData(`
