@@ -12,10 +12,16 @@
     border: 1px solid red;
 }
 #box1{
-    /* font-size: 40px; */
+    font-size: 30px;
 }
 .word_span{
     padding: 5px;
+    font-size: 30px;
+}
+.my_input{
+    font-size: 30px;
+    padding: 5px;
+    margin-bottom: 15px;
 }
 </style>
 
@@ -45,6 +51,7 @@ function create_input(){
     const newInput = document.createElement("input")
     newInput.setAttribute("type" ,"text")
     newInput.setAttribute("id",new_id)
+    newInput.setAttribute("class", "my_input")
     box1.appendChild(div);
     box1.appendChild(newInput);    
     box1.appendChild(div2);
