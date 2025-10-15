@@ -7,25 +7,34 @@
 </head>
 <body>
 <style>
+#box1{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 20px;
+    width: 99%;
+}
+.divbox{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 20px;
+    width: 99%;
+}
 #txt{
     width: 99%;
     border: 1px solid red;
 }
-#box1{
-    font-size: 30px;
-}
 .word_span{
     padding: 5px;
-    font-size: 30px;
+    font-size: 20px;
 }
 .my_input{
-    font-size: 30px;
+    font-size: 20px;
     padding: 5px;
     margin-bottom: 15px;
 }
 </style>
 
-<pre id="box1"></pre>
+<div id="box1"></div>
 
 
 
@@ -40,10 +49,23 @@ const div2 document createElement
 
 <script>
 var num = 1
+var divbox_num = 1
 var box1 = document.getElementById("box1")
 
+
+function create_div(){
+    divbox_num = divbox_num + 1
+    divbox_id = `divbox${divbox_num}`
+    const div  = document.createElement("div")    
+    div.setAttribute("id",divbox_id)
+    div.setAttribute("class", "divbox")
+    box1.appendChild(div);
+}
+
+
+
 function create_input(){
-    const div  = document.createElement("div")
+    const div  = document.createElement("div")    
     const div2 = document.createElement("div")
 
     num = num + 1
@@ -52,9 +74,13 @@ function create_input(){
     newInput.setAttribute("type" ,"text")
     newInput.setAttribute("id",new_id)
     newInput.setAttribute("class", "my_input")
-    box1.appendChild(div);
-    box1.appendChild(newInput);    
-    box1.appendChild(div2);
+
+    divbox_id = `divbox${divbox_num}`
+    const mybox = document.getElementById(divbox_id)
+
+    mybox.appendChild(div);
+    mybox.appendChild(newInput);    
+    mybox.appendChild(div2);
 }
 
 
@@ -62,35 +88,37 @@ function create_input(){
 function create_word(word){
     const newWord = document.createElement("span");
     newWord.setAttribute("class" ,"word_span")
-
     newWord.innerHTML = word
-    box1.appendChild(newWord);
+
+    divbox_id = `divbox${divbox_num}`
+    const mybox = document.getElementById(divbox_id)
+    mybox.appendChild(newWord);
 }
 
 
-function aaa(){
+function get_txt(){
     let data = document.getElementById("txt").value;
-
     data.split("\n").forEach(line => {
         line = line.replaceAll(".","").replaceAll("  "," ").replaceAll("  "," ").replaceAll("  "," ").replaceAll("  "," ").replaceAll("  "," ")
+        console.log(line)
+
+        if( line !== ""){
+        // 建立 div
+        create_div();
 
         // 插入單字
         line.split(" ").forEach(word => { create_word(word) })
         create_input();
-
-
-        
+        }
     });
-
-
-
-
-    
-    
-
-
 }
-aaa()
+
+const mytxt = document.getElementById("txt")
+mytxt.addEventListener("change",(event)=>{
+    box1.innerHTML=""
+    get_txt()
+})
+
 
 
 </script>
