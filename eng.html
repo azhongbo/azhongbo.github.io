@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<style>
+#txt{
+    width: 99%;
+    border: 1px solid red;
+}
+#box1{
+    /* font-size: 40px; */
+}
+.word_span{
+    padding: 5px;
+}
+</style>
+
+<pre id="box1"></pre>
+
+
+
+<br><br>
+
+
+
+<textarea id="txt">const newInput document createElement
+const div2 document createElement
+</textarea>
+
+
+<script>
+var num = 1
+var box1 = document.getElementById("box1")
+
+function create_input(){
+    const div  = document.createElement("div")
+    const div2 = document.createElement("div")
+
+    num = num + 1
+    new_id = `input${num}`
+    const newInput = document.createElement("input")
+    newInput.setAttribute("type" ,"text")
+    newInput.setAttribute("id",new_id)
+    box1.appendChild(div);
+    box1.appendChild(newInput);    
+    box1.appendChild(div2);
+}
+
+
+// 插入單字
+function create_word(word){
+    const newWord = document.createElement("span");
+    newWord.setAttribute("class" ,"word_span")
+
+    newWord.innerHTML = word
+    box1.appendChild(newWord);
+}
+
+
+function aaa(){
+    let data = document.getElementById("txt").value;
+
+    data.split("\n").forEach(line => {
+        line = line.replaceAll(".","").replaceAll("  "," ").replaceAll("  "," ").replaceAll("  "," ").replaceAll("  "," ").replaceAll("  "," ")
+
+        // 插入單字
+        line.split(" ").forEach(word => { create_word(word) })
+        create_input();
+
+
+        
+    });
+
+
+
+
+    
+    
+
+
+}
+aaa()
+
+
+</script>
+
+
+</body>
+</html>
