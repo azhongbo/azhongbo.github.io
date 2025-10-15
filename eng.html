@@ -20,8 +20,11 @@
     width: 99%;
 }
 #txt{
-    width: 99%;
+    width: 70%;
     border: 1px solid red;
+}
+#clean_btn{
+    height: 40px;
 }
 .word_span{
     padding: 5px;
@@ -30,21 +33,16 @@
 .my_input{
     font-size: 20px;
     padding: 5px;
-    margin-bottom: 15px;
+    margin: 15px 9px 15px 0px;
+    width: 99%;
 }
 </style>
-
+<textarea id="txt">data here</textarea>
+<input id="clean_btn" type="button" value="clean" onclick="new_data();">
+<br><br><br>
 <div id="box1"></div>
 
-
-
 <br><br>
-
-
-
-<textarea id="txt">const newInput document createElement
-const div2 document createElement
-</textarea>
 
 
 <script>
@@ -119,6 +117,10 @@ mytxt.addEventListener("change",(event)=>{
     get_txt()
 })
 
+function new_data(){
+    txt.value = ""
+    get_txt()
+}
 
 
 </script>
