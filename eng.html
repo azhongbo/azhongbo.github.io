@@ -39,7 +39,15 @@
     top: 0;
     left: 230px;
     z-index: 20;
-    width: 130px;
+    width: 110px;
+    height: 40px;
+}
+#search_btn2{
+    position: fixed;
+    top: 0;
+    left: 350px;
+    z-index: 20;
+    width: 30px;
     height: 40px;
 }
 
@@ -69,9 +77,10 @@
 }
 </style>
 <textarea id="txt"></textarea>
-<input id="clean_btn"  type="button" value="清除" onclick="new_data('clean');">
-<input id="update_btn" type="button" value="更新" onclick="new_data('update');">
-<input id="search_btn" type="button" value="搜尋" onclick="search_data();">
+<input id="clean_btn"  type="button"  value="清除" onclick="new_data('clean');">
+<input id="update_btn" type="button"  value="更新" onclick="new_data('update');">
+<input id="search_btn" type="button"  value="搜尋" onclick="search_data(1);">
+<input id="search_btn2" type="button" value="Bin" onclick="search_data(2);">
 <br><br><br><hr>
 <div id="box1"></div>
 
@@ -159,9 +168,12 @@ function new_data(my_flag){
     get_txt()
 }
 
-function search_data(){
+function search_data(myflag){
     if( search_key != ""){
-        window.open(`https://www.google.com/search?q=翻譯英文${search_key}`, "_blank")
+        if(myflag == 1){
+            window.open(`https://www.google.com/search?q=${search_key}單字解釋與使用方式`, "_blank") }
+        if(myflag == 2){
+            window.open(`https://www.bing.com/search?q=${search_key}單字解釋與使用方式&qs=n`, "_blank") }
     }
 }
 
