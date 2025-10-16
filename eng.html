@@ -167,6 +167,7 @@ function search_data(){
 
 
 function quick_search(word){
+    word = word.replace(/[^a-zA-Z]/g, '')
     search_key = word
     document.getElementById("search_btn").value = word
 }
