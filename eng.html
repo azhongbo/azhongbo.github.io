@@ -42,7 +42,7 @@
 #txt2{ width: 180px; height:40px ; font-size:16px; ;border: 1px solid rgb(17, 0, 255);}
 
 .btn1{ width: 50px;height: 40px;}
-.btn2{ width: 100px;height: 40px;}
+.btn2{ width: 70px;height: 40px;}
 .btn3{ width: 50px;height: 40px;}
 
 #box1{display: flex;flex-wrap: wrap;font-size: 20px;width: 99%;}
@@ -64,6 +64,7 @@
     <tr>
         <td><input id="search_btn"  type="button" class="btn2" value="搜尋" onclick="search_data(1);"></td>
         <td><input id="search_btn2" type="button" class="btn2" value="Bin" onclick="search_data(2);"></td>
+        <td><input id="search_btn3" type="button" class="btn2" value="翻譯" onclick="search_data(3);"></td>
         <td style="width:400px;">.</td>
     </tr>
 </table>
@@ -178,6 +179,8 @@ function search_data(myflag){
             window.open(`https://www.google.com/search?q=${search_key}單字發音解釋與使用方式`, "_blank") }
         if(myflag == 2){
             window.open(`https://www.bing.com/search?q=${search_key}單字發音解釋與使用方式&qs=n`, "_blank") }
+        if(myflag == 3){
+            window.open(`https://translate.google.com/?hl=zh-TW&tab=TT&sl=en&tl=zh-TW&op=translate&text=${search_key}`, "_blank") }
     }
 }
 
