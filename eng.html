@@ -16,7 +16,7 @@
 .divbox{display: flex;flex-wrap: wrap;font-size: 20px;width: 99%;}
 .word_span{padding: 5px;font-size: 20px;}
 .my_input{font-size: 20px;padding: 5px;margin: 15px 9px 15px 0px;width: 99%;}
-#txt2{position: fixed;top: 0;left: 0;z-index: 99;width: 98%;height:50px; border: 1px solid rgb(0, 4, 255);}
+#txt2{position: fixed;top: 0;left: 0;z-index: 99;width: 98%;height:70px; border: 1px solid rgb(0, 4, 255);}
 </style>
 
 
@@ -34,6 +34,7 @@
 
 <script>
 var num = 1
+var newWordnum = 1
 var divbox_num = 1
 var txt2 = document.getElementById("txt2")
 var box1 = document.getElementById("box1")
@@ -72,10 +73,13 @@ function create_input(){
 // 插入單字
 function create_word(word){
     const newWord = document.createElement("span");
+    newWordnum = newWordnum + 1
+    newWord_id = `newWordId${newWordnum}`
+    newWord.setAttribute("id"       ,newWord_id)
     newWord.setAttribute("class"   ,"word_span")
-    newWord.setAttribute("onclick" ,`quick_search('${word}')`)
+    newWord.setAttribute("onclick" ,`quick_search('${newWord_id}','${word}')`)
     newWord.innerHTML = word
-    divbox_id = `divbox${divbox_num}`
+    divbox_id  = `divbox${divbox_num}`    
     const mybox = document.getElementById(divbox_id)
     mybox.appendChild(newWord);
 }
@@ -122,19 +126,26 @@ function search_data(myflag){
 }
 
 
-function quick_search(word){
+function quick_search(newWord_id, word){
     word = word.replace(/[^a-zA-Z]/g, '')
     search_key = word
     document.getElementById("search_btn").value = word
 
+    // 點選文字後, 加入記憶框框內
     let all_string = txt2.value
-
-    if (txt2.value.split(" ").indexOf(search_key) > -1){
-        all_string = all_string.replace(search_key,"").replaceAll("  "," ").replaceAll("  "," ")
-    }else{
-        all_string = `${all_string} ${search_key}`
+    if(   txt2.style.display != "none" ){
+        if (txt2.value.split(" ").indexOf(search_key) > -1){
+            all_string = all_string.replace(search_key,"").replaceAll("  "," ").replaceAll("  "," ")
+            document.getElementById(newWord_id).style.color = "black"
+        }else{
+            all_string = `${all_string} ${search_key}`
+            document.getElementById(newWord_id).style.color = "blue"
+        }
+        txt2.value = all_string
+        txt2.select();
+        txt2.setSelectionRange(0, 99999); // For mobile devices
+        document.execCommand("copy"); // Execute the copy command
     }
-    txt2.value = all_string
 }
 
 
